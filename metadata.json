@@ -1,0 +1,6 @@
+{
+  "name": "Redwood House",
+  "description": "A private editorial studio and book-production house turning specialist expertise into finished, published-grade books.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
