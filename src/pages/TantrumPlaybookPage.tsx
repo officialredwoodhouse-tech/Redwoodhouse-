@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BRAND, ASSETS } from '../constants/assets';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, BookOpen, LayoutGrid, FileText } from 'lucide-react';
 
 interface TantrumPlaybookPageProps {
   onBack: () => void;
 }
 
 export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack }) => {
+  const [tocLayout, setTocLayout] = useState<'typeset' | 'grid'>('typeset');
   const emotionalStates = [
     {
       state: 'Happy',
@@ -46,38 +47,75 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
     },
   ];
 
-  const chapters = [
-    {
-      number: '01',
-      title: 'The Neurological Storm',
-      summary: 'Why toddlers literally cannot hear logic or rational explanations during limbic hijacking.',
+  const tocData = {
+    introduction: {
+      title: 'Introduction',
+      subtitle: 'Understanding Your Toddler\'s Big Emotions',
     },
-    {
-      number: '02',
-      title: 'The Six Emotional Weather States',
-      summary: 'Diagnostic triage: identifying the exact state your child is in before speaking a word.',
-    },
-    {
-      number: '03',
-      title: 'Emergency Scripts & Non-Verbal Postures',
-      summary: 'Field-tested phrases, low-center postures, and eye-level grounding techniques.',
-    },
-    {
-      number: '04',
-      title: 'Meltdowns in Public Spaces',
-      summary: 'How to manage grocery stores, airport terminals, and family dinners with zero shame.',
-    },
-    {
-      number: '05',
-      title: 'Parental Co-Regulation Protocols',
-      summary: 'How to calm your own nervous system when toddler screaming triggers fight-or-flight.',
-    },
-    {
-      number: '06',
-      title: 'Bedtime & Repair Reconnection',
-      summary: 'The crucial window after sleep: transforming daytime conflict into lasting emotional trust.',
-    },
-  ];
+    chapters: [
+      {
+        number: 'Chapter 1',
+        title: 'What a Tantrum Really Is',
+        subtitle: 'Understanding what\'s behind the crying, screaming, and frustration',
+      },
+      {
+        number: 'Chapter 2',
+        title: 'The Science Behind a Meltdown',
+        subtitle: 'What happens inside your toddler\'s developing brain',
+      },
+      {
+        number: 'Chapter 3',
+        title: 'How Tantrums Change With Age',
+        subtitle: 'What to expect from ages one through four and beyond',
+      },
+      {
+        number: 'Chapter 4',
+        title: 'What to Do During a Tantrum',
+        subtitle: 'A calm, practical approach for handling meltdowns',
+      },
+      {
+        number: 'Chapter 5',
+        title: 'Common Mistakes That Make Tantrums Worse',
+        subtitle: 'What to avoid and what to do instead',
+      },
+      {
+        number: 'Chapter 6',
+        title: 'After the Tantrum: Where the Teaching Happens',
+        subtitle: 'Turning difficult moments into opportunities for learning',
+      },
+      {
+        number: 'Chapter 7',
+        title: 'Preventing Tantrums Before They Start',
+        subtitle: 'Routines, choices, transitions, and everyday prevention',
+      },
+      {
+        number: 'Chapter 8',
+        title: 'When to Talk to Your Pediatrician',
+        subtitle: 'Recognizing when additional guidance may be helpful',
+      },
+      {
+        number: 'Chapter 9',
+        title: 'Putting It All Together',
+        subtitle: 'Real-life situations and practical responses',
+      },
+      {
+        number: 'Chapter 10',
+        title: 'The Big Picture',
+        subtitle: 'Building emotional skills that last beyond toddlerhood',
+      },
+    ],
+    sections: [
+      {
+        title: 'Parent Worksheets',
+        subtitle: '10 practical worksheets for triggers, routines, boundaries, emotions, and calmer responses',
+      },
+      {
+        title: 'Quick-Reference Tantrum Guide',
+        subtitle: 'A simple guide for those difficult moments',
+      },
+    ],
+    backMatter: ['Index', 'Thank You', 'About'],
+  };
 
   return (
     <div className="bg-[#FBF9F5] min-h-screen">
@@ -233,40 +271,214 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
         </div>
       </div>
 
-      {/* Chapter Blueprint / Architecture */}
+      {/* Table of Contents Section */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-b border-[#E8E4DC] bg-[#FAF8F3]/60">
-        <div className="max-w-3xl space-y-4 mb-14">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-            Table of Contents
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-serif text-[#1C1A18]">
-            Chapter Architecture
-          </h2>
-          <p className="text-base text-[#58544E]">
-            Structured for fast reference on nights when calm has returned and parents are preparing for tomorrow:
-          </p>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+          <div className="max-w-3xl space-y-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
+              Book Architecture
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#1C1A18]">
+              Table of Contents
+            </h2>
+            <p className="text-sm sm:text-base text-[#58544E]">
+              The complete chapter progression and reference sections of <em>The Tantrum Playbook</em>, exactly as typeset in the master edition:
+            </p>
+          </div>
+
+          {/* View Mode Toggle */}
+          <div className="inline-flex items-center p-1 bg-white border border-[#E8E4DC] rounded-lg shadow-2xs self-start sm:self-auto">
+            <button
+              onClick={() => setTocLayout('typeset')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all cursor-pointer ${
+                tocLayout === 'typeset'
+                  ? 'bg-[#1C1A18] text-white shadow-xs'
+                  : 'text-[#58544E] hover:text-[#1C1A18]'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Typeset Edition Page</span>
+            </button>
+            <button
+              onClick={() => setTocLayout('grid')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all cursor-pointer ${
+                tocLayout === 'grid'
+                  ? 'bg-[#1C1A18] text-white shadow-xs'
+                  : 'text-[#58544E] hover:text-[#1C1A18]'
+              }`}
+            >
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Chapter Grid</span>
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {chapters.map((ch) => (
-            <div
-              key={ch.number}
-              className="bg-white p-6 rounded-lg border border-[#E8E4DC] flex items-start gap-4"
-            >
-              <span className="font-mono text-xl font-semibold text-[#3D1D18] shrink-0">
-                {ch.number}
-              </span>
-              <div className="space-y-1">
-                <h3 className="text-base font-serif font-medium text-[#1C1A18]">
-                  {ch.title}
+        {/* View A: Exact Typeset Edition Page (Matches Canva Layout) */}
+        {tocLayout === 'typeset' && (
+          <div className="max-w-3xl mx-auto">
+            <div className="relative bg-[#FAF7F0] border border-[#D5CFC5] rounded-xl p-8 sm:p-14 lg:p-16 shadow-lg overflow-hidden text-center">
+              {/* Background Antique Etching Watermark Motif */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-[0.08] mix-blend-multiply flex items-center justify-center"
+                aria-hidden="true"
+              >
+                <svg
+                  viewBox="0 0 600 700"
+                  className="w-full h-full max-w-[500px]"
+                  fill="currentColor"
+                >
+                  <g fill="#4A201A">
+                    <circle cx="300" cy="240" r="90" opacity="0.4" />
+                    <circle cx="350" cy="220" r="60" opacity="0.4" />
+                    <path
+                      d="M240,320 C240,420 220,520 230,620 C280,640 370,640 420,620 C420,500 410,410 390,320 Z"
+                      opacity="0.3"
+                    />
+                    <path
+                      d="M260,280 C290,320 340,320 380,280 C360,380 340,450 300,500 C270,450 250,370 260,280 Z"
+                      opacity="0.35"
+                    />
+                  </g>
+                </svg>
+              </div>
+
+              {/* Title Header */}
+              <div className="relative z-10 space-y-1 mb-10 pb-6 border-b border-[#E3DCCF]">
+                <h3 className="text-3xl sm:text-4xl md:text-[2.6rem] font-sans font-black tracking-[0.14em] text-[#1C1A18] uppercase">
+                  TABLE OF CONTENTS
                 </h3>
-                <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                  {ch.summary}
+              </div>
+
+              {/* Centered Entries */}
+              <div className="relative z-10 space-y-7 text-[#1C1A18] max-w-xl mx-auto">
+                {/* Introduction */}
+                <div className="space-y-1">
+                  <div className="font-serif font-bold text-base sm:text-lg text-[#1C1A18]">
+                    {tocData.introduction.title}
+                  </div>
+                  <div className="font-sans text-xs sm:text-sm text-[#58544E]">
+                    {tocData.introduction.subtitle}
+                  </div>
+                </div>
+
+                {/* Chapters 1 to 10 */}
+                {tocData.chapters.map((ch) => (
+                  <div key={ch.number} className="space-y-1 pt-1">
+                    <div className="font-serif font-bold text-base sm:text-lg text-[#1C1A18] tracking-tight">
+                      {ch.number} — {ch.title}
+                    </div>
+                    <div className="font-sans text-xs sm:text-sm text-[#58544E] leading-relaxed">
+                      {ch.subtitle}
+                    </div>
+                  </div>
+                ))}
+
+                {/* Parent Worksheets & Guide */}
+                <div className="pt-3 border-t border-[#E3DCCF]/60 space-y-6">
+                  {tocData.sections.map((sec) => (
+                    <div key={sec.title} className="space-y-1">
+                      <div className="font-serif font-bold text-base sm:text-lg text-[#1C1A18]">
+                        {sec.title}
+                      </div>
+                      <div className="font-sans text-xs sm:text-sm text-[#58544E] leading-relaxed">
+                        {sec.subtitle}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Back Matter: Index / Thank You / About */}
+                <div className="pt-4 space-y-1.5 font-serif font-bold text-sm sm:text-base text-[#1C1A18]">
+                  {tocData.backMatter.map((item) => (
+                    <div key={item}>{item}</div>
+                  ))}
+                </div>
+
+                {/* Copyright Line */}
+                <div className="pt-8 text-right text-[11px] font-mono text-[#78716C]">
+                  Copyright © 2026 []
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* View B: Modern Structured Interactive Chapter Cards */}
+        {tocLayout === 'grid' && (
+          <div className="space-y-8">
+            {/* Introduction Card */}
+            <div className="bg-white p-6 sm:p-7 rounded-lg border border-[#E8E4DC] shadow-xs flex items-start gap-4">
+              <span className="text-xs font-mono font-bold text-[#3D1D18] uppercase tracking-wider px-2 py-1 bg-[#F4F0E8] rounded-sm shrink-0">
+                Opening
+              </span>
+              <div>
+                <h4 className="text-lg font-serif font-bold text-[#1C1A18]">
+                  {tocData.introduction.title}
+                </h4>
+                <p className="text-sm text-[#58544E] mt-0.5">
+                  {tocData.introduction.subtitle}
                 </p>
               </div>
             </div>
-          ))}
-        </div>
+
+            {/* 10 Chapters Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {tocData.chapters.map((ch) => (
+                <div
+                  key={ch.number}
+                  className="bg-white p-6 rounded-lg border border-[#E8E4DC] shadow-xs hover:border-[#3D1D18]/50 transition-colors flex flex-col justify-between"
+                >
+                  <div className="space-y-2">
+                    <span className="font-mono text-xs font-bold text-[#3D1D18] tracking-wider uppercase block">
+                      {ch.number}
+                    </span>
+                    <h4 className="text-base sm:text-lg font-serif font-bold text-[#1C1A18] leading-snug">
+                      {ch.title}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
+                      {ch.subtitle}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Worksheets & Supplementary Sections */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {tocData.sections.map((sec) => (
+                <div
+                  key={sec.title}
+                  className="bg-[#F8F5EE] p-6 rounded-lg border border-[#E3DCCF] shadow-xs"
+                >
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#78716C] block mb-1">
+                    Supplementary Toolkit
+                  </span>
+                  <h4 className="text-base sm:text-lg font-serif font-bold text-[#1C1A18]">
+                    {sec.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[#58544E] mt-1 leading-relaxed">
+                    {sec.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* End Matter Badges */}
+            <div className="bg-white p-5 rounded-lg border border-[#E8E4DC] flex flex-wrap items-center justify-between gap-4 text-xs">
+              <div className="flex items-center gap-3">
+                <span className="font-mono uppercase text-[#78716C]">End Matter:</span>
+                <span className="font-serif font-medium text-[#1C1A18]">Index</span>
+                <span className="text-[#A8A29E]">·</span>
+                <span className="font-serif font-medium text-[#1C1A18]">Thank You</span>
+                <span className="text-[#A8A29E]">·</span>
+                <span className="font-serif font-medium text-[#1C1A18]">About the Author & Redwood House</span>
+              </div>
+              <div className="font-mono text-[#78716C]">
+                Copyright © 2026 []
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Intended Reader Profile */}
