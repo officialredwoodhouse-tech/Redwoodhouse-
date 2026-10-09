@@ -8,68 +8,69 @@ interface WorkPageProps {
 }
 
 export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }) => {
-  const [filter, setFilter] = useState<'all' | 'founder' | 'advisory' | 'technical'>('all');
+  const [filter, setFilter] = useState<'all' | 'b2b' | 'advisory' | 'local-seo'>('all');
 
   const projects = [
     {
       id: 'northstar',
-      name: 'Northstar Labs',
-      type: 'founder',
-      category: 'Deep Tech Founder Monograph',
-      pageCount: '180 pages · Hardbound & Digital',
-      challenge: 'The technical founder had accumulated eight years of hardware manufacturing heuristics and supply chain lessons, but lacked 6 months of writing bandwidth while scaling factory capacity.',
-      concept: 'An unsparing, first-principles examination of hardware unit economics, resilient supply chains, and engineering leadership in hardware-software hybrids.',
-      built: '10 recorded knowledge-capture sessions, translated complex hardware diagrams into accessible editorial graphics, complete manuscript drafting, and custom fine-art interior typography.',
-      deliverable: 'Clothbound volume for Tier-1 hires, strategic investors, and enterprise customers.',
-      note: 'Illustrative archetype · replace before publishing',
+      name: 'Northstar Industrial Systems',
+      type: 'b2b',
+      category: 'B2B Deep Tech · Custom Web Flagship & Programmatic SEO',
+      metrics: '+310% Organic Pipeline · 99/100 CWV',
+      challenge: 'The engineering leader had 8 years of industrial telemetry breakthroughs, but their legacy website took 7 seconds to load and was invisible for commercial search queries.',
+      concept: 'A sub-second architectural web platform paired with 45+ programmatic specification and solution hubs engineered around enterprise procurement search intent.',
+      built: 'Custom React/TypeScript frontend, interactive product specification matrices, JSON-LD technical schema graph, and complete search silo restructuring.',
+      deliverable: 'Full-stack flagship website + 45 SEO landing hubs + Search Console telemetry.',
+      note: 'B2B Web & SEO Blueprint',
     },
     {
       id: 'pine',
-      name: 'Pine & Co.',
+      name: 'Pine & Co. Advisory',
       type: 'advisory',
-      category: 'Management Advisory Doctrine',
-      pageCount: '220 pages · Executive Format',
-      challenge: 'The firm relied on transient slide decks and consultative pitches to convey their post-merger integration framework, losing deal velocity against larger legacy consultancies.',
-      concept: 'An authoritative executive blueprint analyzing decentralized management cadences and cultural reconciliation in 9-figure corporate mergers.',
-      built: 'Full synthesis of proprietary audit worksheets and workshop modules into a 9-chapter business manual with bespoke diagnostic frameworks.',
-      deliverable: 'Master physical monograph presented to target Fortune 500 CEOs ahead of procurement cycles.',
-      note: 'Illustrative archetype · replace before publishing',
+      category: 'Boutique Consultancy · Online Presence & Authority SEO',
+      metrics: 'Page-1 Rankings for 28 Core Terms',
+      challenge: 'The firm relied on referrals and slide decks to explain their post-merger integration thesis, losing inbound deal velocity to larger consultancies with stronger digital authority.',
+      concept: 'An authoritative digital flagship positioning the firm alongside Tier-1 global consultancies while capturing high-intent C-suite search traffic.',
+      built: 'Editorial typographic design system, partner authority profiles, interactive M&A readiness diagnostic tool, and thought-leadership SEO architecture.',
+      deliverable: 'Complete digital rebrand + custom web platform + Google Knowledge Graph entity setup.',
+      note: 'Advisory Presence Blueprint',
     },
     {
-      id: 'arcwell',
-      name: 'Arcwell',
-      type: 'advisory',
-      category: 'Executive Turnaround Playbook',
-      pageCount: '140 pages · Field Guide Format',
-      challenge: 'A seasoned chief operating officer wanted to codify a repeatable 90-day turnaround framework developed across four corporate rehabilitations.',
-      concept: 'A direct, tactical manual documenting the diagnostic triage of insolvent business units, cash-flow triage, and organizational stabilizing.',
-      built: 'End-to-end ghostwriting, sensitive corporate anonymization, narrative sequencing, and proof refinement.',
-      deliverable: 'Publication-ready manuscript with complete unrestricted intellectual property rights.',
-      note: 'Illustrative archetype · replace before publishing',
+      id: 'aura',
+      name: 'Aura Specialist Clinics',
+      type: 'local-seo',
+      category: 'Multi-Specialty Healthcare · Web Platform & Local SEO',
+      metrics: '3.4x Increase in Patient Inquiries',
+      challenge: 'A premier clinical practice was losing high-value patient bookings to competitors who ranked higher in Google Maps and local treatment searches.',
+      concept: 'A calm, patient-first digital clinic platform with dedicated procedure hubs, physician credentials schema, and multi-city local search dominance.',
+      built: 'Mobile-first patient booking UX, 30+ medically structured treatment SEO pages, MedicalClinic JSON-LD schema, and local citation synchronization.',
+      deliverable: 'Custom healthcare web platform + local SEO engine + conversion booking pipeline.',
+      note: 'Healthcare & Local SEO Blueprint',
     },
     {
       id: 'signal',
-      name: 'Signal Foundry',
-      type: 'technical',
-      category: 'Venture & Product Architecture',
-      pageCount: '200 pages · Thesis Monograph',
-      challenge: 'General partners had distributed dozens of high-signal market essays across disparate channels without a singular intellectual anchor.',
-      concept: 'A unified investment and product distribution doctrine detailing how counter-positioning unlocks multi-billion dollar enterprise software categories.',
-      built: 'Curatorial synthesis, narrative transitions, chapter expansion, and print typography production.',
-      deliverable: 'Definitive partner book gifted to prospective founders at term-sheet presentation.',
-      note: 'Illustrative archetype · replace before publishing',
+      name: 'Signal Cloud & AI',
+      type: 'b2b',
+      category: 'Enterprise SaaS · Marketing Website & Comparison SEO',
+      metrics: '+185% Demo Conversions · 0.7s LCP',
+      challenge: 'A fast-growing SaaS platform had scattered documentation and product pages that failed to rank for "alternatives" and "vs" bottom-of-funnel search terms.',
+      concept: 'A unified product marketing flagship with modular feature showcases and programmatic competitor comparison pages.',
+      built: 'Custom component library, interactive ROI calculator, SoftwareApplication schema graph, and 25 high-converting comparison SEO pages.',
+      deliverable: 'High-converting SaaS web architecture + programmatic SEO growth engine.',
+      note: 'SaaS Growth Blueprint',
     },
     {
-      id: 'lumen',
-      name: 'Lumen Systems',
-      type: 'technical',
-      category: 'Engineering Operating Manual',
-      pageCount: '160 pages · Technical Monograph',
-      challenge: 'A distributed infrastructure team needed to turn complex internal architectural decision records into a public-facing engineering standard.',
-      concept: 'A clear treatise on distributed system fault tolerance, asynchronous team coordination, and engineering reliability standards.',
-      built: 'Interviews with staff engineers, code-to-prose translation, developmental line editing, and print formatting.',
-      deliverable: 'Technical standard manual used for senior engineering recruiting and developer community credibility.',
-      note: 'Illustrative archetype · replace before publishing',
+      id: 'atelier-verma',
+      name: 'Atelier Vastu & Modernist Studio',
+      type: 'local-seo',
+      category: 'Architecture & Luxury Design · Digital Monograph & Search',
+      metrics: '0.8s Load Time · +240% Search Impressions',
+      challenge: 'An acclaimed architecture and interior studio had hundreds of uncompressed high-resolution photographs that crippled mobile performance and search indexability.',
+      concept: 'A gallery-grade digital portfolio with next-gen AVIF/WebP image streaming, editorial project narratives, and regional + international search visibility.',
+      whatWeBuilt: 'Progressive image delivery pipeline, typographic project archive, architectural schema markup, and press inquiry portal.',
+      built: 'Progressive image delivery pipeline, typographic project archive, architectural schema markup, and press inquiry portal.',
+      deliverable: 'Ultra-fast luxury portfolio website + international organic search footprint.',
+      note: 'Luxury Portfolio Blueprint',
     },
   ];
 
@@ -88,7 +89,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
             <span>Return to Studio Overview</span>
           </button>
           <div className="text-xs font-mono text-[#78716C] hidden sm:block">
-            Selected Work & Archetypes · Redwood House
+            Selected Work & Case Studies · Redwood House
           </div>
         </div>
       </div>
@@ -97,43 +98,40 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-20 border-b border-[#E8E4DC]">
         <div className="max-w-3xl space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-[#78716C] block">
-            Portfolio of Archetypes
+            Portfolio of Digital Architecture
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#1C1A18] tracking-tight leading-[1.08]">
-            Selected Work & Book Archetypes.
+            Selected Work & Web + SEO Blueprints.
           </h1>
           <p className="text-lg sm:text-xl text-[#58544E] leading-relaxed">
-            Because Redwood House operates as a private ghostwriting studio under strict confidentiality agreements, client identities remain protected. Below are representative engagement blueprints.
+            Explore how Redwood House combines bespoke web engineering, editorial online presence, and technical search optimization across B2B, advisory, healthcare, and luxury verticals.
           </p>
-          <div className="p-4 bg-[#FAF8F3] border border-[#E8E4DC] rounded-md text-xs font-mono text-[#78716C]">
-            Notice: All company names below (Northstar Labs, Pine & Co., Arcwell, Signal Foundry, Lumen Systems) are illustrative placeholders representing real structural book engagements.
-          </div>
         </div>
 
-        {/* Featured Current Book Callout */}
+        {/* Featured Methodology Callout */}
         <div className="mt-12 bg-white rounded-lg border border-[#D5CFC5] p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[#3D1D18] font-semibold block">
-              Featured Published Product
+              Proprietary Studio System
             </span>
             <h3 className="text-2xl font-serif text-[#1C1A18]">
-              The Tantrum Playbook
+              The Online Presence & SEO Playbook
             </h3>
             <p className="text-sm text-[#58544E] max-w-xl">
-              What to Say, What to Do, and How to Stay Calm Through Your Toddler's Biggest Emotions. A real Redwood House publication exploring six emotional weather states.
+              Inspect our 10-stage engineering and technical SEO blueprint, and run an interactive readiness diagnostic on your current website.
             </p>
           </div>
           <button
             onClick={onNavigatePlaybook}
             className="shrink-0 inline-flex items-center gap-2 px-5 py-3 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-xs font-semibold rounded-md transition-colors cursor-pointer"
           >
-            <span>View The Tantrum Playbook</span>
+            <span>Explore the SEO & Presence System</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
 
-      {/* Filter Tabs & Archetypes Grid */}
+      {/* Filter Tabs & Case Studies Grid */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
         {/* Interactive Filter Tabs */}
         <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2">
@@ -145,17 +143,17 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
                 : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
             }`}
           >
-            All Blueprints ({projects.length})
+            All Case Blueprints ({projects.length})
           </button>
           <button
-            onClick={() => setFilter('founder')}
+            onClick={() => setFilter('b2b')}
             className={`px-4 py-2 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-              filter === 'founder'
+              filter === 'b2b'
                 ? 'bg-[#1C1A18] text-white'
                 : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
             }`}
           >
-            Founder Monographs
+            B2B & SaaS Platforms
           </button>
           <button
             onClick={() => setFilter('advisory')}
@@ -165,17 +163,17 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
                 : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
             }`}
           >
-            Advisory & Executive Doctrines
+            Advisory & Executive Presence
           </button>
           <button
-            onClick={() => setFilter('technical')}
+            onClick={() => setFilter('local-seo')}
             className={`px-4 py-2 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-              filter === 'technical'
+              filter === 'local-seo'
                 ? 'bg-[#1C1A18] text-white'
                 : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
             }`}
           >
-            Technical & Architecture Systems
+            Healthcare, Architecture & Local SEO
           </button>
         </div>
 
@@ -202,7 +200,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
                 </div>
                 <div className="text-left md:text-right">
                   <span className="text-xs font-mono text-[#3D1D18] font-semibold block">
-                    {p.pageCount}
+                    {p.metrics}
                   </span>
                 </div>
               </div>
@@ -210,7 +208,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="space-y-2">
                   <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                    The Challenge
+                    The Digital Challenge
                   </span>
                   <p className="text-sm text-[#4A4641] leading-relaxed">
                     {p.challenge}
@@ -219,7 +217,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
 
                 <div className="space-y-2">
                   <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                    The Book Concept
+                    The Presence & SEO Strategy
                   </span>
                   <p className="text-sm font-serif italic text-[#3D1D18] leading-relaxed">
                     "{p.concept}"
@@ -228,7 +226,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
 
                 <div className="space-y-2">
                   <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                    What Redwood House Built
+                    What Redwood House Engineered
                   </span>
                   <p className="text-sm text-[#58544E] leading-relaxed">
                     {p.built}
@@ -242,10 +240,10 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
                   <span><strong>Deliverable:</strong> {p.deliverable}</span>
                 </div>
                 <a
-                  href={`${BRAND.mailtoGeneral}&body=Hello%20Redwood%20House,%0D%0A%0D%0AI%20am%20interested%20in%20a%20book%20structure%20similar%20to%20the%20${encodeURIComponent(p.category)}%20archetype...`}
+                  href={`${BRAND.mailtoGeneral}&body=Hello%20Redwood%20House,%0D%0A%0D%0AWe%20are%20interested%20in%20a%20website%20and%20SEO%20architecture%20similar%20to%20your%20${encodeURIComponent(p.category)}%20blueprint...`}
                   className="inline-flex items-center gap-1 font-semibold text-[#1C1A18] hover:text-[#3D1D18] underline underline-offset-4"
                 >
-                  <span>Discuss a project in this format</span>
+                  <span>Inquire about a similar build</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -258,10 +256,10 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-t border-[#E8E4DC]">
         <div className="bg-[#FAF8F3] rounded-lg border border-[#E8E4DC] p-8 sm:p-12 text-center space-y-4 max-w-2xl mx-auto">
           <h3 className="text-2xl font-serif text-[#1C1A18]">
-            Have an unwritten doctrine or framework?
+            Ready to build a high-performing digital flagship?
           </h3>
           <p className="text-sm text-[#58544E] leading-relaxed">
-            All consultations are conducted under strict non-disclosure. Email our Chandigarh studio to begin an exploratory dialogue.
+            Email our Chandigarh studio with your current website and goals to receive an initial technical & search assessment.
           </p>
           <div className="pt-2">
             <a

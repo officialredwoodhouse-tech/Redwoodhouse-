@@ -46,7 +46,7 @@ export const RwHLogo: React.FC<RwHLogoProps> = ({
           Redwood House
         </span>
         <span className="text-[10px] tracking-widest uppercase font-sans text-[#7A756D] mt-0.5">
-          Editorial Studio
+          Web · Presence · SEO
         </span>
       </div>
     </div>

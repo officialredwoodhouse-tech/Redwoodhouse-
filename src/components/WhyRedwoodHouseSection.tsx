@@ -4,20 +4,20 @@ import { ASSETS } from '../constants/assets';
 export const WhyRedwoodHouseSection: React.FC = () => {
   const principles = [
     {
-      title: 'Discretion & Privacy',
-      desc: 'We are ghostwriters in the truest sense. Strict non-disclosure agreements are standard. Your book remains entirely yours, whether published under your name or within your private company ecosystem.',
+      title: 'Architecture Before Aesthetics',
+      desc: 'We never design in a vacuum. Every layout decision is grounded in buyer psychology, information hierarchy, and semantic search engine structure.',
     },
     {
-      title: 'One-Time Clear Engagement',
-      desc: 'No open-ended monthly consulting retainers with ambiguous deliverables. You invest in a defined engagement with milestone approvals and a single finished book outcome.',
+      title: 'SEO Engineered Into the Code',
+      desc: 'Search engine optimization isn\'t a plugin. We build clean DOM trees, sub-second asset pipelines, structured JSON-LD schema, and programmatic topic hubs directly into your site.',
     },
     {
-      title: 'Intellectual Ownership Flexibility',
-      desc: 'The delivered book is built to become your intellectual property. You can rebrand it, adapt it into workshops, excerpt chapters into keynotes, or distribute it without royalties.',
+      title: 'Complete Digital Ownership',
+      desc: 'No hostage hosting or proprietary lock-in. You own 100% of your custom codebase, design tokens, content assets, and analytics properties from the moment we launch.',
     },
     {
-      title: 'Real Editorial Standards',
-      desc: 'We do not generate generic filler or machine slop. Every chapter is architected with literary weight, precise domain terminology, and rhythmic prose written to endure.',
+      title: 'Editorial & Visual Restraint',
+      desc: 'We reject generic AI templates, neon gradients, and cluttered agency gimmicks. Your digital presence is crafted with timeless typography, clarity, and commercial weight.',
     },
   ];
 
@@ -30,10 +30,10 @@ export const WhyRedwoodHouseSection: React.FC = () => {
             Studio Ethos
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            Built with specialists, not spectators.
+            Built by engineers, designers, and search architects.
           </h2>
           <p className="text-lg text-[#58544E] leading-relaxed">
-            Redwood House was founded on a simple truth: the people with the most valuable ideas are often the least likely to have the empty months required to turn them into books.
+            Redwood House was founded on a simple observation: the businesses doing the most meaningful work rarely have an online presence that matches their real-world reputation.
           </p>
         </div>
 
@@ -62,8 +62,8 @@ export const WhyRedwoodHouseSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
             <div className="lg:col-span-6 h-64 sm:h-80 lg:h-full relative min-h-[300px]">
               <img
-                src={ASSETS.studioLibrary}
-                alt="The private library and editorial consultation room at Redwood House, Chandigarh"
+                src={ASSETS.chandigarhDigitalStudio}
+                alt="Redwood House web development and SEO studio in Chandigarh, India"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -73,15 +73,15 @@ export const WhyRedwoodHouseSection: React.FC = () => {
                 Studio Location · Chandigarh, India
               </span>
               <h4 className="text-2xl font-serif text-[#1C1A18]">
-                A deliberate space for serious book development.
+                A dedicated studio for serious digital craftsmanship.
               </h4>
               <p className="text-sm text-[#58544E] leading-relaxed">
-                Located in Chandigarh, India, Redwood House operates as an independent private studio working with specialists across time zones. We keep our client roster intentionally small to ensure direct editorial immersion for every volume.
+                Rooted in the modernist architectural city of Chandigarh, Redwood House partners with companies, founders, and specialists worldwide. We take on a focused roster of engagements each quarter so every website and SEO system receives senior engineering attention.
               </p>
               <div className="pt-2 flex items-center gap-3 text-xs text-[#78716C]">
-                <span>Focused capacity</span>
+                <span>Senior-only execution</span>
                 <span aria-hidden="true">·</span>
-                <span>Select client engagements only</span>
+                <span>Direct founder & technical collaboration</span>
               </div>
             </div>
           </div>

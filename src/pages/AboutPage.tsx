@@ -32,20 +32,20 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
             About Redwood House
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#1C1A18] tracking-tight leading-[1.1]">
-            We believe the most valuable books are waiting inside people who are too busy doing the work to write them.
+            We believe the strongest businesses deserve an online presence and search authority that match their real-world caliber.
           </h1>
         </div>
 
         {/* Studio Image */}
         <div className="mt-12 rounded-lg overflow-hidden border border-[#E8E4DC] shadow-md">
           <img
-            src={ASSETS.studioLibrary}
-            alt="Redwood House private editorial library, Chandigarh"
+            src={ASSETS.chandigarhDigitalStudio}
+            alt="Redwood House Website Development, Online Presence & SEO Studio, Chandigarh"
             className="w-full h-80 sm:h-96 object-cover"
             referrerPolicy="no-referrer"
           />
           <div className="p-4 bg-white border-t border-[#E8E4DC] flex items-center justify-between text-xs text-[#78716C]">
-            <span>The Redwood House Studio</span>
+            <span>The Redwood House Digital & SEO Studio</span>
             <span className="font-mono">Chandigarh, India</span>
           </div>
         </div>
@@ -53,19 +53,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
         {/* Core Philosophical Thesis */}
         <div className="mt-16 space-y-8 text-base sm:text-lg text-[#4A4641] leading-relaxed font-sans">
           <p className="text-xl sm:text-2xl font-serif italic text-[#1C1A18] leading-snug">
-            "There are people who have spent years becoming experts in something. They should not need to spend another year learning the mechanics of turning that expertise into a book. Redwood House exists to close that gap."
+            "There are companies and specialists who have spent years mastering their craft. They should not lose opportunities to inferior competitors simply because their website is slow, unclear, or invisible on Google. Redwood House exists to close that gap."
           </p>
 
           <p>
-            Writing a full-length, publication-grade book is an entirely different discipline than running a business, diagnosing an enterprise failure, managing a clinical practice, or leading an engineering team. It demands hundreds of hours of lonely outline surgery, developmental drafting, chapter transitions, voice modulation, and editorial refinement.
+            Building a high-performing digital flagship requires three disciplines that rarely live under one roof: editorial-grade brand positioning, modern full-stack web engineering, and rigorous technical search engine optimization (SEO).
           </p>
 
           <p>
-            When experts attempt to write books alone, one of two things almost always happens: either they burn out after three chapters because their day job demands their full attention, or they hire cheap freelance copywriters who produce generic, superficial fluff that damages their credibility.
+            When companies try to assemble this piecemeal, they either end up with a visually flashy agency site that fails Core Web Vitals and ranks for nothing, or they hire a commodity SEO vendor that stuffs awkward keywords into a broken, low-trust template.
           </p>
 
           <p>
-            Redwood House was founded to offer an alternative: a private, high-trust editorial studio operating as an intellectual partner. We treat your career knowledge with genuine respect, extracting the nuance and trade-offs that make your perspective valuable.
+            Redwood House was founded as an integrated Website Development, Online Presence Creator, and SEO Studio. We treat your website and search footprint as a unified piece of commercial architecture—engineered for speed, clarity, and compounding organic discovery.
           </p>
         </div>
 
@@ -78,33 +78,33 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div className="p-6 bg-white rounded-lg border border-[#E8E4DC] space-y-2">
               <span className="text-xs font-mono uppercase text-[#78716C]">Pillar 01</span>
-              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Discretion Over Self-Promotion</h3>
+              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Performance as a Trust Signal</h3>
               <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                We are ghostwriters in the classical sense. We do not use your book to brag on social media or market our own studio. Your project is conducted under strict non-disclosure.
+                Speed is the first impression of competence. We engineer every website for sub-second load times and 99+ Core Web Vitals scores across mobile and desktop.
               </p>
             </div>
 
             <div className="p-6 bg-white rounded-lg border border-[#E8E4DC] space-y-2">
               <span className="text-xs font-mono uppercase text-[#78716C]">Pillar 02</span>
-              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Anti-Slop Craftsmanship</h3>
+              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Anti-Template Craftsmanship</h3>
               <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                We reject generic AI copywriting, automated fillers, and hollow buzzwords. A book that bears your name must have intellectual depth, precise terminology, and authentic narrative weight.
+                We reject bloated page builders, generic AI slop, and fleeting design gimmicks. Every layout, typographic scale, and interaction is custom-built for your brand.
               </p>
             </div>
 
             <div className="p-6 bg-white rounded-lg border border-[#E8E4DC] space-y-2">
               <span className="text-xs font-mono uppercase text-[#78716C]">Pillar 03</span>
-              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Productized Simplicity</h3>
+              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Architectural SEO</h3>
               <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                One engagement. One finished book asset. We do not trap clients in open-ended hourly billing or ambiguous consulting contracts.
+                We engineer search visibility directly into the HTML DOM, URL hierarchy, Schema.org JSON-LD graph, and topic clusters so organic traffic compounds month after month.
               </p>
             </div>
 
             <div className="p-6 bg-white rounded-lg border border-[#E8E4DC] space-y-2">
               <span className="text-xs font-mono uppercase text-[#78716C]">Pillar 04</span>
-              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Enduring Intellectual Property</h3>
+              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">100% Client Ownership</h3>
               <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                Delivered as a complete asset you can build around. You have the total freedom to rebrand it, adapt it into workshops, create derivative works, or distribute it freely.
+                Delivered as a complete digital asset you own outright. You hold full control of your code repository, domain, design system, and search analytics.
               </p>
             </div>
           </div>
@@ -120,7 +120,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
               Chandigarh, India
             </h3>
             <p className="text-sm text-[#58544E] leading-relaxed">
-              Based in the modernist architectural hub of Chandigarh, Redwood House works with specialists, founders, and leaders internationally. We accept a limited number of book engagements each quarter to preserve editorial focus.
+              Based in the modernist architectural city of Chandigarh, Redwood House partners with founders, businesses, and category leaders globally. We take on a focused number of web development and SEO engagements each quarter to guarantee direct senior execution.
             </p>
           </div>
           <div className="pt-2">

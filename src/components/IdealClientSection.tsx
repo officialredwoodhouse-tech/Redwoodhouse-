@@ -13,53 +13,53 @@ interface Archetype {
 export const IdealClientSection: React.FC = () => {
   const archetypes: Archetype[] = [
     {
-      id: 'founders',
-      label: 'Founders',
-      rawAsset: 'Company memos, product philosophies, investor decks, scaling war stories.',
-      finishedBookForm: 'Category-defining founder monograph or operating manual.',
-      whyThisWorks: 'Positions your company as the category authority without pulling you away from executing your roadmap.'
+      id: 'saas-founders',
+      label: 'SaaS & Tech Founders',
+      rawAsset: 'Product capabilities, technical docs, feature releases, and founder thesis.',
+      finishedBookForm: 'High-converting marketing flagship + programmatic SEO comparison & solution hubs.',
+      whyThisWorks: 'Captures high-intent bottom-of-funnel search traffic while elevating enterprise buyer trust.'
     },
     {
-      id: 'consultants',
-      label: 'Consultants',
-      rawAsset: 'Proprietary audit frameworks, client diagnostic sheets, workshop methodologies.',
-      finishedBookForm: 'Standard client onboarding book or business doctrine.',
-      whyThisWorks: 'Pre-sells high-ticket engagements and standardizes your unique diagnostic perspective.'
+      id: 'b2b-advisory',
+      label: 'Consultancies & Advisory Firms',
+      rawAsset: 'Proprietary methodologies, case studies, partner bios, and industry whitepapers.',
+      finishedBookForm: 'Authoritative digital flagship with interactive diagnostic tools and thought-leadership SEO.',
+      whyThisWorks: 'Pre-sells six-figure retainers and replaces generic brochureware with category authority.'
     },
     {
-      id: 'operators',
-      label: 'Operators',
-      rawAsset: 'Standard operating systems, triage protocols, turnaround playbooks.',
-      finishedBookForm: 'Pragmatic tactical guide for practitioners in your sector.',
-      whyThisWorks: 'Demonstrates deep functional competence in an industry crowded with superficial advice.'
+      id: 'healthcare-specialists',
+      label: 'Clinics & Specialist Practices',
+      rawAsset: 'Clinical expertise, treatment protocols, patient outcomes, and regional reputation.',
+      finishedBookForm: 'Patient-first web platform + Local & Medical Schema SEO dominating regional search.',
+      whyThisWorks: 'Ranks #1 for high-value treatment queries and converts discerning patients with calm clarity.'
     },
     {
-      id: 'specialists',
-      label: 'Specialists & Researchers',
-      rawAsset: 'Technical whitepapers, data findings, niche clinical or scientific insights.',
-      finishedBookForm: 'Accessible commercial book bridging high-level science with general practice.',
-      whyThisWorks: 'Translates dense, inaccessible expertise into lucid prose that executives and peers can act upon.'
+      id: 'luxury-architecture',
+      label: 'Architecture, Real Estate & Design',
+      rawAsset: 'Project portfolios, high-resolution photography, material specs, and studio ethos.',
+      finishedBookForm: 'Editorial-grade portfolio website with sub-second image delivery and local search authority.',
+      whyThisWorks: 'Showcases visual craft without sacrificing page speed or search engine indexability.'
     },
     {
-      id: 'executives',
-      label: 'Executives & Leaders',
-      rawAsset: 'Leadership speeches, board memos, organizational restructuring insights.',
-      finishedBookForm: 'Thoughtful leadership doctrine establishing industry footprint.',
-      whyThisWorks: 'Solidifies your legacy and corporate reputation under strict private discretion.'
+      id: 'ecommerce-d2c',
+      label: 'D2C & Bespoke Commerce',
+      rawAsset: 'Product catalogs, brand story, customer reviews, and collection lookbooks.',
+      finishedBookForm: 'Custom headless or Shopify flagship + category & product schema SEO engine.',
+      whyThisWorks: 'Reduces paid ad dependency by compounding organic product discovery and conversion rate.'
     },
     {
-      id: 'coaches',
-      label: 'Coaches & Creators',
-      rawAsset: 'Curriculum modules, high-frequency newsletters, core podcasts, coaching notes.',
-      finishedBookForm: 'Definitive physical guide that anchors your ecosystem.',
-      whyThisWorks: 'Transforms ephemeral digital media into a permanent physical book asset.'
+      id: 'venture-finance',
+      label: 'Venture, Legal & Financial Firms',
+      rawAsset: 'Investment thesis, regulatory insights, track record, and partner credentials.',
+      finishedBookForm: 'Discreet, institutional-grade web presence with verified Google Knowledge Graph signals.',
+      whyThisWorks: 'Establishes immediate institutional credibility when LPs, founders, or clients search your name.'
     },
     {
-      id: 'professionals',
-      label: 'Professionals with Frameworks',
-      rawAsset: 'Step-by-step diagnostic models, patent ideas, unique client methodologies.',
-      finishedBookForm: 'Structured intellectual property asset ready for licensing and training.',
-      whyThisWorks: 'Secures your methodology in print so you can rebrand, adapt, and build products around it.'
+      id: 'creators-executives',
+      label: 'Executives & Category Creators',
+      rawAsset: 'Keynotes, essays, podcasts, media appearances, and personal advisory offers.',
+      finishedBookForm: 'Centralized personal digital flagship owning page-one search results for your name and topic.',
+      whyThisWorks: 'Consolidates scattered social profiles into a permanent,owned online presence.'
     },
   ];
 
@@ -74,38 +74,34 @@ export const IdealClientSection: React.FC = () => {
             Audience & Fit
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            Built for people who already know something worth saying.
+            Built for brands and specialists ready to own their category online.
           </h2>
           <p className="text-lg text-[#58544E] leading-relaxed">
-            You have the knowledge. You have the experience. You may even have the outline in your head. You just don't have the time or desire to build the book from scratch.
+            You have the operational track record, the expertise, and the ambition. You just need a digital engineering and SEO partner to make your online presence unmistakable.
           </p>
         </div>
 
         {/* Core Roster of Specialists */}
         <div className="mt-12 pt-8 border-t border-[#E8E4DC]">
           <div className="text-xs uppercase tracking-widest text-[#78716C] font-mono mb-4">
-            We work with
+            We partner with
           </div>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm sm:text-base font-medium text-[#1C1A18]">
-            <span className="hover:text-[#3D1D18] transition-colors">Founders</span>
+            <span className="hover:text-[#3D1D18] transition-colors">SaaS & Tech Companies</span>
             <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Consultants</span>
+            <span className="hover:text-[#3D1D18] transition-colors">B2B Consultancies</span>
             <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Operators</span>
+            <span className="hover:text-[#3D1D18] transition-colors">Specialist Clinics</span>
             <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Specialists</span>
+            <span className="hover:text-[#3D1D18] transition-colors">Architecture & Design Studios</span>
             <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Researchers</span>
+            <span className="hover:text-[#3D1D18] transition-colors">D2C Brands</span>
             <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Executives</span>
+            <span className="hover:text-[#3D1D18] transition-colors">Law & Advisory Practices</span>
             <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Coaches</span>
+            <span className="hover:text-[#3D1D18] transition-colors">Venture Firms</span>
             <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Creators</span>
-            <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Industry Experts</span>
-            <span className="text-[#A8A29E]" aria-hidden="true">·</span>
-            <span className="hover:text-[#3D1D18] transition-colors">Professionals with Proprietary Frameworks</span>
+            <span className="hover:text-[#3D1D18] transition-colors">Founders & Executives</span>
           </div>
         </div>
 
@@ -113,9 +109,9 @@ export const IdealClientSection: React.FC = () => {
         <div className="mt-12 bg-white rounded-lg border border-[#E8E4DC] overflow-hidden shadow-xs">
           <div className="p-6 md:p-8 bg-[#F4F0E8]/40 border-b border-[#E8E4DC]">
             <div className="text-xs uppercase tracking-widest text-[#78716C] font-mono mb-3">
-              Select Your Profile to View the Translation Path
+              Select Your Sector to View Our Web & SEO Blueprint
             </div>
-            
+
             {/* Filter buttons */}
             <div className="flex flex-wrap gap-2">
               {archetypes.map((arch) => (
@@ -138,7 +134,7 @@ export const IdealClientSection: React.FC = () => {
           <div className="p-6 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                Raw Knowledge You Provide
+                Raw Assets You Have
               </span>
               <p className="text-sm sm:text-base text-[#1C1A18] font-sans leading-relaxed">
                 {activeArchetype.rawAsset}
@@ -147,7 +143,7 @@ export const IdealClientSection: React.FC = () => {
 
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                Book Asset We Deliver
+                Digital Flagship We Build
               </span>
               <p className="text-sm sm:text-base text-[#3D1D18] font-serif font-medium leading-relaxed">
                 {activeArchetype.finishedBookForm}
@@ -156,7 +152,7 @@ export const IdealClientSection: React.FC = () => {
 
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                Strategic Outcome
+                Search & Conversion Outcome
               </span>
               <p className="text-sm sm:text-base text-[#58544E] font-sans leading-relaxed">
                 {activeArchetype.whyThisWorks}
@@ -166,13 +162,13 @@ export const IdealClientSection: React.FC = () => {
 
           <div className="px-6 md:px-10 py-4 bg-[#FBF9F5] border-t border-[#E8E4DC] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <span className="text-xs text-[#78716C]">
-              Have a proprietary framework or manuscript idea ready to discuss?
+              Ready to upgrade your website, online presence, or search rankings?
             </span>
             <a
-              href={`${BRAND.mailtoGeneral}&body=Hello%20Redwood%20House,%0D%0A%0D%0AI%20am%20a%20${encodeURIComponent(activeArchetype.label)}%20and%20I%20have%20an%20idea%20for%20a%20book%20project...`}
+              href={`${BRAND.mailtoGeneral}&body=Hello%20Redwood%20House,%0D%0A%0D%0AWe%20are%20in%20the%20${encodeURIComponent(activeArchetype.label)}%20space%20and%20would%20like%20to%20discuss%20a%20website%20development%20and%20SEO%20engagement...`}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1C1A18] hover:text-[#3D1D18] underline underline-offset-4"
             >
-              <span>Email us about a {activeArchetype.label} book project</span>
+              <span>Inquire about a {activeArchetype.label} project</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>

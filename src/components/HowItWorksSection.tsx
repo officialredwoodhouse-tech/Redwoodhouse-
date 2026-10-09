@@ -10,38 +10,38 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onLearnMor
   const steps = [
     {
       num: '01',
-      name: 'Discover',
-      headline: 'Extracting the Core Knowledge',
-      copy: 'We conduct structured, recorded conversations to extract your expertise, audience needs, core thesis, and career observations. No preliminary writing is required from you.',
-      deliverable: 'Knowledge dossier & thesis definition',
+      name: 'Audit & Discovery',
+      headline: 'Diagnosing Your Brand, Market & Search Landscape',
+      copy: 'We audit your existing digital footprint, technical search barriers, competitor keyword share, and buyer conversion bottlenecks. You share your business goals; we map the exact opportunity.',
+      deliverable: 'Technical SEO Audit & Positioning Brief',
     },
     {
       num: '02',
-      name: 'Structure',
-      headline: 'Architecting the Book Blueprint',
-      copy: 'We transform raw conversation notes into a complete book architecture: table of contents, chapter progression, case study distribution, and narrative arcs.',
-      deliverable: 'Complete book outline & chapter blueprint',
+      name: 'Information & SEO Architecture',
+      headline: 'Structuring Sitemaps, Silos & Conversion Flows',
+      copy: 'Before writing a line of code, we blueprint your entire site hierarchy: URL taxonomy, high-intent landing pages, wireframe layouts, and semantic keyword mapping.',
+      deliverable: 'Interactive Wireframes & Search Taxonomy',
     },
     {
       num: '03',
-      name: 'Build',
-      headline: 'Drafting the Full Manuscript',
-      copy: 'Our editorial studio writes the complete chapters, fleshing out frameworks, real-world examples, transitions, and explanations in your authentic voice.',
-      deliverable: 'Full developmental first draft',
+      name: 'Design & Full-Stack Build',
+      headline: 'Engineering a Bespoke, Sub-Second Website',
+      copy: 'Our studio designs your visual system, writes authoritative conversion copy, and develops a fast, responsive, custom frontend and backend built to modern web standards.',
+      deliverable: 'Staging Flagship Website (99+ CWV)',
     },
     {
       num: '04',
-      name: 'Refine',
-      headline: 'Editorial Calibration & Polish',
-      copy: 'The manuscript undergoes developmental editing, line editing, and voice tuning. You review milestone proofs with zero administrative friction.',
-      deliverable: 'Polished, publication-ready text',
+      name: 'Technical SEO & Schema Integration',
+      headline: 'Embedding Search Intelligence Into Every Page',
+      copy: 'We implement structured JSON-LD schema graphs, OpenGraph social cards, canonical tags, automated XML sitemaps, internal linking matrices, and Core Web Vitals tuning.',
+      deliverable: 'Verified Search & Schema Infrastructure',
     },
     {
       num: '05',
-      name: 'Deliver',
-      headline: 'Complete Asset Handover',
-      copy: 'You receive the finished book asset alongside typography specs and packaging direction. Delivered as your intellectual property to rebrand, adapt, and distribute.',
-      deliverable: 'Final book package & design specifications',
+      name: 'Launch, Indexing & Growth Handover',
+      headline: 'Deploying Your Digital Flagship to the World',
+      copy: 'We manage zero-downtime deployment, DNS migration, Google Search Console indexing, and analytics configuration—handing over 100% ownership plus an actionable SEO growth roadmap.',
+      deliverable: 'Live Production Website & SEO Playbook',
     },
   ];
 
@@ -54,10 +54,10 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onLearnMor
             Process & Workflow
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            How Redwood House builds your book.
+            How Redwood House builds and ranks your digital flagship.
           </h2>
           <p className="text-lg text-[#58544E] leading-relaxed">
-            A linear, high-trust process designed for busy specialists. You do not need to become a full-time author or project manager to publish what you know.
+            A disciplined, five-stage engineering and SEO workflow designed for busy founders and operators. No endless agency meetings—just structured milestones and measurable execution.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onLearnMor
                   </span>
                   <div>
                     <span className="text-xs uppercase font-mono tracking-widest text-[#78716C] block">
-                      Phase {step.num}
+                      Stage {step.num}
                     </span>
                     <h3 className="text-xl font-serif font-medium text-[#1C1A18]">
                       {step.name}
@@ -97,7 +97,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onLearnMor
                 {/* Milestone Deliverable */}
                 <div className="lg:col-span-3 lg:border-l lg:border-[#F4F0E8] lg:pl-6 pt-2 lg:pt-0">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#78716C] block mb-1">
-                    Phase Deliverable
+                    Stage Deliverable
                   </span>
                   <div className="flex items-center gap-2 text-xs font-medium text-[#1C1A18]">
                     <Check className="w-3.5 h-3.5 text-[#3D1D18] shrink-0" />
@@ -109,14 +109,14 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onLearnMor
           ))}
         </div>
 
-        {/* Contrast Banner: Managing vs Authoring */}
+        {/* Contrast Banner */}
         <div className="mt-12 bg-[#F4F0E8] rounded-lg border border-[#E8E4DC] p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <h4 className="text-xl font-serif text-[#1C1A18]">
-              You stay the author. We handle the heavy lifting.
+              You run the business. We engineer the growth engine.
             </h4>
             <p className="text-sm text-[#58544E] leading-relaxed">
-              No endless revision loops or administrative tracking sheets. Redwood House runs the editorial schedule, synthesizes the sessions, and delivers finished chapters for review.
+              No bloated account management layers or vague deliverables. Redwood House handles the copywriting, UI design, full-stack development, and technical SEO from end to end.
             </p>
           </div>
           <div className="shrink-0 flex items-center gap-3">
@@ -124,7 +124,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onLearnMor
               href={BRAND.mailtoGeneral}
               className="inline-flex items-center gap-2 px-5 py-3 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-xs font-semibold rounded-md transition-colors"
             >
-              <span>Discuss Your Book Timeline</span>
+              <span>Discuss Your Project Timeline</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>

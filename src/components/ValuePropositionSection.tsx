@@ -4,20 +4,20 @@ import { Check, Minus } from 'lucide-react';
 export const ValuePropositionSection: React.FC = () => {
   const contrasts = [
     {
-      diy: 'Years of expertise trapped in internal memos and scattered slide decks.',
-      rwh: 'A structured, permanent book asset that consolidates your life s work.',
+      diy: 'Bloated page-builder templates that load in 6+ seconds and look identical to competitors.',
+      rwh: 'Bespoke, hand-engineered web architecture scoring 99+ on Google Core Web Vitals.',
     },
     {
-      diy: '300+ hours spent wrestling with writer s block, outlines, and structural dead-ends.',
-      rwh: '10 12 focused conversation hours with our editorial directors; we handle the drafting.',
+      diy: 'Juggling a freelance designer, a separate developer, and an SEO vendor who blame each other.',
+      rwh: 'One unified studio where design, full-stack code, conversion copy, and technical SEO are built together.',
     },
     {
-      diy: 'Unclear publishing timelines that stall for months or years.',
-      rwh: 'A predictable, milestone-driven productized engagement from kickoff to finished book.',
+      diy: 'Treating SEO as an afterthought—bolting spammy keywords onto an unindexable website.',
+      rwh: 'Semantic HTML5, JSON-LD schema graphs, and search intent silos engineered from day one.',
     },
     {
-      diy: 'Traditional publisher agreements requiring loss of speed, control, and rights.',
-      rwh: 'A complete, finished asset built to become your intellectual property to rebrand and distribute.',
+      diy: 'Locked-in agency retainers where you don\'t even own your website code or hosting.',
+      rwh: '100% client ownership of source code, domain assets, analytics, and search infrastructure.',
     },
   ];
 
@@ -30,24 +30,24 @@ export const ValuePropositionSection: React.FC = () => {
             Strategic Contrast
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            The difference between writing alone and building with an editorial house.
+            The difference between a generic website and a digital flagship.
           </h2>
           <p className="text-lg text-[#58544E] leading-relaxed">
-            Writing a book from scratch is an extraordinary operational tax. Redwood House exists so you don t have to pause your career to bring your ideas into the world.
+            Most websites are digital liabilities: slow, invisible on Google, and disconnected from revenue. Redwood House builds permanent online assets engineered to rank and convert.
           </p>
         </div>
 
         {/* Comparison Grid */}
         <div className="mt-14 bg-white rounded-lg border border-[#E8E4DC] overflow-hidden shadow-xs">
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#E8E4DC]">
-            {/* The DIY / In-House Route */}
+            {/* The Fragmented / Template Route */}
             <div className="p-8 sm:p-10 space-y-6 bg-[#FAF9F7]">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
                   Path A
                 </span>
                 <h3 className="text-xl font-serif text-[#58544E] mt-1 font-medium">
-                  Building the Book Yourself
+                  Templates & Fragmented Vendors
                 </h3>
               </div>
               <ul className="space-y-6">

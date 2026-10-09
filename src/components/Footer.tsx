@@ -25,12 +25,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
 
             <p className="text-sm text-[#A8A29E] max-w-md font-sans leading-relaxed">
-              A private editorial studio and productized book creation service. We turn specialist knowledge, proprietary frameworks, and career expertise into finished, published-grade books.
+              A private website development, online presence creation, and technical SEO studio. We turn ambitious companies, specialist practices, and category leaders into commanding digital flagships that rank, convert, and endure.
             </p>
 
             <div className="pt-2">
               <span className="text-xs uppercase tracking-wider text-[#78716C] block mb-1">
-                Direct Contact
+                Direct Studio Desk
               </span>
               <a
                 href={BRAND.mailtoGeneral}
@@ -67,18 +67,29 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   }}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Selected Work & Archetypes
+                  Selected Work & Case Studies
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => {
-                    onNavigate('tantrum-playbook');
+                    onNavigate('seo-blueprint');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  The Tantrum Playbook
+                  SEO & Online Presence System
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    onNavigate('transactions');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="hover:text-white transition-colors cursor-pointer text-left"
+                >
+                  Packages & Studio Transactions
                 </button>
               </li>
               <li>
@@ -112,7 +123,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Engagement Model
             </span>
             <p className="text-xs text-[#A8A29E] leading-relaxed">
-              Every project is conducted as a single, productized book-creation engagement with a fixed deliverable. Delivered as a complete intellectual asset you can adapt, rebrand, and build around.
+              Every project is executed as a structured, end-to-end digital architecture engagement. Delivered with 100% code ownership, sub-second Core Web Vitals, and semantic search foundations built to compound organically.
             </p>
             <div className="pt-2">
               <a
@@ -130,10 +141,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="flex items-center gap-3">
             <span>© {new Date().getFullYear()} Redwood House. All rights reserved.</span>
             <span aria-hidden="true">·</span>
-            <span>Private Editorial Studio</span>
+            <span>Website Development, Online Presence & SEO Studio</span>
           </div>
           <div className="text-right">
-            <span>Chandigarh, India · Dedicated Private Inquiries</span>
+            <span>Chandigarh, India · Global Client Engagements</span>
           </div>
         </div>
       </div>

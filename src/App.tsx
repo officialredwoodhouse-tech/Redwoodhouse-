@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Hero } from './components/Hero';
@@ -11,6 +12,7 @@ import { ProblemSection } from './components/ProblemSection';
 import { IdealClientSection } from './components/IdealClientSection';
 import { TantrumPlaybookSection } from './components/TantrumPlaybookSection';
 import { ServicesSection } from './components/ServicesSection';
+import { TransactionSection } from './components/TransactionSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { SelectedWorkSection } from './components/SelectedWorkSection';
 import { ValuePropositionSection } from './components/ValuePropositionSection';
@@ -21,15 +23,20 @@ import { TantrumPlaybookPage } from './pages/TantrumPlaybookPage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
 import { AboutPage } from './pages/AboutPage';
 import { WorkPage } from './pages/WorkPage';
+import { TransactionPage } from './pages/TransactionPage';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'tantrum-playbook' | 'how-it-works' | 'about' | 'work'>('home');
+  const [currentView, setCurrentView] = useState<
+    'home' | 'seo-blueprint' | 'transactions' | 'how-it-works' | 'about' | 'work'
+  >('home');
 
   // Sync hash routing for direct linkability
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').replace('/', '');
-      if (['tantrum-playbook', 'how-it-works', 'about', 'work'].includes(hash)) {
+      if (hash === 'tantrum-playbook' || hash === 'seo-blueprint') {
+        setCurrentView('seo-blueprint');
+      } else if (['transactions', 'how-it-works', 'about', 'work'].includes(hash)) {
         setCurrentView(hash as any);
       } else {
         setCurrentView('home');
@@ -57,52 +64,69 @@ export default function App() {
       {/* Top Bar Contract compliant Navigation */}
       <Header currentView={currentView} onNavigate={navigateTo} />
 
-      {/* Main Content Area */}
+      {/* Main Content Area with Editorial Motion Transitions */}
       <main className="flex-grow">
-        {currentView === 'home' && (
-          <>
-            <Hero
-              onExploreWork={() => navigateTo('work')}
-              onExplorePlaybook={() => {
-                const el = document.getElementById('tantrum-playbook');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  navigateTo('tantrum-playbook');
-                }
-              }}
-            />
-            <ProblemSection />
-            <IdealClientSection />
-            <TantrumPlaybookSection onViewDedicatedPage={() => navigateTo('tantrum-playbook')} />
-            <ServicesSection />
-            <HowItWorksSection onLearnMore={() => navigateTo('how-it-works')} />
-            <SelectedWorkSection />
-            <ValuePropositionSection />
-            <WhyRedwoodHouseSection />
-            <FAQSection />
-            <FinalCTA />
-          </>
-        )}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentView}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {currentView === 'home' && (
+              <>
+                <Hero
+                  onExploreWork={() => navigateTo('work')}
+                  onExplorePlaybook={() => {
+                    const el = document.getElementById('seo-blueprint');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      navigateTo('seo-blueprint');
+                    }
+                  }}
+                />
+                <ProblemSection />
+                <IdealClientSection />
+                <TantrumPlaybookSection onViewDedicatedPage={() => navigateTo('seo-blueprint')} />
+                <ServicesSection />
+                <TransactionSection
+                  onOpenFullTransactionPage={() => navigateTo('transactions')}
+                />
+                <HowItWorksSection onLearnMore={() => navigateTo('how-it-works')} />
+                <SelectedWorkSection />
+                <ValuePropositionSection />
+                <WhyRedwoodHouseSection />
+                <FAQSection />
+                <FinalCTA />
+              </>
+            )}
 
-        {currentView === 'tantrum-playbook' && (
-          <TantrumPlaybookPage onBack={() => navigateTo('home')} />
-        )}
+            {currentView === 'seo-blueprint' && (
+              <TantrumPlaybookPage onBack={() => navigateTo('home')} />
+            )}
 
-        {currentView === 'how-it-works' && (
-          <HowItWorksPage onBack={() => navigateTo('home')} />
-        )}
+            {currentView === 'transactions' && (
+              <TransactionPage onBack={() => navigateTo('home')} />
+            )}
 
-        {currentView === 'about' && (
-          <AboutPage onBack={() => navigateTo('home')} />
-        )}
+            {currentView === 'how-it-works' && (
+              <HowItWorksPage onBack={() => navigateTo('home')} />
+            )}
 
-        {currentView === 'work' && (
-          <WorkPage
-            onBack={() => navigateTo('home')}
-            onNavigatePlaybook={() => navigateTo('tantrum-playbook')}
-          />
-        )}
+            {currentView === 'about' && (
+              <AboutPage onBack={() => navigateTo('home')} />
+            )}
+
+            {currentView === 'work' && (
+              <WorkPage
+                onBack={() => navigateTo('home')}
+                onNavigatePlaybook={() => navigateTo('seo-blueprint')}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Minimal Footer */}

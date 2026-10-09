@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BRAND, ASSETS } from '../constants/assets';
-import { ArrowLeft, ArrowUpRight, BookOpen, LayoutGrid, FileText } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, BookOpen, LayoutGrid, CheckSquare, Square } from 'lucide-react';
 
 interface TantrumPlaybookPageProps {
   onBack: () => void;
@@ -8,113 +8,162 @@ interface TantrumPlaybookPageProps {
 
 export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack }) => {
   const [tocLayout, setTocLayout] = useState<'typeset' | 'grid'>('typeset');
-  const emotionalStates = [
+  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({
+    cwv: false,
+    schema: false,
+    silos: false,
+    copy: true,
+    local: false,
+    cro: false,
+  });
+
+  const auditCriteria = [
     {
-      state: 'Happy',
-      tagline: 'Light & Easy',
-      description: 'How to harness high-energy joy and gently transition before the crash.',
-      phrases: ['"I see how fast your body wants to go right now. Let\'s bring your feet to the earth."'],
+      id: 'cwv',
+      label: 'Sub-1.5s Load Speed & 95+ Core Web Vitals on Mobile',
+      impact: 'High Technical SEO & Bounce Rate Impact',
     },
     {
-      state: 'Overwhelmed',
-      tagline: 'Big Feelings',
-      description: 'Immediate sensory grounding when sound, crowd, or sudden frustration triggers meltdown.',
-      phrases: ['"You are safe. I will keep your body safe while you feel this."'],
+      id: 'schema',
+      label: 'Custom Schema.org JSON-LD Graph (Organization, Service, FAQ)',
+      impact: 'Rich Snippets & AI Search Entity Recognition',
     },
     {
-      state: 'Anxious',
-      tagline: 'Worried & Uncertain',
-      description: 'Disarming separation dread, transitional fears, and unpredictability panic.',
-      phrases: ['"You don\'t have to know what happens next. My hand is right here."'],
+      id: 'silos',
+      label: 'Dedicated Landing Pages for Every Core Service & Buyer Intent',
+      impact: 'Non-Branded Organic Keyword Capture',
     },
     {
-      state: 'Tired',
-      tagline: 'Drained & Overstimulated',
-      description: 'Navigating the end-of-day collapse without bargaining, threats, or counter-screaming.',
-      phrases: ['"Your body is working so hard today. We can let the heavy day rest now."'],
+      id: 'copy',
+      label: 'Clear, Zero-Jargon Positioning Above the Fold',
+      impact: 'Immediate Visitor Conviction & Time-on-Site',
     },
     {
-      state: 'Sad',
-      tagline: 'Down & Blue',
-      description: 'Holding space for grief, rejection, and quiet tears without rushing to cheer them up.',
-      phrases: ['"It hurts when things don\'t go the way you hoped. You can cry as long as you need."'],
+      id: 'local',
+      label: 'Synchronized Google Business Profile, Citations & OpenGraph Cards',
+      impact: 'Cohesive Multi-Channel Online Presence',
     },
     {
-      state: 'Sensitive',
-      tagline: 'Needing Extra Love & Patience',
-      description: 'Techniques for highly receptive children who absorb parental anxiety and environmental friction.',
-      phrases: ['"I\'m listening with quiet ears. Take all the time you need."'],
+      id: 'cro',
+      label: 'Frictionless Inquiry / Booking Architecture with Search Attribution',
+      impact: 'Direct Visitor-to-Pipeline Conversion',
+    },
+  ];
+
+  const toggleCriterion = (id: string) => {
+    setCheckedItems((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const checkedCount = Object.values(checkedItems).filter(Boolean).length;
+  const readinessScore = Math.round((checkedCount / auditCriteria.length) * 100);
+
+  const corePillars = [
+    {
+      state: 'Technical Foundation',
+      tagline: 'Core Web Vitals & Clean DOM',
+      description: 'Eliminating render-blocking bloat, cumulative layout shift, and sluggish server responses so search crawlers and users experience instant speed.',
+      spec: 'Target: LCP < 1.2s · CLS < 0.02 · Semantic HTML5 Hierarchy',
+    },
+    {
+      state: 'Search Architecture',
+      tagline: 'Topic Clusters & URL Taxonomy',
+      description: 'Structuring your website around real commercial search intent rather than internal company jargon, capturing buyers actively looking for your solution.',
+      spec: 'Target: Hub-and-Spoke Silos · Internal Link Equity Sculpting',
+    },
+    {
+      state: 'Entity & Schema Graph',
+      tagline: 'Structured Data & AI Visibility',
+      description: 'Feeding Google and AI answer engines explicit machine-readable facts about your brand, services, credentials, locations, and FAQs.',
+      spec: 'Target: Validated JSON-LD Graph · Rich Result Eligibility',
+    },
+    {
+      state: 'Editorial Authority',
+      tagline: 'High-Conviction Domain Copy',
+      description: 'Writing crisp, authoritative pages that prove deep subject-matter competence without sounding like generic keyword-stuffed agency filler.',
+      spec: 'Target: E-E-A-T Signal Alignment · Clear Value Proposition',
+    },
+    {
+      state: 'Visual & Brand Presence',
+      tagline: 'Architectural UI System',
+      description: 'Crafting a distinctive typographic and visual identity that elevates perceived enterprise value across desktop, tablet, and mobile viewports.',
+      spec: 'Target: Bespoke Design Tokens · Zero Template Footprint',
+    },
+    {
+      state: 'Conversion Engine',
+      tagline: 'Intent-to-Inquiry Pathways',
+      description: 'Turning organic visitors into qualified leads through strategic proof placement, interactive tools, and low-friction contact flows.',
+      spec: 'Target: Clear Call-to-Action Hierarchy · Event Telemetry',
     },
   ];
 
   const tocData = {
     introduction: {
       title: 'Introduction',
-      subtitle: 'Understanding Your Toddler\'s Big Emotions',
+      subtitle: 'Why Most Websites Fail to Rank or Convert—and How Structural Engineering Fixes Both',
     },
     chapters: [
       {
-        number: 'Chapter 1',
-        title: 'What a Tantrum Really Is',
-        subtitle: 'Understanding what\'s behind the crying, screaming, and frustration',
+        number: 'Stage 1',
+        title: 'Technical Audit & Search Baseline',
+        subtitle: 'Uncovering crawl bottlenecks, speed penalties, and competitor keyword gaps',
       },
       {
-        number: 'Chapter 2',
-        title: 'The Science Behind a Meltdown',
-        subtitle: 'What happens inside your toddler\'s developing brain',
+        number: 'Stage 2',
+        title: 'Category Positioning & Messaging Spine',
+        subtitle: 'Defining your unmistakable value proposition for human buyers and search engines',
       },
       {
-        number: 'Chapter 3',
-        title: 'How Tantrums Change With Age',
-        subtitle: 'What to expect from ages one through four and beyond',
+        number: 'Stage 3',
+        title: 'Sitemap Taxonomy & Search Silo Architecture',
+        subtitle: 'Mapping high-intent commercial keywords to dedicated pillar and cluster pages',
       },
       {
-        number: 'Chapter 4',
-        title: 'What to Do During a Tantrum',
-        subtitle: 'A calm, practical approach for handling meltdowns',
+        number: 'Stage 4',
+        title: 'Bespoke UI Design & Typographic System',
+        subtitle: 'Creating an editorial-grade visual identity that commands immediate trust',
       },
       {
-        number: 'Chapter 5',
-        title: 'Common Mistakes That Make Tantrums Worse',
-        subtitle: 'What to avoid and what to do instead',
+        number: 'Stage 5',
+        title: 'Clean Full-Stack Web Engineering',
+        subtitle: 'Building sub-second responsive pages in React/Next.js with 99+ Core Web Vitals',
       },
       {
-        number: 'Chapter 6',
-        title: 'After the Tantrum: Where the Teaching Happens',
-        subtitle: 'Turning difficult moments into opportunities for learning',
+        number: 'Stage 6',
+        title: 'On-Page Semantic SEO & Editorial Copywriting',
+        subtitle: 'Structuring H1–H3 hierarchies, internal anchor links, and authoritative domain prose',
       },
       {
-        number: 'Chapter 7',
-        title: 'Preventing Tantrums Before They Start',
-        subtitle: 'Routines, choices, transitions, and everyday prevention',
+        number: 'Stage 7',
+        title: 'Schema.org JSON-LD & Knowledge Graph Signals',
+        subtitle: 'Engineering machine-readable structured data for Google and AI answer engines',
       },
       {
-        number: 'Chapter 8',
-        title: 'When to Talk to Your Pediatrician',
-        subtitle: 'Recognizing when additional guidance may be helpful',
+        number: 'Stage 8',
+        title: 'Local & Global Presence Synchronization',
+        subtitle: 'Aligning Google Business Profile, OpenGraph social cards, and regional search signals',
       },
       {
-        number: 'Chapter 9',
-        title: 'Putting It All Together',
-        subtitle: 'Real-life situations and practical responses',
+        number: 'Stage 9',
+        title: 'Conversion Rate Optimization & Lead Flows',
+        subtitle: 'Designing high-intent inquiry touchpoints, interactive calculators, and proof blocks',
       },
       {
-        number: 'Chapter 10',
-        title: 'The Big Picture',
-        subtitle: 'Building emotional skills that last beyond toddlerhood',
+        number: 'Stage 10',
+        title: 'Compounding Search Authority & Handover',
+        subtitle: 'Search Console indexing, analytics telemetry, and 100% client code ownership',
       },
     ],
     sections: [
       {
-        title: 'Parent Worksheets',
-        subtitle: '10 practical worksheets for triggers, routines, boundaries, emotions, and calmer responses',
+        title: 'Technical SEO & Launch Checklists',
+        subtitle: '10 pre-flight engineering audits for redirects, canonicals, sitemaps, robots.txt, and CWV',
       },
       {
-        title: 'Quick-Reference Tantrum Guide',
-        subtitle: 'A simple guide for those difficult moments',
+        title: 'Quick-Reference Online Presence Guide',
+        subtitle: 'A practical operating manual for maintaining search authority after launch',
       },
     ],
-    backMatter: ['Index', 'Thank You', 'About'],
+    backMatter: ['Technical Specifications', 'Analytics & Telemetry', 'About Redwood House'],
   };
 
   return (
@@ -130,117 +179,141 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
             <span>Return to Studio Overview</span>
           </button>
           <div className="text-xs font-mono text-[#78716C] hidden sm:block">
-            Published Asset · Redwood House
+            Proprietary Methodology · Redwood House
           </div>
         </div>
       </div>
 
-      {/* Main Header / Book Showcase */}
+      {/* Main Header / Blueprint Showcase */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-20 border-b border-[#E8E4DC]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Cover Display */}
+          {/* Visual Display */}
           <div className="lg:col-span-5">
             <div className="relative rounded-lg overflow-hidden border border-[#D5CFC5] shadow-xl bg-white sticky top-36">
               <img
-                src={ASSETS.tantrumPlaybookCover}
-                alt="The Tantrum Playbook cover published by Redwood House"
+                src={ASSETS.seoArchitectureShowcase}
+                alt="Redwood House Website Development, Online Presence & SEO Blueprint"
                 className="w-full h-auto object-cover"
                 referrerPolicy="no-referrer"
               />
               <div className="p-4 bg-white border-t border-[#E8E4DC] text-center text-xs text-[#78716C]">
-                Official Redwood House Production · Printed & Digital Editions
+                Redwood House Engineering Standard · Web + Presence + SEO
               </div>
             </div>
           </div>
 
-          {/* Book Details */}
+          {/* System Details */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#78716C]">
-                <span>Child Development</span>
+                <span>Web Engineering</span>
                 <span aria-hidden="true">·</span>
-                <span>Parenting Manual</span>
+                <span>Online Presence</span>
                 <span aria-hidden="true">·</span>
-                <span>Field Script System</span>
+                <span>Technical SEO System</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#1C1A18] tracking-tight leading-[1.08]">
-                The Tantrum Playbook
+                The Online Presence & SEO Playbook
               </h1>
               <p className="text-xl sm:text-2xl font-serif italic text-[#3D1D18] leading-snug">
-                What to Say, What to Do, and How to Stay Calm Through Your Toddler's Biggest Emotions
+                How We Engineer High-Converting Websites, Semantic Search Architecture, and Category-Leading Digital Authority
               </p>
             </div>
 
             {/* Core Premise */}
             <div className="space-y-4 text-base text-[#4A4641] leading-relaxed">
               <p>
-                Every parent knows the paralyzing vertigo of a public meltdown: the high-pitched screaming, the clenched fists, the sudden thrashing on the floor, and the judgmental glances of strangers.
+                Every day, prospective clients, enterprise buyers, and investors search for your category—or look up your company by name after a referral. What they find in the first five seconds dictates whether they trust you or move to a competitor.
               </p>
               <p>
-                In that critical moment, parents do not have the cognitive bandwidth to recall abstract behavioral psychology. They need concrete, muscle-memory scripts and physical cues that defuse dysregulation without resorting to bribes, threats, or punitive timeouts.
+                Traditional web agencies focus only on surface visuals while ignoring search architecture. Traditional SEO vendors peddle automated backlink schemes without fixing slow, confusing websites.
               </p>
               <p>
-                Redwood House produced <strong className="text-[#1C1A18]">The Tantrum Playbook</strong> to bridge clinical childhood emotion research and the messy realities of daily family life.
+                Redwood House created our <strong className="text-[#1C1A18]">10-Stage Presence & SEO System</strong> to unify custom full-stack web development, editorial brand authority, and technical search optimization into a single deliverable.
               </p>
             </div>
 
-            {/* Prominent Reader Quote */}
-            <div className="p-6 bg-white border-l-3 border-[#3D1D18] rounded-r-md shadow-xs space-y-2">
-              <p className="text-lg font-serif italic text-[#1C1A18]">
-                "You will read this book when your child is asleep."
-              </p>
-              <p className="text-sm font-sans text-[#58544E]">
-                After the tantrum comes calm. After the storm comes connection.
-              </p>
-            </div>
+            {/* Interactive Self-Diagnostic Tool */}
+            <div className="p-6 sm:p-8 bg-white border border-[#E8E4DC] rounded-lg shadow-xs space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#F4F0E8]">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#3D1D18] font-semibold block">
+                    Interactive Diagnostic
+                  </span>
+                  <h3 className="text-lg font-serif text-[#1C1A18]">
+                    Audit Your Current Website & SEO Readiness
+                  </h3>
+                </div>
+                <div className="text-left sm:text-right">
+                  <span className="text-xs font-mono text-[#78716C] block">Current Score</span>
+                  <span className="text-2xl font-mono font-bold text-[#3D1D18]">{readinessScore}%</span>
+                </div>
+              </div>
 
-            {/* Email Request CTA Box */}
-            <div className="p-8 bg-[#FAF8F3] rounded-lg border border-[#E8E4DC] space-y-4">
-              <div className="space-y-1">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                  Direct Inquiries & Asset Access
+              <div className="space-y-2.5">
+                {auditCriteria.map((item) => {
+                  const isChecked = !!checkedItems[item.id];
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => toggleCriterion(item.id)}
+                      className={`w-full text-left p-3.5 rounded-md border transition-all flex items-start gap-3 cursor-pointer ${
+                        isChecked
+                          ? 'bg-[#FAF8F3] border-[#3D1D18]/40 text-[#1C1A18]'
+                          : 'bg-white border-[#E8E4DC] text-[#58544E] hover:border-[#D5CFC5]'
+                      }`}
+                    >
+                      {isChecked ? (
+                        <CheckSquare className="w-4 h-4 text-[#3D1D18] shrink-0 mt-0.5" />
+                      ) : (
+                        <Square className="w-4 h-4 text-[#A8A29E] shrink-0 mt-0.5" />
+                      )}
+                      <div className="space-y-0.5">
+                        <div className="text-xs sm:text-sm font-medium text-[#1C1A18]">{item.label}</div>
+                        <div className="text-[11px] font-mono text-[#78716C]">{item.impact}</div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[#58544E]">
+                <span>
+                  {readinessScore < 60
+                    ? 'Your digital footprint has significant search & conversion upside.'
+                    : readinessScore < 100
+                    ? 'Solid foundation—targeted technical SEO & UI upgrades will compound growth.'
+                    : 'Flagship standard achieved.'}
                 </span>
-                <h3 className="text-xl font-serif text-[#1C1A18]">
-                  Request The Tantrum Playbook
-                </h3>
-                <p className="text-xs sm:text-sm text-[#58544E]">
-                  To request reading copies, licensing information, or editorial rights, send an email directly to our Chandigarh desk with the subject <em>'The Tantrum Playbook'</em>.
-                </p>
-              </div>
-
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <a
-                  href={BRAND.mailtoPlaybook}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-xs font-semibold rounded-md transition-colors"
+                  href={`${BRAND.mailtoAudit}&body=Hello%20Redwood%20House,%0D%0A%0D%0AI%20completed%20the%20Website%20%26%20SEO%20Readiness%20Diagnostic%20(Score:%20${readinessScore}%25)%20and%20would%20like%20to%20request%20a%20technical%20audit...`}
+                  className="inline-flex items-center gap-1.5 font-semibold text-[#1C1A18] hover:text-[#3D1D18] underline underline-offset-4 shrink-0"
                 >
-                  <span>Request The Tantrum Playbook via Email</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#D6D3D1]" />
+                  <span>Send Score for a Custom Audit</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
-              </div>
-              <div className="text-[11px] font-mono text-[#78716C]">
-                Official Address: {BRAND.email}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* The 6 Emotional States In-Depth */}
+      {/* The 6 Architectural Pillars In-Depth */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-b border-[#E8E4DC]">
         <div className="max-w-3xl space-y-4 mb-14">
           <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-            Behavioral Archetypes
+            System Components
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif text-[#1C1A18]">
-            The Six Emotional Weather States
+            The Six Core Pillars of Online Presence & SEO
           </h2>
           <p className="text-base text-[#58544E]">
-            Rather than treating all tantrums as uniform defiance, the playbook categorizes dysregulation by neurological root state:
+            Every Redwood House website is engineered across six interdependent layers so aesthetics, speed, and search rankings reinforce one another:
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {emotionalStates.map((item) => (
+          {corePillars.map((item) => (
             <div
               key={item.state}
               className="bg-white p-7 rounded-lg border border-[#E8E4DC] shadow-xs flex flex-col justify-between"
@@ -260,10 +333,10 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
               </div>
               <div className="pt-3 border-t border-[#F4F0E8] bg-[#FAF8F3] -mx-7 -mb-7 p-5 rounded-b-lg">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-[#78716C] block mb-1">
-                  Sample Field Script
+                  Engineering Specification
                 </span>
-                <p className="text-xs font-serif italic text-[#3D1D18]">
-                  {item.phrases[0]}
+                <p className="text-xs font-mono text-[#3D1D18]">
+                  {item.spec}
                 </p>
               </div>
             </div>
@@ -271,18 +344,18 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
         </div>
       </div>
 
-      {/* Table of Contents Section */}
+      {/* Complete 10-Stage Blueprint / Table of Contents Section */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-b border-[#E8E4DC] bg-[#FAF8F3]/60">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div className="max-w-3xl space-y-3">
             <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-              Book Architecture
+              Master Specification
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif text-[#1C1A18]">
-              Table of Contents
+              10-Stage Website & SEO Architecture Index
             </h2>
             <p className="text-sm sm:text-base text-[#58544E]">
-              The complete chapter progression and reference sections of <em>The Tantrum Playbook</em>, exactly as typeset in the master edition:
+              The complete execution sequence we follow to take your brand from audit to page-one search authority:
             </p>
           </div>
 
@@ -297,7 +370,7 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
-              <span>Typeset Edition Page</span>
+              <span>Blueprint Sheet</span>
             </button>
             <button
               onClick={() => setTocLayout('grid')}
@@ -308,44 +381,22 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
               }`}
             >
               <LayoutGrid className="w-3.5 h-3.5" />
-              <span>Chapter Grid</span>
+              <span>Stage Grid</span>
             </button>
           </div>
         </div>
 
-        {/* View A: Exact Typeset Edition Page (Matches Canva Layout) */}
+        {/* View A: Typeset Blueprint Sheet */}
         {tocLayout === 'typeset' && (
           <div className="max-w-3xl mx-auto">
             <div className="relative bg-[#FAF7F0] border border-[#D5CFC5] rounded-xl p-8 sm:p-14 lg:p-16 shadow-lg overflow-hidden text-center">
-              {/* Background Antique Etching Watermark Motif */}
-              <div
-                className="absolute inset-0 pointer-events-none opacity-[0.08] mix-blend-multiply flex items-center justify-center"
-                aria-hidden="true"
-              >
-                <svg
-                  viewBox="0 0 600 700"
-                  className="w-full h-full max-w-[500px]"
-                  fill="currentColor"
-                >
-                  <g fill="#4A201A">
-                    <circle cx="300" cy="240" r="90" opacity="0.4" />
-                    <circle cx="350" cy="220" r="60" opacity="0.4" />
-                    <path
-                      d="M240,320 C240,420 220,520 230,620 C280,640 370,640 420,620 C420,500 410,410 390,320 Z"
-                      opacity="0.3"
-                    />
-                    <path
-                      d="M260,280 C290,320 340,320 380,280 C360,380 340,450 300,500 C270,450 250,370 260,280 Z"
-                      opacity="0.35"
-                    />
-                  </g>
-                </svg>
-              </div>
-
               {/* Title Header */}
               <div className="relative z-10 space-y-1 mb-10 pb-6 border-b border-[#E3DCCF]">
-                <h3 className="text-3xl sm:text-4xl md:text-[2.6rem] font-sans font-black tracking-[0.14em] text-[#1C1A18] uppercase">
-                  TABLE OF CONTENTS
+                <span className="text-xs font-mono uppercase tracking-widest text-[#78716C] block">
+                  Redwood House · Master Architecture
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-sans font-black tracking-[0.14em] text-[#1C1A18] uppercase">
+                  SYSTEM BLUEPRINT INDEX
                 </h3>
               </div>
 
@@ -361,7 +412,7 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
                   </div>
                 </div>
 
-                {/* Chapters 1 to 10 */}
+                {/* Stages 1 to 10 */}
                 {tocData.chapters.map((ch) => (
                   <div key={ch.number} className="space-y-1 pt-1">
                     <div className="font-serif font-bold text-base sm:text-lg text-[#1C1A18] tracking-tight">
@@ -373,7 +424,7 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
                   </div>
                 ))}
 
-                {/* Parent Worksheets & Guide */}
+                {/* Checklists & Operating Manual */}
                 <div className="pt-3 border-t border-[#E3DCCF]/60 space-y-6">
                   {tocData.sections.map((sec) => (
                     <div key={sec.title} className="space-y-1">
@@ -387,7 +438,7 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
                   ))}
                 </div>
 
-                {/* Back Matter: Index / Thank You / About */}
+                {/* Back Matter */}
                 <div className="pt-4 space-y-1.5 font-serif font-bold text-sm sm:text-base text-[#1C1A18]">
                   {tocData.backMatter.map((item) => (
                     <div key={item}>{item}</div>
@@ -396,20 +447,19 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
 
                 {/* Copyright Line */}
                 <div className="pt-8 text-right text-[11px] font-mono text-[#78716C]">
-                  Copyright © 2026 []
+                  Copyright © 2026 Redwood House
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* View B: Modern Structured Interactive Chapter Cards */}
+        {/* View B: Interactive Stage Cards */}
         {tocLayout === 'grid' && (
           <div className="space-y-8">
-            {/* Introduction Card */}
             <div className="bg-white p-6 sm:p-7 rounded-lg border border-[#E8E4DC] shadow-xs flex items-start gap-4">
               <span className="text-xs font-mono font-bold text-[#3D1D18] uppercase tracking-wider px-2 py-1 bg-[#F4F0E8] rounded-sm shrink-0">
-                Opening
+                Thesis
               </span>
               <div>
                 <h4 className="text-lg font-serif font-bold text-[#1C1A18]">
@@ -421,7 +471,6 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
               </div>
             </div>
 
-            {/* 10 Chapters Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {tocData.chapters.map((ch) => (
                 <div
@@ -442,83 +491,42 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
                 </div>
               ))}
             </div>
-
-            {/* Worksheets & Supplementary Sections */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {tocData.sections.map((sec) => (
-                <div
-                  key={sec.title}
-                  className="bg-[#F8F5EE] p-6 rounded-lg border border-[#E3DCCF] shadow-xs"
-                >
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#78716C] block mb-1">
-                    Supplementary Toolkit
-                  </span>
-                  <h4 className="text-base sm:text-lg font-serif font-bold text-[#1C1A18]">
-                    {sec.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#58544E] mt-1 leading-relaxed">
-                    {sec.subtitle}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* End Matter Badges */}
-            <div className="bg-white p-5 rounded-lg border border-[#E8E4DC] flex flex-wrap items-center justify-between gap-4 text-xs">
-              <div className="flex items-center gap-3">
-                <span className="font-mono uppercase text-[#78716C]">End Matter:</span>
-                <span className="font-serif font-medium text-[#1C1A18]">Index</span>
-                <span className="text-[#A8A29E]">·</span>
-                <span className="font-serif font-medium text-[#1C1A18]">Thank You</span>
-                <span className="text-[#A8A29E]">·</span>
-                <span className="font-serif font-medium text-[#1C1A18]">About the Author & Redwood House</span>
-              </div>
-              <div className="font-mono text-[#78716C]">
-                Copyright © 2026 []
-              </div>
-            </div>
           </div>
         )}
       </div>
 
-      {/* Intended Reader Profile */}
+      {/* Bottom CTA */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
         <div className="bg-white rounded-lg border border-[#E8E4DC] p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-                Intended Reader
+                Direct Technical Consultation
               </span>
               <h3 className="text-2xl sm:text-3xl font-serif text-[#1C1A18]">
-                Who this book was built for.
+                Ready to turn your website into a compounding search asset?
               </h3>
               <p className="text-sm sm:text-base text-[#58544E] leading-relaxed">
-                Parents of children ages 18 months to 6 years, foster caregivers, Montessori educators, pediatric clinicians, and grandparents seeking consistent, non-punitive regulation tools.
+                Whether you need a ground-up flagship website, a complete online presence overhaul, or a technical SEO architecture that ranks on page one, our Chandigarh studio is ready to collaborate.
               </p>
-              <div className="pt-2 flex flex-wrap gap-2 text-xs text-[#1C1A18]">
-                <span className="bg-[#FAF8F3] px-3 py-1.5 border border-[#E8E4DC] rounded-sm">Toddler Parents</span>
-                <span className="bg-[#FAF8F3] px-3 py-1.5 border border-[#E8E4DC] rounded-sm">Early Childhood Educators</span>
-                <span className="bg-[#FAF8F3] px-3 py-1.5 border border-[#E8E4DC] rounded-sm">Pediatric Specialists</span>
-                <span className="bg-[#FAF8F3] px-3 py-1.5 border border-[#E8E4DC] rounded-sm">Family Counselors</span>
-              </div>
             </div>
 
             <div className="lg:col-span-5 text-left lg:text-right space-y-3">
               <span className="text-xs font-mono uppercase text-[#78716C] block">
-                Publisher
+                Studio Desk
               </span>
               <div className="font-serif text-xl text-[#1C1A18]">
                 Redwood House
               </div>
               <div className="text-xs text-[#78716C]">
-                Chandigarh, India · Private Editorial Studio
+                Chandigarh, India · Website Development, Online Presence & SEO
               </div>
               <div className="pt-2">
                 <a
-                  href={BRAND.mailtoPlaybook}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-xs font-semibold rounded-md transition-colors"
+                  href={BRAND.mailtoAudit}
+                  className="inline-flex items-center gap-1.5 px-5 py-3 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-xs font-semibold rounded-md transition-colors"
                 >
-                  <span>Request The Tantrum Playbook</span>
+                  <span>Request Your Web & SEO Blueprint</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>

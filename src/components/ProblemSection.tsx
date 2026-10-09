@@ -2,12 +2,12 @@ import React from 'react';
 
 export const ProblemSection: React.FC = () => {
   const steps = [
-    { num: '01', title: 'Core Thesis', role: 'You provide', desc: 'Your proprietary principles, hard-won insights, and operational war stories.' },
-    { num: '02', title: 'Positioning & Audience', role: 'We shape', desc: 'Determining exact reader intent, category definition, and commercial spine.' },
-    { num: '03', title: 'Knowledge Extraction', role: 'We conduct', desc: 'Structured interviews, voice note synthesis, and framework unpacking.' },
-    { num: '04', title: 'Manuscript Architecture', role: 'We draft', desc: 'Chapter-by-chapter developmental writing, pacing, and narrative rhythm.' },
-    { num: '05', title: 'Editorial Polish', role: 'We refine', desc: 'Line editing, structural tightening, and voice calibration.' },
-    { num: '06', title: 'Finished Book Asset', role: 'Delivered', desc: 'A publication-ready asset built to become your intellectual property.' },
+    { num: '01', title: 'Domain Expertise & Offer', role: 'You provide', desc: 'Your core business value, market reputation, service insights, and customer proof.' },
+    { num: '02', title: 'Positioning & Messaging Spine', role: 'We architect', desc: 'Clarifying your category narrative, value proposition, and buyer conversion journey.' },
+    { num: '03', title: 'Digital Identity & UI System', role: 'We design', desc: 'High-taste editorial typography, responsive layouts, and custom visual systems.' },
+    { num: '04', title: 'Full-Stack Web Development', role: 'We engineer', desc: 'Clean, sub-second React/Next.js or custom web architecture with zero template bloat.' },
+    { num: '05', title: 'Technical & Semantic SEO', role: 'We optimize', desc: 'Schema.org graphs, programmatic site structure, keyword intent mapping, and Core Web Vitals.' },
+    { num: '06', title: 'Commanding Online Presence', role: 'Delivered', desc: 'A complete digital flagship and search engine asset that compounds inbound authority.' },
   ];
 
   return (
@@ -16,16 +16,16 @@ export const ProblemSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
           <span className="text-xs uppercase tracking-widest text-[#78716C] font-mono">
-            The Structural Gap
+            The Digital Credibility Gap
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            You already have the hard part.
+            You already have a great business. Your online presence should prove it.
           </h2>
           <p className="text-base sm:text-lg text-[#58544E] leading-relaxed">
-            You've spent years learning the subject, developing the framework, making mistakes, discovering what works, and building opinions worth sharing.
+            Most accomplished companies, founders, and specialists outgrow their digital footprint years before they fix it. They rely on word-of-mouth while living with an outdated website that loads slowly, ranks poorly on Google, and fails to articulate their true caliber.
           </p>
           <p className="text-base sm:text-lg text-[#1C1A18] font-medium leading-relaxed">
-            The problem isn't knowledge. It's everything required to turn that knowledge into a coherent, finished book.
+            The problem isn't the quality of your work. It's everything required to translate that authority into a high-performing website, cohesive online presence, and search engine dominance.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export const ProblemSection: React.FC = () => {
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-[#F4F0E8] flex items-center text-xs text-[#78716C]">
-                <span>Phase {idx + 1} of 6</span>
+                <span>Architecture Layer {idx + 1} of 6</span>
               </div>
             </div>
           ))}
@@ -63,18 +63,18 @@ export const ProblemSection: React.FC = () => {
         <div className="mt-12 bg-white rounded-lg border border-[#E8E4DC] p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <h4 className="text-xl font-serif text-[#1C1A18]">
-              One engagement. Zero management fatigue.
+              Web Engineering + Online Presence + SEO under one roof.
             </h4>
             <p className="text-sm text-[#58544E] leading-relaxed">
-              We compress 250+ hours of outlining, drafting, editing, and typographic design into a streamlined editorial partnership. You stay the subject-matter authority; we do the heavy lifting.
+              Instead of hiring a disconnected web designer, a separate freelance developer, and a generic SEO agency that bolts keywords onto broken code, Redwood House builds your entire digital ecosystem as one unified architecture.
             </p>
           </div>
           <div className="shrink-0">
             <div className="text-xs uppercase tracking-wider font-mono text-[#78716C] mb-1">
-              Client Time Investment
+              Performance Benchmark
             </div>
             <div className="text-2xl font-serif text-[#3D1D18]">
-              ~10–12 Hours Total
+              99+ Core Web Vitals
             </div>
           </div>
         </div>

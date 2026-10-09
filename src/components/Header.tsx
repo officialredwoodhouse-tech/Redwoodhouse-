@@ -13,7 +13,8 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
 
   const navItems = [
     { label: 'Work', id: 'work' },
-    { label: 'The Tantrum Playbook', id: 'tantrum-playbook' },
+    { label: 'SEO & Presence System', id: 'seo-blueprint' },
+    { label: 'Packages & Transactions', id: 'transactions' },
     { label: 'How It Works', id: 'how-it-works' },
     { label: 'About', id: 'about' },
   ];

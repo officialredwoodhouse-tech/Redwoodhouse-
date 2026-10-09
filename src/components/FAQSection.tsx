@@ -7,36 +7,36 @@ export const FAQSection: React.FC = () => {
 
   const faqs = [
     {
-      q: 'Who is Redwood House for?',
-      a: 'We work with founders, operators, consultants, researchers, specialists, executives, and creators who possess valuable proprietary knowledge, but lack the bandwidth to spend 6–12 months drafting and polishing a full-length book from scratch.',
+      q: 'What does Redwood House do?',
+      a: 'Redwood House is a private website development, online presence creation, and technical SEO studio. We design and engineer bespoke, fast-loading websites, craft cohesive digital brand ecosystems, and build search engine optimization architectures that drive compounding organic traffic and client inquiries.',
     },
     {
-      q: 'What does the one-time engagement include?',
-      a: 'The engagement covers the complete book lifecycle: strategy and positioning, structured knowledge extraction sessions, full manuscript development, developmental editing, line editing, interior book typography specifications, and delivery of a publication-ready master asset.',
+      q: 'Why combine website development and SEO in one studio?',
+      a: 'When web design and SEO are separated, designers often build heavy, unindexable pages with poor heading hierarchies, forcing SEO agencies to patch broken foundations later. By engineering your website, copy architecture, Schema.org data, and Core Web Vitals together from day one, your site launches ready to rank and convert.',
     },
     {
-      q: 'How involved do I need to be as the client?',
-      a: 'Your active time commitment is concentrated in approximately 10 to 12 hours of structured, recorded conversation sessions spaced over the early weeks of the engagement. We handle the synthesis, drafting, structural architecture, and line polish. You review chapter milestones without needing to manage project admin.',
+      q: 'What technologies and platforms do you build with?',
+      a: 'We specialize in modern, high-performance web stacks including React, Next.js, TypeScript, Tailwind CSS, headless CMS architectures, and custom e-commerce or booking integrations. Every build is tailored for sub-second speed, security, and effortless content scaling.',
     },
     {
-      q: 'How do you capture my expertise and authentic voice?',
-      a: 'We use structured interview prompts that excavate not just high-level principles, but the specific stories, diagnostic frameworks, trade-offs, and metaphors you naturally use with clients or teams. We analyze your natural cadence so the finished prose reads unmistakably like you at your sharpest.',
+      q: 'Can you overhaul our existing website without losing our current search rankings?',
+      a: 'Yes. Every redesign or migration includes a comprehensive URL mapping protocol, 301 redirect matrix, canonical preservation, and backlink equity audit so you retain existing search authority while unlocking new keyword growth.',
     },
     {
-      q: 'Can I use, rebrand, or adapt the finished book?',
-      a: 'Yes. The final asset is delivered as your intellectual property to build around. You can adapt chapters into client onboarding materials, keynotes, employee operating manuals, or commercial editions under your name.',
+      q: 'What is included in your Online Presence Creation service?',
+      a: 'Beyond your core website, we align your entire digital footprint: brand positioning, editorial copywriting, Google Business Profile & Knowledge Graph signals, OpenGraph social sharing cards, landing page funnels, and authoritative domain presence so prospects see a unified, high-trust brand everywhere they look.',
     },
     {
-      q: 'Do you work under confidentiality and NDAs?',
-      a: 'Yes. Strict non-disclosure agreements are standard. As a private ghostwriting studio, we operate with complete discretion. We never disclose client identities or book titles without explicit prior consent.',
+      q: 'Do we own the code, domain, and SEO assets upon completion?',
+      a: '100%. Unlike agencies that lease websites or lock you into proprietary page builders, you receive complete ownership of your source code repository, design system, content, analytics, and search console properties.',
     },
     {
-      q: 'Where is Redwood House located?',
-      a: 'Redwood House is based in Chandigarh, India. We collaborate with clients globally via structured virtual sessions and asynchronous review workflows.',
+      q: 'Where is Redwood House based, and do you work with international clients?',
+      a: 'Redwood House is based in Chandigarh, India, and collaborates with founders, businesses, and specialist practices across North America, Europe, Asia-Pacific, and India through structured async milestones and live strategy sessions.',
     },
     {
-      q: 'How do I initiate a conversation about my book?',
-      a: 'Simply send an introductory email to Officialredwoodhouse@gmail.com outlining your subject matter, your target reader, and any existing materials you have. We will review your thesis and reply directly.',
+      q: 'How do we start a project or request an audit?',
+      a: 'Send an email to Officialredwoodhouse@gmail.com with your current website URL (if applicable), your business goals, and your target timeline. Our directors will review your current online footprint and reply with an initial architectural assessment.',
     },
   ];
 
@@ -49,10 +49,10 @@ export const FAQSection: React.FC = () => {
             Frequently Asked Questions
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            Clear answers on the engagement.
+            Clear answers on web builds, online presence, and SEO.
           </h2>
           <p className="text-base sm:text-lg text-[#58544E] max-w-xl mx-auto leading-relaxed">
-            Straightforward details on process, intellectual property, time commitment, and confidentiality.
+            Straightforward details on our engineering stack, search optimization methodology, code ownership, and collaboration workflow.
           </p>
         </div>
 
@@ -85,7 +85,7 @@ export const FAQSection: React.FC = () => {
 
         {/* Additional Question Callout */}
         <div className="mt-12 text-center text-sm text-[#78716C]">
-          <span>Have a specific subject or timeline requirement? </span>
+          <span>Have a specific technical requirement or SEO target? </span>
           <a
             href={BRAND.mailtoGeneral}
             className="text-[#1C1A18] font-medium underline underline-offset-4 hover:text-[#3D1D18]"
