@@ -84,17 +84,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <button
                   onClick={() => {
-                    onNavigate('transactions');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Packages & Studio Transactions
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
                     onNavigate('how-it-works');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}

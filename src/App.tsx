@@ -12,7 +12,6 @@ import { ProblemSection } from './components/ProblemSection';
 import { IdealClientSection } from './components/IdealClientSection';
 import { TantrumPlaybookSection } from './components/TantrumPlaybookSection';
 import { ServicesSection } from './components/ServicesSection';
-import { TransactionSection } from './components/TransactionSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { SelectedWorkSection } from './components/SelectedWorkSection';
 import { ValuePropositionSection } from './components/ValuePropositionSection';
@@ -23,11 +22,21 @@ import { TantrumPlaybookPage } from './pages/TantrumPlaybookPage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
 import { AboutPage } from './pages/AboutPage';
 import { WorkPage } from './pages/WorkPage';
-import { TransactionPage } from './pages/TransactionPage';
+
+const RevealSection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-60px' }}
+    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default function App() {
   const [currentView, setCurrentView] = useState<
-    'home' | 'seo-blueprint' | 'transactions' | 'how-it-works' | 'about' | 'work'
+    'home' | 'seo-blueprint' | 'how-it-works' | 'about' | 'work'
   >('home');
 
   // Sync hash routing for direct linkability
@@ -36,7 +45,7 @@ export default function App() {
       const hash = window.location.hash.replace('#', '').replace('/', '');
       if (hash === 'tantrum-playbook' || hash === 'seo-blueprint') {
         setCurrentView('seo-blueprint');
-      } else if (['transactions', 'how-it-works', 'about', 'work'].includes(hash)) {
+      } else if (['how-it-works', 'about', 'work'].includes(hash)) {
         setCurrentView(hash as any);
       } else {
         setCurrentView('home');
@@ -69,10 +78,10 @@ export default function App() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentView}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
             {currentView === 'home' && (
               <>
@@ -87,28 +96,41 @@ export default function App() {
                     }
                   }}
                 />
-                <ProblemSection />
-                <IdealClientSection />
-                <TantrumPlaybookSection onViewDedicatedPage={() => navigateTo('seo-blueprint')} />
-                <ServicesSection />
-                <TransactionSection
-                  onOpenFullTransactionPage={() => navigateTo('transactions')}
-                />
-                <HowItWorksSection onLearnMore={() => navigateTo('how-it-works')} />
-                <SelectedWorkSection />
-                <ValuePropositionSection />
-                <WhyRedwoodHouseSection />
-                <FAQSection />
-                <FinalCTA />
+                <RevealSection>
+                  <ProblemSection />
+                </RevealSection>
+                <RevealSection>
+                  <IdealClientSection />
+                </RevealSection>
+                <RevealSection>
+                  <TantrumPlaybookSection onViewDedicatedPage={() => navigateTo('seo-blueprint')} />
+                </RevealSection>
+                <RevealSection>
+                  <ServicesSection />
+                </RevealSection>
+                <RevealSection>
+                  <HowItWorksSection onLearnMore={() => navigateTo('how-it-works')} />
+                </RevealSection>
+                <RevealSection>
+                  <SelectedWorkSection />
+                </RevealSection>
+                <RevealSection>
+                  <ValuePropositionSection />
+                </RevealSection>
+                <RevealSection>
+                  <WhyRedwoodHouseSection />
+                </RevealSection>
+                <RevealSection>
+                  <FAQSection />
+                </RevealSection>
+                <RevealSection>
+                  <FinalCTA />
+                </RevealSection>
               </>
             )}
 
             {currentView === 'seo-blueprint' && (
               <TantrumPlaybookPage onBack={() => navigateTo('home')} />
-            )}
-
-            {currentView === 'transactions' && (
-              <TransactionPage onBack={() => navigateTo('home')} />
             )}
 
             {currentView === 'how-it-works' && (
