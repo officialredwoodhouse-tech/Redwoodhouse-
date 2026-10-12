@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BRAND } from '../constants/assets';
-import { ArrowLeft, ArrowUpRight, Check } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Check, Building2, Stethoscope, Dumbbell, Search, Code, Palette, Globe } from 'lucide-react';
 
 interface WorkPageProps {
   onBack: () => void;
@@ -8,73 +8,85 @@ interface WorkPageProps {
 }
 
 export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }) => {
-  const [filter, setFilter] = useState<'all' | 'b2b' | 'advisory' | 'local-seo'>('all');
+  const [filter, setFilter] = useState<'all' | 'agencies' | 'clinics-hospitals' | 'gyms' | 'software-seo'>('all');
 
   const projects = [
     {
-      id: 'northstar',
-      name: 'Northstar Industrial Systems',
-      type: 'b2b',
-      category: 'B2B Deep Tech · Custom Web Flagship & Programmatic SEO',
-      metrics: '+310% Organic Pipeline · 99/100 CWV',
-      challenge: 'The engineering leader had 8 years of industrial telemetry breakthroughs, but their legacy website took 7 seconds to load and was invisible for commercial search queries.',
-      concept: 'A sub-second architectural web platform paired with 45+ programmatic specification and solution hubs engineered around enterprise procurement search intent.',
-      built: 'Custom React/TypeScript frontend, interactive product specification matrices, JSON-LD technical schema graph, and complete search silo restructuring.',
-      deliverable: 'Full-stack flagship website + 45 SEO landing hubs + Search Console telemetry.',
-      note: 'B2B Web & SEO Blueprint',
+      id: 'scaleflow',
+      name: 'ScaleFlow Media & Growth Agency',
+      type: 'agencies',
+      category: 'Agency Operations · AI Onboarding & Reporting Pipelines',
+      metrics: 'Saved 20+ hrs/week per PM · 2.8x Faster Onboarding',
+      challenge: 'Account managers were spending 15+ hours weekly compiling manual client slide decks from Meta Ads, Google Ads, and Stripe across 24 enterprise accounts.',
+      concept: 'An autonomous agency operations engine: 60-second client onboarding bot, Monday morning AI reporting agent, and custom client dashboard.',
+      built: 'Custom agency client portal, autonomous Slack/Drive provisioning agent, narrative performance reporting bot, and Stripe webhook billing automations.',
+      deliverable: 'Bespoke agency software portal + autonomous reporting agents + ad attribution pipeline.',
+      note: 'Agency AI & Software Blueprint',
     },
     {
-      id: 'pine',
-      name: 'Pine & Co. Advisory',
-      type: 'advisory',
-      category: 'Boutique Consultancy · Online Presence & Authority SEO',
-      metrics: 'Page-1 Rankings for 28 Core Terms',
-      challenge: 'The firm relied on referrals and slide decks to explain their post-merger integration thesis, losing inbound deal velocity to larger consultancies with stronger digital authority.',
-      concept: 'An authoritative digital flagship positioning the firm alongside Tier-1 global consultancies while capturing high-intent C-suite search traffic.',
-      built: 'Editorial typographic design system, partner authority profiles, interactive M&A readiness diagnostic tool, and thought-leadership SEO architecture.',
-      deliverable: 'Complete digital rebrand + custom web platform + Google Knowledge Graph entity setup.',
-      note: 'Advisory Presence Blueprint',
+      id: 'apex-clinics',
+      name: 'Apex Multi-Specialty Clinics',
+      type: 'clinics-hospitals',
+      category: 'Healthcare & Clinic AI Automation · Web Platform · Local SEO',
+      metrics: '3.4x Inbound Patient Inquiries · <2% No-Show Rate',
+      challenge: 'Clinic front desks were inundated with telephone calls during doctor consultations, resulting in missed after-hours inquiries and a 22% no-show rate.',
+      concept: 'A 24/7 clinical web flagship with conversational WhatsApp triage, automated electronic intake forms, and local medical search dominance.',
+      built: 'Sub-second clinic web platform, 24/7 AI WhatsApp triage bot, electronic patient intake pipeline, MedicalClinic JSON-LD schema, and automated SMS reminder sequences.',
+      deliverable: 'Custom healthcare web platform + 24/7 WhatsApp triage agent + local search dominance.',
+      note: 'Clinic AI & Local SEO Blueprint',
     },
     {
-      id: 'aura',
-      name: 'Aura Specialist Clinics',
-      type: 'local-seo',
-      category: 'Multi-Specialty Healthcare · Web Platform & Local SEO',
-      metrics: '3.4x Increase in Patient Inquiries',
-      challenge: 'A premier clinical practice was losing high-value patient bookings to competitors who ranked higher in Google Maps and local treatment searches.',
-      concept: 'A calm, patient-first digital clinic platform with dedicated procedure hubs, physician credentials schema, and multi-city local search dominance.',
-      built: 'Mobile-first patient booking UX, 30+ medically structured treatment SEO pages, MedicalClinic JSON-LD schema, and local citation synchronization.',
-      deliverable: 'Custom healthcare web platform + local SEO engine + conversion booking pipeline.',
-      note: 'Healthcare & Local SEO Blueprint',
+      id: 'metro-hospital',
+      name: 'Metro City Healthcare & Hospital Center',
+      type: 'clinics-hospitals',
+      category: 'Hospital Systems · Department Routing AI · Institutional Portal',
+      metrics: '45% Faster Patient Routing · 24/7 Dispatch Readiness',
+      challenge: 'Multi-specialty hospital with 12 departments suffered from patient intake confusion, emergency call center overload, and fragmented doctor on-call scheduling.',
+      concept: 'An institutional healthcare web portal with conversational department routing, automated doctor dispatch alerts, and verified Google Knowledge Graph authority.',
+      built: 'Institutional doctor directory, conversational emergency triage bot, secure doctor dispatch alerting, and post-discharge recovery check-in sequences.',
+      deliverable: 'High-security hospital portal + department routing intelligence + physician alert system.',
+      note: 'Hospital Systems Blueprint',
     },
     {
-      id: 'signal',
-      name: 'Signal Cloud & AI',
-      type: 'b2b',
-      category: 'Enterprise SaaS · Marketing Website & Comparison SEO',
-      metrics: '+185% Demo Conversions · 0.7s LCP',
-      challenge: 'A fast-growing SaaS platform had scattered documentation and product pages that failed to rank for "alternatives" and "vs" bottom-of-funnel search terms.',
-      concept: 'A unified product marketing flagship with modular feature showcases and programmatic competitor comparison pages.',
-      built: 'Custom component library, interactive ROI calculator, SoftwareApplication schema graph, and 25 high-converting comparison SEO pages.',
-      deliverable: 'High-converting SaaS web architecture + programmatic SEO growth engine.',
-      note: 'SaaS Growth Blueprint',
+      id: 'ironpulse',
+      name: 'IronPulse Fitness & Athletic Clubs',
+      type: 'gyms',
+      category: 'Fitness Centers · Lead-to-Trial WhatsApp Bot · Churn Prevention',
+      metrics: '+68% Trial Attendance · 35% Reduction in Member Churn',
+      challenge: 'Meta Ad leads went cold before front-desk staff could call them back. 35% of members dropped off after month two with no staff intervention.',
+      concept: 'An instant 30-second WhatsApp lead response bot that books free trial sessions immediately, paired with predictive churn detection sequences.',
+      built: 'Modern gym web flagship with interactive timetable, instant WhatsApp trial qualifier, QR mobile pass generator, and automated membership retention workflows.',
+      deliverable: 'Modern gym web flagship + instant WhatsApp conversion bot + member retention engine.',
+      note: 'Gym & Fitness Systems Blueprint',
+    },
+    {
+      id: 'tensordata',
+      name: 'TensorData Cloud & Systems',
+      type: 'software-seo',
+      category: 'Custom Software · Programmatic SEO Marketing · SaaS Portal',
+      metrics: '+310% Organic Pipeline · 99/100 Core Web Vitals',
+      challenge: 'A data engineering platform had zero organic Google search traffic and paid tens of thousands monthly for fragmented third-party dashboard tools.',
+      concept: 'A unified custom customer analytics dashboard paired with 50+ programmatic SEO comparison and solution hub pages engineered for technical search intent.',
+      built: 'Custom React/Next.js customer portal, programmatic topic silo generator, SoftwareApplication schema graph, and autonomous SERP rank tracking bot.',
+      deliverable: 'Bespoke customer software portal + programmatic SEO engine + full code handover.',
+      note: 'Software & SEO Blueprint',
     },
     {
       id: 'atelier-verma',
-      name: 'Atelier Vastu & Modernist Studio',
-      type: 'local-seo',
-      category: 'Architecture & Luxury Design · Digital Monograph & Search',
-      metrics: '0.8s Load Time · +240% Search Impressions',
-      challenge: 'An acclaimed architecture and interior studio had hundreds of uncompressed high-resolution photographs that crippled mobile performance and search indexability.',
-      concept: 'A gallery-grade digital portfolio with next-gen AVIF/WebP image streaming, editorial project narratives, and regional + international search visibility.',
-      whatWeBuilt: 'Progressive image delivery pipeline, typographic project archive, architectural schema markup, and press inquiry portal.',
-      built: 'Progressive image delivery pipeline, typographic project archive, architectural schema markup, and press inquiry portal.',
-      deliverable: 'Ultra-fast luxury portfolio website + international organic search footprint.',
-      note: 'Luxury Portfolio Blueprint',
+      name: 'Atelier Verma Modernist Architecture',
+      type: 'software-seo',
+      category: 'High-Craft Brand Design · Architectural UI/UX · Flagship Website',
+      metrics: '0.8s Global LCP · +240% Inbound Inquiries',
+      challenge: 'An acclaimed studio had thousands of uncompressed high-resolution photographs that caused 7-second load times and low high-ticket client conviction.',
+      concept: 'A gallery-grade digital monograph with progressive image streaming, editorial project narratives, and international search visibility.',
+      built: 'Custom typographic identity system, progressive image CDN delivery pipeline, architectural schema markup, and high-converting inquiry flow.',
+      deliverable: 'Monograph digital flagship + complete design system + sub-second CDN architecture.',
+      note: 'Design & Web Flagship Blueprint',
     },
   ];
 
-  const filteredProjects = filter === 'all' ? projects : projects.filter((p) => p.type === filter);
+  const filteredProjects =
+    filter === 'all' ? projects : projects.filter((p) => p.type === filter);
 
   return (
     <div className="bg-[#FBF9F5] min-h-screen">
@@ -89,7 +101,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
             <span>Return to Studio Overview</span>
           </button>
           <div className="text-xs font-mono text-[#78716C] hidden sm:block">
-            Selected Work & Case Studies · Redwood House
+            Selected Work & Real-World Deployments · Redwood House
           </div>
         </div>
       </div>
@@ -98,99 +110,55 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-20 border-b border-[#E8E4DC]">
         <div className="max-w-3xl space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-[#78716C] block">
-            Portfolio of Digital Architecture
+            Selected Systems & Case Studies
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#1C1A18] tracking-tight leading-[1.08]">
-            Selected Work & Web + SEO Blueprints.
+            AI Automations, Custom Software, SEO, and Flagship Websites.
           </h1>
           <p className="text-lg sm:text-xl text-[#58544E] leading-relaxed">
-            Explore how Redwood House combines bespoke web engineering, editorial online presence, and technical search optimization across B2B, advisory, healthcare, and luxury verticals.
+            Every deployment solves an operational bottleneck: from patient triage in healthcare and trial booking in fitness to automated reporting for agencies and sub-second web flagships.
           </p>
-        </div>
 
-        {/* Featured Methodology Callout */}
-        <div className="mt-12 bg-white rounded-lg border border-[#D5CFC5] p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#3D1D18] font-semibold block">
-              Proprietary Studio System
-            </span>
-            <h3 className="text-2xl font-serif text-[#1C1A18]">
-              The Online Presence & SEO Playbook
-            </h3>
-            <p className="text-sm text-[#58544E] max-w-xl">
-              Inspect our 10-stage engineering and technical SEO blueprint, and run an interactive readiness diagnostic on your current website.
-            </p>
+          {/* Filter Bar */}
+          <div className="pt-4 flex flex-wrap gap-2">
+            {[
+              { id: 'all', label: 'All Deployments' },
+              { id: 'agencies', label: 'Agencies' },
+              { id: 'clinics-hospitals', label: 'Clinics & Hospitals' },
+              { id: 'gyms', label: 'Gyms & Fitness' },
+              { id: 'software-seo', label: 'Software, SEO & Design' },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setFilter(tab.id as any)}
+                className={`px-3.5 py-1.5 text-xs font-medium rounded-md transition-all cursor-pointer ${
+                  filter === tab.id
+                    ? 'bg-[#1C1A18] text-white shadow-xs font-semibold'
+                    : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
-          <button
-            onClick={onNavigatePlaybook}
-            className="shrink-0 inline-flex items-center gap-2 px-5 py-3 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-xs font-semibold rounded-md transition-colors cursor-pointer"
-          >
-            <span>Explore the SEO & Presence System</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </button>
         </div>
       </div>
 
-      {/* Filter Tabs & Case Studies Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        {/* Interactive Filter Tabs */}
-        <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2">
-          <button
-            onClick={() => setFilter('all')}
-            className={`px-4 py-2 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-              filter === 'all'
-                ? 'bg-[#1C1A18] text-white'
-                : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
-            }`}
-          >
-            All Case Blueprints ({projects.length})
-          </button>
-          <button
-            onClick={() => setFilter('b2b')}
-            className={`px-4 py-2 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-              filter === 'b2b'
-                ? 'bg-[#1C1A18] text-white'
-                : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
-            }`}
-          >
-            B2B & SaaS Platforms
-          </button>
-          <button
-            onClick={() => setFilter('advisory')}
-            className={`px-4 py-2 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-              filter === 'advisory'
-                ? 'bg-[#1C1A18] text-white'
-                : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
-            }`}
-          >
-            Advisory & Executive Presence
-          </button>
-          <button
-            onClick={() => setFilter('local-seo')}
-            className={`px-4 py-2 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-              filter === 'local-seo'
-                ? 'bg-[#1C1A18] text-white'
-                : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
-            }`}
-          >
-            Healthcare, Architecture & Local SEO
-          </button>
-        </div>
-
-        {/* Project Blueprint Cards */}
-        <div className="space-y-8">
+      {/* Project Grid */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
+        <div className="space-y-12">
           {filteredProjects.map((p) => (
             <div
               key={p.id}
-              className="bg-white rounded-lg border border-[#E8E4DC] p-8 sm:p-10 shadow-xs hover:border-[#3D1D18]/50 transition-colors"
+              className="bg-white rounded-lg border border-[#E8E4DC] p-8 sm:p-12 shadow-xs hover:border-[#3D1D18]/50 transition-colors"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-[#F4F0E8] gap-4">
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between pb-6 border-b border-[#F4F0E8] gap-4">
                 <div>
                   <div className="flex items-center gap-3">
-                    <h3 className="text-2xl font-serif font-medium text-[#1C1A18]">
+                    <h2 className="text-2xl sm:text-3xl font-serif font-medium text-[#1C1A18]">
                       {p.name}
-                    </h3>
-                    <span className="text-[10px] font-mono text-[#78716C] bg-[#FAF8F3] px-2 py-0.5 border border-[#E8E4DC] rounded-xs">
+                    </h2>
+                    <span className="text-xs font-mono px-2.5 py-1 bg-[#FAF8F3] text-[#3D1D18] border border-[#E8E4DC] rounded">
                       {p.note}
                     </span>
                   </div>
@@ -208,7 +176,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="space-y-2">
                   <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                    The Digital Challenge
+                    The Operational Challenge
                   </span>
                   <p className="text-sm text-[#4A4641] leading-relaxed">
                     {p.challenge}
@@ -217,7 +185,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
 
                 <div className="space-y-2">
                   <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                    The Presence & SEO Strategy
+                    The AI & Architectural Strategy
                   </span>
                   <p className="text-sm font-serif italic text-[#3D1D18] leading-relaxed">
                     "{p.concept}"
@@ -240,10 +208,10 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
                   <span><strong>Deliverable:</strong> {p.deliverable}</span>
                 </div>
                 <a
-                  href={`${BRAND.mailtoGeneral}&body=Hello%20Redwood%20House,%0D%0A%0D%0AWe%20are%20interested%20in%20a%20website%20and%20SEO%20architecture%20similar%20to%20your%20${encodeURIComponent(p.category)}%20blueprint...`}
+                  href={`${BRAND.mailtoGeneral}&body=Hello%20Redwood%20House,%0D%0A%0D%0AWe%20are%20interested%20in%20a%20system%20similar%20to%20your%20${encodeURIComponent(p.name)}%20(${encodeURIComponent(p.category)})%20blueprint...`}
                   className="inline-flex items-center gap-1 font-semibold text-[#1C1A18] hover:text-[#3D1D18] underline underline-offset-4"
                 >
-                  <span>Inquire about a similar build</span>
+                  <span>Inquire about a similar deployment</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -256,10 +224,10 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onBack, onNavigatePlaybook }
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-t border-[#E8E4DC]">
         <div className="bg-[#FAF8F3] rounded-lg border border-[#E8E4DC] p-8 sm:p-12 text-center space-y-4 max-w-2xl mx-auto">
           <h3 className="text-2xl font-serif text-[#1C1A18]">
-            Ready to build a high-performing digital flagship?
+            Ready to automate your operations and build a digital flagship?
           </h3>
           <p className="text-sm text-[#58544E] leading-relaxed">
-            Email our Chandigarh studio with your current website and goals to receive an initial technical & search assessment.
+            Email our Chandigarh studio with your current workflow bottlenecks and goals to receive an architectural assessment.
           </p>
           <div className="pt-2">
             <a

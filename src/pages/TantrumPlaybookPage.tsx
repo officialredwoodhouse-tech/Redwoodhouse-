@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BRAND, ASSETS } from '../constants/assets';
-import { ArrowLeft, ArrowUpRight, BookOpen, LayoutGrid, CheckSquare, Square } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, BookOpen, LayoutGrid, CheckSquare, Square, Cpu, Zap, Code, Search, Globe, Palette } from 'lucide-react';
 
 interface TantrumPlaybookPageProps {
   onBack: () => void;
@@ -9,44 +9,44 @@ interface TantrumPlaybookPageProps {
 export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack }) => {
   const [tocLayout, setTocLayout] = useState<'typeset' | 'grid'>('typeset');
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({
-    cwv: false,
-    schema: false,
-    silos: false,
-    copy: true,
-    local: false,
-    cro: false,
+    aiTriage: false,
+    autoBooking: false,
+    softwarePortal: false,
+    schemaSEO: false,
+    cwv: true,
+    adTransaction: false,
   });
 
   const auditCriteria = [
     {
+      id: 'aiTriage',
+      label: '24/7 AI Conversational Triage on WhatsApp & Website',
+      impact: 'Instant response within 30s · Captures 100% of after-hours inquiries',
+    },
+    {
+      id: 'autoBooking',
+      label: 'Automated Consultation, Trial, or Discovery Booking Workflows',
+      impact: 'Zero-no-show sequences · 70% reduction in appointment cancellations',
+    },
+    {
+      id: 'softwarePortal',
+      label: 'Custom Operational Software / Client Portal (No Fragmented SaaS)',
+      impact: '100% code ownership · Eliminates 15–20 hours of manual admin per week',
+    },
+    {
+      id: 'schemaSEO',
+      label: 'Programmatic SEO Silos & Schema.org JSON-LD Knowledge Graph',
+      impact: 'Page-1 Google ranking for commercial search queries · Rich snippet eligibility',
+    },
+    {
       id: 'cwv',
-      label: 'Sub-1.5s Load Speed & 95+ Core Web Vitals on Mobile',
-      impact: 'High Technical SEO & Bounce Rate Impact',
+      label: 'Sub-1.2s Global Load Speed & 99+ Core Web Vitals (Mobile & Desktop)',
+      impact: 'Zero layout shift · Instant visitor conviction and high search crawl priority',
     },
     {
-      id: 'schema',
-      label: 'Custom Schema.org JSON-LD Graph (Organization, Service, FAQ)',
-      impact: 'Rich Snippets & AI Search Entity Recognition',
-    },
-    {
-      id: 'silos',
-      label: 'Dedicated Landing Pages for Every Core Service & Buyer Intent',
-      impact: 'Non-Branded Organic Keyword Capture',
-    },
-    {
-      id: 'copy',
-      label: 'Clear, Zero-Jargon Positioning Above the Fold',
-      impact: 'Immediate Visitor Conviction & Time-on-Site',
-    },
-    {
-      id: 'local',
-      label: 'Synchronized Google Business Profile, Citations & OpenGraph Cards',
-      impact: 'Cohesive Multi-Channel Online Presence',
-    },
-    {
-      id: 'cro',
-      label: 'Frictionless Inquiry / Booking Architecture with Search Attribution',
-      impact: 'Direct Visitor-to-Pipeline Conversion',
+      id: 'adTransaction',
+      label: 'Ad & Transaction Automation with Stripe & CRM Sync',
+      impact: 'Full-funnel ROAS attribution · Automated recurring billing & receipts',
     },
   ];
 
@@ -59,111 +59,111 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
 
   const corePillars = [
     {
-      state: 'Technical Foundation',
-      tagline: 'Core Web Vitals & Clean DOM',
-      description: 'Eliminating render-blocking bloat, cumulative layout shift, and sluggish server responses so search crawlers and users experience instant speed.',
-      spec: 'Target: LCP < 1.2s · CLS < 0.02 · Semantic HTML5 Hierarchy',
+      state: 'AI Automation & Agents',
+      tagline: 'Autonomous Inbound & Dispatch',
+      description: 'Deploying conversational and operational agents connected directly to WhatsApp, email, Stripe, and your CRM to triage inquiries and process bookings around the clock.',
+      spec: 'Target: <30s First Response · Zero Missed Inquiries · Auto Calendar Sync',
     },
     {
-      state: 'Search Architecture',
-      tagline: 'Topic Clusters & URL Taxonomy',
-      description: 'Structuring your website around real commercial search intent rather than internal company jargon, capturing buyers actively looking for your solution.',
-      spec: 'Target: Hub-and-Spoke Silos · Internal Link Equity Sculpting',
+      state: 'Custom Software & Portals',
+      tagline: 'Bespoke Operational Tools',
+      description: 'Building dedicated client portals, patient intake tools, and agency dashboards tailored to your exact business logic with zero monthly subscription seat fees.',
+      spec: 'Target: Role-Based Access · Full-Stack React/Next.js/Node · 100% Code Handover',
     },
     {
-      state: 'Entity & Schema Graph',
-      tagline: 'Structured Data & AI Visibility',
-      description: 'Feeding Google and AI answer engines explicit machine-readable facts about your brand, services, credentials, locations, and FAQs.',
-      spec: 'Target: Validated JSON-LD Graph · Rich Result Eligibility',
+      state: 'Programmatic & Technical SEO',
+      tagline: 'Entity Graphs & Topic Silos',
+      description: 'Architecting high-intent commercial landing page clusters and machine-readable Schema.org graphs so Google and AI search engines recognize your category authority.',
+      spec: 'Target: Validated JSON-LD Graph · High-Intent Keyword Silos · E-E-A-T Signals',
     },
     {
-      state: 'Editorial Authority',
-      tagline: 'High-Conviction Domain Copy',
-      description: 'Writing crisp, authoritative pages that prove deep subject-matter competence without sounding like generic keyword-stuffed agency filler.',
-      spec: 'Target: E-E-A-T Signal Alignment · Clear Value Proposition',
+      state: 'Ad & Transaction Funnels',
+      tagline: 'Conversion & Billing Automation',
+      description: 'Automating the bridge between paid advertising (Google & Meta) and actual revenue through automated checkout, Stripe webhooks, and conversion attribution telemetry.',
+      spec: 'Target: Instant Lead-to-Trial Flow · Automated Billing Recovery · ROAS Telemetry',
     },
     {
-      state: 'Visual & Brand Presence',
-      tagline: 'Architectural UI System',
-      description: 'Crafting a distinctive typographic and visual identity that elevates perceived enterprise value across desktop, tablet, and mobile viewports.',
-      spec: 'Target: Bespoke Design Tokens · Zero Template Footprint',
+      state: 'Bespoke Brand & UI/UX Design',
+      tagline: 'Architectural Typographic System',
+      description: 'Crafting an editorial, timeless visual identity using Newsreader and Plus Jakarta Sans that commands enterprise trust across every viewport and device.',
+      spec: 'Target: Bespoke Design Tokens · Zero Generic Template Footprint',
     },
     {
-      state: 'Conversion Engine',
-      tagline: 'Intent-to-Inquiry Pathways',
-      description: 'Turning organic visitors into qualified leads through strategic proof placement, interactive tools, and low-friction contact flows.',
-      spec: 'Target: Clear Call-to-Action Hierarchy · Event Telemetry',
+      state: 'Sub-Second Web Engineering',
+      tagline: '99+ Core Web Vitals Standard',
+      description: 'Handcrafted React and Next.js digital flagships with zero template bloat, sub-second global load times, and frictionless lead conversion pathways.',
+      spec: 'Target: LCP < 1.2s · CLS < 0.02 · Clean Semantic HTML5 Hierarchy',
     },
   ];
 
   const tocData = {
     introduction: {
       title: 'Introduction',
-      subtitle: 'Why Most Websites Fail to Rank or Convert—and How Structural Engineering Fixes Both',
+      subtitle: 'Why Conventional Websites Alone Fail—and How AI Automations + Custom Software Build an Unstoppable Business Engine',
     },
     chapters: [
       {
         number: 'Stage 1',
-        title: 'Technical Audit & Search Baseline',
-        subtitle: 'Uncovering crawl bottlenecks, speed penalties, and competitor keyword gaps',
+        title: 'Operational & Search Bottleneck Audit',
+        subtitle: 'Uncovering admin friction in clinics, gyms, agencies, and tech ventures',
       },
       {
         number: 'Stage 2',
         title: 'Category Positioning & Messaging Spine',
-        subtitle: 'Defining your unmistakable value proposition for human buyers and search engines',
+        subtitle: 'Defining your unmistakable value proposition for buyers and search algorithms',
       },
       {
         number: 'Stage 3',
-        title: 'Sitemap Taxonomy & Search Silo Architecture',
-        subtitle: 'Mapping high-intent commercial keywords to dedicated pillar and cluster pages',
+        title: 'Information Architecture & Programmatic Topic Silos',
+        subtitle: 'Structuring high-intent search clusters to capture non-branded commercial traffic',
       },
       {
         number: 'Stage 4',
-        title: 'Bespoke UI Design & Typographic System',
-        subtitle: 'Creating an editorial-grade visual identity that commands immediate trust',
+        title: 'Architectural UI/UX Design & Typographic System',
+        subtitle: 'Crafting editorial brand presence with high-converting booking & checkout flows',
       },
       {
         number: 'Stage 5',
-        title: 'Clean Full-Stack Web Engineering',
-        subtitle: 'Building sub-second responsive pages in React/Next.js with 99+ Core Web Vitals',
+        title: 'Clean Full-Stack Web Development',
+        subtitle: 'Engineering sub-second React/Next.js pages with 99+ Core Web Vitals',
       },
       {
         number: 'Stage 6',
-        title: 'On-Page Semantic SEO & Editorial Copywriting',
-        subtitle: 'Structuring H1–H3 hierarchies, internal anchor links, and authoritative domain prose',
+        title: 'Autonomous AI Agent Deployment',
+        subtitle: 'Wiring 24/7 WhatsApp triage, lead qualification, and doctor/staff routing bots',
       },
       {
         number: 'Stage 7',
-        title: 'Schema.org JSON-LD & Knowledge Graph Signals',
-        subtitle: 'Engineering machine-readable structured data for Google and AI answer engines',
+        title: 'Custom Operational Software & Client Portals',
+        subtitle: 'Bespoke dashboards, patient intake pipelines, and automated agency reporting',
       },
       {
         number: 'Stage 8',
-        title: 'Local & Global Presence Synchronization',
-        subtitle: 'Aligning Google Business Profile, OpenGraph social cards, and regional search signals',
+        title: 'Schema.org JSON-LD & AI Search Visibility',
+        subtitle: 'Engineering machine-readable structured data for Google Knowledge Graph and AI engines',
       },
       {
         number: 'Stage 9',
-        title: 'Conversion Rate Optimization & Lead Flows',
-        subtitle: 'Designing high-intent inquiry touchpoints, interactive calculators, and proof blocks',
+        title: 'Ad & Transaction Automation',
+        subtitle: 'Stripe subscription webhooks, automated invoicing, and ad ROAS conversion telemetry',
       },
       {
         number: 'Stage 10',
-        title: 'Compounding Search Authority & Handover',
-        subtitle: 'Search Console indexing, analytics telemetry, and 100% client code ownership',
+        title: 'Zero-Downtime Launch & 100% Code Handover',
+        subtitle: 'Deployment, Search Console indexing, staff onboarding, and full GitHub repo transfer',
       },
     ],
     sections: [
       {
-        title: 'Technical SEO & Launch Checklists',
-        subtitle: '10 pre-flight engineering audits for redirects, canonicals, sitemaps, robots.txt, and CWV',
+        title: 'Pre-Flight Operational & Technical Checklists',
+        subtitle: '10 audits covering AI agent response latency, Stripe webhooks, CWV, and Schema validation',
       },
       {
-        title: 'Quick-Reference Online Presence Guide',
-        subtitle: 'A practical operating manual for maintaining search authority after launch',
+        title: 'Quick-Reference Automation & Presence Operating Manual',
+        subtitle: 'Standard operating procedures for managing your AI pipelines and software post-launch',
       },
     ],
-    backMatter: ['Technical Specifications', 'Analytics & Telemetry', 'About Redwood House'],
+    backMatter: ['Technical Specifications', 'Security & HIPAA Considerations', 'About Redwood House'],
   };
 
   return (
@@ -179,7 +179,7 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
             <span>Return to Studio Overview</span>
           </button>
           <div className="text-xs font-mono text-[#78716C] hidden sm:block">
-            Proprietary Methodology · Redwood House
+            Proprietary Architecture Blueprint · Redwood House
           </div>
         </div>
       </div>
@@ -191,13 +191,13 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
           <div className="lg:col-span-5">
             <div className="relative rounded-lg overflow-hidden border border-[#D5CFC5] shadow-xl bg-white sticky top-36">
               <img
-                src={ASSETS.seoArchitectureShowcase}
-                alt="Redwood House Website Development, Online Presence & SEO Blueprint"
+                src={ASSETS.aiAutomationWorkflow}
+                alt="Redwood House AI Automation, Software, SEO and Web Architecture Blueprint"
                 className="w-full h-auto object-cover"
                 referrerPolicy="no-referrer"
               />
               <div className="p-4 bg-white border-t border-[#E8E4DC] text-center text-xs text-[#78716C]">
-                Redwood House Engineering Standard · Web + Presence + SEO
+                Redwood House Engineering Standard · AI + Software + SEO + Websites
               </div>
             </div>
           </div>
@@ -206,30 +206,29 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#78716C]">
-                <span>Web Engineering</span>
+                <span>AI Automation</span>
                 <span aria-hidden="true">·</span>
-                <span>Online Presence</span>
+                <span>Custom Software</span>
                 <span aria-hidden="true">·</span>
-                <span>Technical SEO System</span>
+                <span>SEO Marketing</span>
+                <span aria-hidden="true">·</span>
+                <span>Websites</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#1C1A18] tracking-tight leading-[1.08]">
-                The Online Presence & SEO Playbook
+                The AI Automation & Systems Blueprint
               </h1>
               <p className="text-xl sm:text-2xl font-serif italic text-[#3D1D18] leading-snug">
-                How We Engineer High-Converting Websites, Semantic Search Architecture, and Category-Leading Digital Authority
+                How We Engineer Autonomous Workflows, Custom Software, High-Intent SEO, and Sub-Second Web Flagships
               </p>
             </div>
 
             {/* Core Premise */}
             <div className="space-y-4 text-base text-[#4A4641] leading-relaxed">
               <p>
-                Every day, prospective clients, enterprise buyers, and investors search for your category—or look up your company by name after a referral. What they find in the first five seconds dictates whether they trust you or move to a competitor.
+                A modern business cannot operate efficiently with fragmented vendors. When your web developer knows nothing about automated booking, your SEO team doesn't touch code, and your staff manually copies patient and client data across spreadsheets, you leak revenue and waste hundreds of hours.
               </p>
               <p>
-                Traditional web agencies focus only on surface visuals while ignoring search architecture. Traditional SEO vendors peddle automated backlink schemes without fixing slow, confusing websites.
-              </p>
-              <p>
-                Redwood House created our <strong className="text-[#1C1A18]">10-Stage Presence & SEO System</strong> to unify custom full-stack web development, editorial brand authority, and technical search optimization into a single deliverable.
+                Redwood House unites <strong className="text-[#1C1A18]">AI Automation, Custom Software, SEO Marketing, Brand Design, and Web Development</strong> into one synchronized architecture.
               </p>
             </div>
 
@@ -238,14 +237,14 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#F4F0E8]">
                 <div>
                   <span className="text-xs font-mono uppercase tracking-wider text-[#3D1D18] font-semibold block">
-                    Interactive Diagnostic
+                    Interactive Readiness Diagnostic
                   </span>
                   <h3 className="text-lg font-serif text-[#1C1A18]">
-                    Audit Your Current Website & SEO Readiness
+                    Audit Your Automation & Digital Infrastructure
                   </h3>
                 </div>
                 <div className="text-left sm:text-right">
-                  <span className="text-xs font-mono text-[#78716C] block">Current Score</span>
+                  <span className="text-xs font-mono text-[#78716C] block">Readiness Score</span>
                   <span className="text-2xl font-mono font-bold text-[#3D1D18]">{readinessScore}%</span>
                 </div>
               </div>
@@ -280,16 +279,16 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
               <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[#58544E]">
                 <span>
                   {readinessScore < 60
-                    ? 'Your digital footprint has significant search & conversion upside.'
+                    ? 'Your business has major operational and inbound conversion upside through AI automation.'
                     : readinessScore < 100
-                    ? 'Solid foundation—targeted technical SEO & UI upgrades will compound growth.'
-                    : 'Flagship standard achieved.'}
+                    ? 'Solid foundation—deploying custom software and conversational agents will compound leverage.'
+                    : 'Maximum automation & flagship standard achieved.'}
                 </span>
                 <a
-                  href={`${BRAND.mailtoAudit}&body=Hello%20Redwood%20House,%0D%0A%0D%0AI%20completed%20the%20Website%20%26%20SEO%20Readiness%20Diagnostic%20(Score:%20${readinessScore}%25)%20and%20would%20like%20to%20request%20a%20technical%20audit...`}
+                  href={`${BRAND.mailtoAudit}&body=Hello%20Redwood%20House,%0D%0A%0D%0AI%20completed%20the%20Automation%20%26%20Digital%20Readiness%20Diagnostic%20(Score:%20${readinessScore}%25)%20and%20would%20like%20to%20request%20an%20architecture%20audit...`}
                   className="inline-flex items-center gap-1.5 font-semibold text-[#1C1A18] hover:text-[#3D1D18] underline underline-offset-4 shrink-0"
                 >
-                  <span>Send Score for a Custom Audit</span>
+                  <span>Request an Architecture Audit</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -298,17 +297,17 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
         </div>
       </div>
 
-      {/* The 6 Architectural Pillars In-Depth */}
+      {/* The 6 Architectural Pillars */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-b border-[#E8E4DC]">
         <div className="max-w-3xl space-y-4 mb-14">
           <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-            System Components
+            Integrated Scope
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif text-[#1C1A18]">
-            The Six Core Pillars of Online Presence & SEO
+            The Six Pillars of the Redwood Architecture
           </h2>
           <p className="text-base text-[#58544E]">
-            Every Redwood House website is engineered across six interdependent layers so aesthetics, speed, and search rankings reinforce one another:
+            Every engagement deploys these six interconnected layers to automate operations, capture search demand, and convert high-value buyers:
           </p>
         </div>
 
@@ -333,7 +332,7 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
               </div>
               <div className="pt-3 border-t border-[#F4F0E8] bg-[#FAF8F3] -mx-7 -mb-7 p-5 rounded-b-lg">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-[#78716C] block mb-1">
-                  Engineering Specification
+                  Engineering Standard
                 </span>
                 <p className="text-xs font-mono text-[#3D1D18]">
                   {item.spec}
@@ -344,18 +343,18 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
         </div>
       </div>
 
-      {/* Complete 10-Stage Blueprint / Table of Contents Section */}
+      {/* Master 10-Stage Execution Sequence */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-b border-[#E8E4DC] bg-[#FAF8F3]/60">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div className="max-w-3xl space-y-3">
             <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-              Master Specification
+              Master Blueprint Index
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif text-[#1C1A18]">
-              10-Stage Website & SEO Architecture Index
+              10-Stage Automation, Software & Web Architecture Index
             </h2>
             <p className="text-sm sm:text-base text-[#58544E]">
-              The complete execution sequence we follow to take your brand from audit to page-one search authority:
+              The complete sequential roadmap we deploy for agencies, clinics, hospitals, gyms, and tech companies:
             </p>
           </div>
 
@@ -390,19 +389,16 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
         {tocLayout === 'typeset' && (
           <div className="max-w-3xl mx-auto">
             <div className="relative bg-[#FAF7F0] border border-[#D5CFC5] rounded-xl p-8 sm:p-14 lg:p-16 shadow-lg overflow-hidden text-center">
-              {/* Title Header */}
               <div className="relative z-10 space-y-1 mb-10 pb-6 border-b border-[#E3DCCF]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#78716C] block">
-                  Redwood House · Master Architecture
+                  Redwood House · Master Specification
                 </span>
                 <h3 className="text-2xl sm:text-4xl font-sans font-black tracking-[0.14em] text-[#1C1A18] uppercase">
                   SYSTEM BLUEPRINT INDEX
                 </h3>
               </div>
 
-              {/* Centered Entries */}
               <div className="relative z-10 space-y-7 text-[#1C1A18] max-w-xl mx-auto">
-                {/* Introduction */}
                 <div className="space-y-1">
                   <div className="font-serif font-bold text-base sm:text-lg text-[#1C1A18]">
                     {tocData.introduction.title}
@@ -412,7 +408,6 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
                   </div>
                 </div>
 
-                {/* Stages 1 to 10 */}
                 {tocData.chapters.map((ch) => (
                   <div key={ch.number} className="space-y-1 pt-1">
                     <div className="font-serif font-bold text-base sm:text-lg text-[#1C1A18] tracking-tight">
@@ -424,7 +419,6 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
                   </div>
                 ))}
 
-                {/* Checklists & Operating Manual */}
                 <div className="pt-3 border-t border-[#E3DCCF]/60 space-y-6">
                   {tocData.sections.map((sec) => (
                     <div key={sec.title} className="space-y-1">
@@ -438,28 +432,26 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
                   ))}
                 </div>
 
-                {/* Back Matter */}
                 <div className="pt-4 space-y-1.5 font-serif font-bold text-sm sm:text-base text-[#1C1A18]">
                   {tocData.backMatter.map((item) => (
                     <div key={item}>{item}</div>
                   ))}
                 </div>
 
-                {/* Copyright Line */}
                 <div className="pt-8 text-right text-[11px] font-mono text-[#78716C]">
-                  Copyright © 2026 Redwood House
+                  Copyright © 2026 Redwood House · Chandigarh, India
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* View B: Interactive Stage Cards */}
+        {/* View B: Interactive Stage Grid */}
         {tocLayout === 'grid' && (
           <div className="space-y-8">
             <div className="bg-white p-6 sm:p-7 rounded-lg border border-[#E8E4DC] shadow-xs flex items-start gap-4">
               <span className="text-xs font-mono font-bold text-[#3D1D18] uppercase tracking-wider px-2 py-1 bg-[#F4F0E8] rounded-sm shrink-0">
-                Thesis
+                Foundational Thesis
               </span>
               <div>
                 <h4 className="text-lg font-serif font-bold text-[#1C1A18]">
@@ -495,19 +487,19 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
         )}
       </div>
 
-      {/* Bottom CTA */}
+      {/* Bottom CTA Block */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
         <div className="bg-white rounded-lg border border-[#E8E4DC] p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-                Direct Technical Consultation
+                Direct Technical Collaboration
               </span>
               <h3 className="text-2xl sm:text-3xl font-serif text-[#1C1A18]">
-                Ready to turn your website into a compounding search asset?
+                Ready to deploy AI automation, custom software, or a digital flagship?
               </h3>
               <p className="text-sm sm:text-base text-[#58544E] leading-relaxed">
-                Whether you need a ground-up flagship website, a complete online presence overhaul, or a technical SEO architecture that ranks on page one, our Chandigarh studio is ready to collaborate.
+                Whether you run an agency, clinic, hospital, gym, or software venture, email our studio with your business goals and current bottlenecks.
               </p>
             </div>
 
@@ -519,14 +511,14 @@ export const TantrumPlaybookPage: React.FC<TantrumPlaybookPageProps> = ({ onBack
                 Redwood House
               </div>
               <div className="text-xs text-[#78716C]">
-                Chandigarh, India · Website Development, Online Presence & SEO
+                Chandigarh, India · AI Automation, Software & Digital Flagships
               </div>
               <div className="pt-2">
                 <a
-                  href={BRAND.mailtoAudit}
+                  href={BRAND.mailtoGeneral}
                   className="inline-flex items-center gap-1.5 px-5 py-3 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-xs font-semibold rounded-md transition-colors"
                 >
-                  <span>Request Your Web & SEO Blueprint</span>
+                  <span>Initiate Project Consultation</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>

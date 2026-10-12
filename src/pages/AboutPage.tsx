@@ -1,6 +1,6 @@
 import React from 'react';
 import { BRAND, ASSETS } from '../constants/assets';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Cpu, Code, Search, Zap, Globe, Palette } from 'lucide-react';
 
 interface AboutPageProps {
   onBack: () => void;
@@ -32,7 +32,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
             About Redwood House
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#1C1A18] tracking-tight leading-[1.1]">
-            We believe the strongest businesses deserve an online presence and search authority that match their real-world caliber.
+            We just don't make websites. <br />
+            <span className="italic text-[#3D1D18]">We build intelligent operational engines and digital flagships.</span>
           </h1>
         </div>
 
@@ -40,12 +41,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
         <div className="mt-12 rounded-lg overflow-hidden border border-[#E8E4DC] shadow-md">
           <img
             src={ASSETS.chandigarhDigitalStudio}
-            alt="Redwood House Website Development, Online Presence & SEO Studio, Chandigarh"
+            alt="Redwood House AI Automation, Custom Software & Web Engineering Studio in Chandigarh"
             className="w-full h-80 sm:h-96 object-cover"
             referrerPolicy="no-referrer"
           />
           <div className="p-4 bg-white border-t border-[#E8E4DC] flex items-center justify-between text-xs text-[#78716C]">
-            <span>The Redwood House Digital & SEO Studio</span>
+            <span>The Redwood House Systems & AI Engineering Studio</span>
             <span className="font-mono">Chandigarh, India</span>
           </div>
         </div>
@@ -53,19 +54,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
         {/* Core Philosophical Thesis */}
         <div className="mt-16 space-y-8 text-base sm:text-lg text-[#4A4641] leading-relaxed font-sans">
           <p className="text-xl sm:text-2xl font-serif italic text-[#1C1A18] leading-snug">
-            "There are companies and specialists who have spent years mastering their craft. They should not lose opportunities to inferior competitors simply because their website is slow, unclear, or invisible on Google. Redwood House exists to close that gap."
+            "A website that doesn't automate your intake, doesn't triage inquiries, doesn't rank on Google, and doesn't process transactions is simply an expensive digital business card. Real scale requires connected intelligence."
           </p>
 
           <p>
-            Building a high-performing digital flagship requires three disciplines that rarely live under one roof: editorial-grade brand positioning, modern full-stack web engineering, and rigorous technical search engine optimization (SEO).
+            Redwood House was founded in Chandigarh, India, to bridge the massive gap between modern applied artificial intelligence, full-stack software development, search engine dominance, and high-craft brand design.
           </p>
 
           <p>
-            When companies try to assemble this piecemeal, they either end up with a visually flashy agency site that fails Core Web Vitals and ranks for nothing, or they hire a commodity SEO vendor that stuffs awkward keywords into a broken, low-trust template.
+            We partner with <strong>marketing and creative agencies, medical and specialist clinics, multi-specialty hospitals, gyms and fitness clubs, and software companies</strong>. For each vertical, we deploy custom AI agents that answer inquiries in 30 seconds, automate client reporting, prevent membership churn, route hospital patients, and process payments without manual admin overhead.
           </p>
 
           <p>
-            Redwood House was founded as an integrated Website Development, Online Presence Creator, and SEO Studio. We treat your website and search footprint as a unified piece of commercial architecture—engineered for speed, clarity, and compounding organic discovery.
+            And yes, we make websites—sub-second, custom-coded React and Next.js flagships scoring 99+ on Google Core Web Vitals with rich Schema.org search entity graphs.
           </p>
         </div>
 
@@ -77,34 +78,34 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div className="p-6 bg-white rounded-lg border border-[#E8E4DC] space-y-2">
-              <span className="text-xs font-mono uppercase text-[#78716C]">Pillar 01</span>
-              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Performance as a Trust Signal</h3>
+              <span className="text-xs font-mono uppercase text-[#78716C]">Principle 01</span>
+              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Autonomous Operations First</h3>
               <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                Speed is the first impression of competence. We engineer every website for sub-second load times and 99+ Core Web Vitals scores across mobile and desktop.
+                If an inquiry can be triaged in 30 seconds, an intake form collected digitally, or a report drafted automatically by an AI agent, human staff should not do it manually.
               </p>
             </div>
 
             <div className="p-6 bg-white rounded-lg border border-[#E8E4DC] space-y-2">
-              <span className="text-xs font-mono uppercase text-[#78716C]">Pillar 02</span>
-              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Anti-Template Craftsmanship</h3>
+              <span className="text-xs font-mono uppercase text-[#78716C]">Principle 02</span>
+              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Purpose-Built Custom Software</h3>
               <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                We reject bloated page builders, generic AI slop, and fleeting design gimmicks. Every layout, typographic scale, and interaction is custom-built for your brand.
+                We reject bloated monthly subscription tools and fragile Zapier bridges. We engineer bespoke client portals, clinic backends, and dashboards with 100% source code ownership.
               </p>
             </div>
 
             <div className="p-6 bg-white rounded-lg border border-[#E8E4DC] space-y-2">
-              <span className="text-xs font-mono uppercase text-[#78716C]">Pillar 03</span>
-              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Architectural SEO</h3>
+              <span className="text-xs font-mono uppercase text-[#78716C]">Principle 03</span>
+              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Sub-Second Speed & Web Rigor</h3>
               <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                We engineer search visibility directly into the HTML DOM, URL hierarchy, Schema.org JSON-LD graph, and topic clusters so organic traffic compounds month after month.
+                Every website we deliver is engineered for sub-second page loads, 99+ Core Web Vitals, and semantic HTML5 hierarchy that commands instant visitor trust and search crawler priority.
               </p>
             </div>
 
             <div className="p-6 bg-white rounded-lg border border-[#E8E4DC] space-y-2">
-              <span className="text-xs font-mono uppercase text-[#78716C]">Pillar 04</span>
-              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">100% Client Ownership</h3>
+              <span className="text-xs font-mono uppercase text-[#78716C]">Principle 04</span>
+              <h3 className="text-lg font-serif font-medium text-[#1C1A18]">Complete Client Code & Model Ownership</h3>
               <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-                Delivered as a complete digital asset you own outright. You hold full control of your code repository, domain, design system, and search analytics.
+                You own 100% of your source code repository, database schemas, AI agent prompts, domain assets, and analytics properties. Zero vendor lock-in.
               </p>
             </div>
           </div>
@@ -120,7 +121,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
               Chandigarh, India
             </h3>
             <p className="text-sm text-[#58544E] leading-relaxed">
-              Based in the modernist architectural city of Chandigarh, Redwood House partners with founders, businesses, and category leaders globally. We take on a focused number of web development and SEO engagements each quarter to guarantee direct senior execution.
+              Based in the modernist architectural city of Chandigarh, Redwood House engineers AI automations, custom software, SEO marketing, and digital flagships for companies globally. We partner directly with senior leadership to guarantee precision execution.
             </p>
           </div>
           <div className="pt-2">

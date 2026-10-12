@@ -1,6 +1,6 @@
 import React from 'react';
 import { BRAND } from '../constants/assets';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Cpu } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (view: string) => void;
@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[#33302B]">
           {/* Brand & Studio Location */}
-          <div className="md:col-span-6 space-y-4">
+          <div className="md:col-span-5 space-y-4">
             <div className="text-white">
               <div className="flex items-center gap-3">
                 <span className="font-serif text-2xl tracking-tight font-medium text-white">
@@ -25,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
 
             <p className="text-sm text-[#A8A29E] max-w-md font-sans leading-relaxed">
-              A private website development, online presence creation, and technical SEO studio. We turn ambitious companies, specialist practices, and category leaders into commanding digital flagships that rank, convert, and endure.
+              We just don't make websites. We engineer AI automation, custom software, SEO marketing, brand design, and high-performance digital flagships for agencies, clinics, hospitals, gyms, and growing companies.
             </p>
 
             <div className="pt-2">
@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   }}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  SEO & Online Presence System
+                  AI Automation & Systems Blueprint
                 </button>
               </li>
               <li>
@@ -89,7 +89,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   }}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  How It Works
+                  Engineering Workflow
                 </button>
               </li>
               <li>
@@ -100,40 +100,55 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   }}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  About the Studio
+                  About Redwood House
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Engagement Philosophy Note */}
-          <div className="md:col-span-3 space-y-4">
+          {/* Disciplines & Verticals */}
+          <div className="md:col-span-4 space-y-4">
             <span className="text-xs uppercase tracking-widest text-[#78716C] font-mono block">
-              Engagement Model
+              Core Verticals & Systems
             </span>
-            <p className="text-xs text-[#A8A29E] leading-relaxed">
-              Every project is executed as a structured, end-to-end digital architecture engagement. Delivered with 100% code ownership, sub-second Core Web Vitals, and semantic search foundations built to compound organically.
-            </p>
-            <div className="pt-2">
-              <a
-                href={BRAND.mailtoGeneral}
-                className="inline-block text-xs font-medium text-[#FBF9F5] border border-[#57534E] hover:border-white px-3.5 py-2 rounded-sm transition-colors"
-              >
-                Initiate Project Conversation
-              </a>
-            </div>
+            <ul className="space-y-2 text-xs text-[#A8A29E] font-sans">
+              <li className="flex items-center gap-2">
+                <span className="text-white font-medium">Agencies:</span> AI Onboarding & Reporting Pipelines
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-white font-medium">Clinics:</span> 24/7 Patient Triage & Booking Automations
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-white font-medium">Hospitals:</span> Multi-Department Routing Intelligence
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-white font-medium">Gyms:</span> Lead-to-Trial WhatsApp Bots & Retention Engines
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-white font-medium">SEO Marketing:</span> Programmatic Silos & Entity Graphs
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-white font-medium">Custom Software:</span> Bespoke Client Portals & Operations
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-white font-medium">Websites:</span> Sub-Second React & Next.js Flagships
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#78716C] gap-4">
-          <div className="flex items-center gap-3">
-            <span>© {new Date().getFullYear()} Redwood House. All rights reserved.</span>
+        {/* Colophon & Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#78716C]">
+          <div className="flex items-center gap-2">
+            <span>© 2026 Redwood House. All rights reserved.</span>
             <span aria-hidden="true">·</span>
-            <span>Website Development, Online Presence & SEO Studio</span>
+            <span>Chandigarh, India</span>
           </div>
-          <div className="text-right">
-            <span>Chandigarh, India · Global Client Engagements</span>
+
+          <div className="flex items-center gap-4 text-[#A8A29E]">
+            <span>100% Client Code Ownership</span>
+            <span aria-hidden="true">·</span>
+            <span>Zero Proprietary Lock-in</span>
           </div>
         </div>
       </div>

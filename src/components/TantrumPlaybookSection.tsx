@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BRAND, ASSETS } from '../constants/assets';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Cpu, Play, CheckCircle2, RefreshCw, Zap, Building2, Stethoscope, Dumbbell, ShieldCheck, ArrowRight } from 'lucide-react';
 
 interface TantrumPlaybookSectionProps {
   onViewDedicatedPage: () => void;
@@ -9,14 +9,77 @@ interface TantrumPlaybookSectionProps {
 export const TantrumPlaybookSection: React.FC<TantrumPlaybookSectionProps> = ({
   onViewDedicatedPage,
 }) => {
-  const systemLayers = [
-    { name: '01 · Core Web Vitals', subtitle: 'Sub-Second Speed', note: 'LCP < 1.2s, zero layout shift, clean semantic DOM.' },
-    { name: '02 · Technical Schema', subtitle: 'JSON-LD Entity Graph', note: 'Rich snippets, Organization, FAQ, & Service schema.' },
-    { name: '03 · Search Architecture', subtitle: 'Hub & Spoke Silos', note: 'Programmatic landing pages & internal link equity.' },
-    { name: '04 · Editorial Authority', subtitle: 'Conversion Copywriting', note: 'Zero-fluff domain copy built for humans and crawlers.' },
-    { name: '05 · Local & Global SEO', subtitle: 'Search Dominance', note: 'Google Business Profile, citations, & geo-targeted pages.' },
-    { name: '06 · Presence Ecosystem', subtitle: 'Cohesive Digital Footprint', note: 'Unified brand identity across web, search, and social.' },
-  ];
+  const [activeSimulation, setActiveSimulation] = useState<'agency' | 'clinic' | 'hospital' | 'gym'>('clinic');
+  const [simStep, setSimStep] = useState<number>(3); // All complete by default
+  const [isSimulating, setIsSimulating] = useState<boolean>(false);
+
+  const simulationScenarios = {
+    clinic: {
+      title: 'Specialist Clinic Patient Triage & Booking',
+      icon: Stethoscope,
+      trigger: 'Patient lands on clinic website from Google Search for "emergency tooth implant"',
+      steps: [
+        { title: '1. Inbound Triage', desc: 'AI Triage Agent queries symptoms, confirms severity, and offers available doctor slots within 30 seconds.' },
+        { title: '2. Identity & Intake', desc: 'Agent texts patient secure WhatsApp intake link. Medical history & insurance card uploaded digitally.' },
+        { title: '3. Ad & Transaction', desc: 'Deposit payment processed via Stripe integration; automated receipt and calendar invite synced.' },
+        { title: '4. Clinic Dispatch', desc: 'Clinic EHR updated with pre-intake notes. Automated zero-no-show WhatsApp reminder scheduled for T-24h.' },
+      ],
+      result: 'Consultation booked in 90 seconds without reception staff lifting a finger.',
+    },
+    agency: {
+      title: 'Marketing Agency Client Onboarding & Reporting',
+      icon: Building2,
+      trigger: 'Enterprise client submits proposal inquiry through bespoke agency flagship',
+      steps: [
+        { title: '1. Lead Qualification', desc: 'AI agent scores budget, timelines, and scope. Schedules 45-min strategy call with Director.' },
+        { title: '2. Contract & Transaction', desc: 'Client signs Master Services Agreement; Stripe billing webhook auto-creates monthly retainer.' },
+        { title: '3. Autonomous Setup', desc: 'Agent spins up dedicated Slack channel, Google Drive asset folders, and Notion workspace.' },
+        { title: '4. Autonomous Reporting', desc: 'Every Monday at 9:00 AM, AI pulls Meta/Google Ads data and generates an executive performance briefing.' },
+      ],
+      result: 'Saved 20+ account manager hours per month per client.',
+    },
+    hospital: {
+      title: 'Hospital Department Routing & Alerting',
+      icon: Building2,
+      trigger: 'Family member contacts emergency or specialist desk online after hours',
+      steps: [
+        { title: '1. Conversational Routing', desc: 'AI assesses department urgency (Cardiology vs Orthopedic vs General Outpatient).' },
+        { title: '2. Doctor Dispatch', desc: 'Secure SMS/Pager alert dispatched to the on-call specialist with incident summary.' },
+        { title: '3. Registration & Prepay', desc: 'Digital registration token generated; pre-admission diagnostic tests added to chart.' },
+        { title: '4. Family Recovery Updates', desc: 'Automated post-procedure recovery notifications sent to designated family contact.' },
+      ],
+      result: 'Zero department routing delays, reducing intake bottlenecks by 45%.',
+    },
+    gym: {
+      title: 'Gym Lead-to-Trial & Retention Automation',
+      icon: Dumbbell,
+      trigger: 'Prospect clicks Meta Ad offer for "7-Day CrossFit & Strength Trial"',
+      steps: [
+        { title: '1. Instant 30s Contact', desc: 'AI WhatsApp bot texts prospect within 30 seconds of ad form submit to pick trial slot.' },
+        { title: '2. Digital Waiver & Pass', desc: 'Prospect completes waiver on mobile; QR code trial gym pass generated instantly.' },
+        { title: '3. Attendance Follow-Up', desc: 'Post-workout automated message checks in and delivers exclusive membership link.' },
+        { title: '4. Churn Prevention', desc: 'If member skips gym for 10 days, motivational sequence fires with a personal trainer session offer.' },
+      ],
+      result: 'Trial attendance jumps from 38% to 74%; 30-day member churn drops by 35%.',
+    },
+  };
+
+  const currentScenario = simulationScenarios[activeSimulation];
+
+  const runSimulation = () => {
+    setIsSimulating(true);
+    setSimStep(0);
+    const interval = setInterval(() => {
+      setSimStep((prev) => {
+        if (prev >= 3) {
+          clearInterval(interval);
+          setIsSimulating(false);
+          return 3;
+        }
+        return prev + 1;
+      });
+    }, 700);
+  };
 
   return (
     <section id="seo-blueprint" className="py-20 md:py-28 border-b border-[#E8E4DC] bg-[#FAF8F3]">
@@ -25,120 +88,171 @@ export const TantrumPlaybookSection: React.FC<TantrumPlaybookSectionProps> = ({
         <div className="flex items-center justify-between pb-6 border-b border-[#E8E4DC] mb-12">
           <div className="flex items-center gap-3">
             <span className="text-xs uppercase tracking-widest text-[#78716C] font-mono">
-              Signature Redwood House Methodology
+              Redwood Systems Architecture
             </span>
             <span aria-hidden="true" className="text-[#A8A29E]">·</span>
-            <span className="text-xs font-sans text-[#3D1D18] font-medium">The Flagship Presence & SEO Blueprint</span>
+            <span className="text-xs font-sans text-[#3D1D18] font-medium">AI Automation & Transaction Blueprint</span>
           </div>
           <button
             onClick={onViewDedicatedPage}
             className="text-xs font-medium text-[#1C1A18] hover:text-[#3D1D18] underline underline-offset-4 cursor-pointer hidden sm:inline-flex items-center gap-1"
           >
-            <span>Inspect Full 10-Stage Architecture</span>
+            <span>Inspect 10-Stage Architecture Blueprint</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Main Grid: Visual Blueprint Showcase + System Narrative */}
+        {/* Main Grid: Visual Automation Showcase + Live Simulator */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Authentic SEO & Web Architecture Visual Representation */}
+          {/* Left Column: Visual System & Provenance */}
           <div className="lg:col-span-5 space-y-4">
             <div className="relative rounded-lg overflow-hidden border border-[#D5CFC5] shadow-lg bg-white group">
               <img
-                src={ASSETS.seoArchitectureShowcase}
-                alt="Redwood House Technical SEO and Online Presence Architecture Blueprint"
+                src={ASSETS.aiAutomationWorkflow}
+                alt="Redwood House AI Automation and Workflow Pipeline Architecture"
                 className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-300"
                 referrerPolicy="no-referrer"
               />
+              <div className="absolute top-3 left-3 bg-black/75 backdrop-blur-sm text-white px-3 py-1 rounded text-[11px] font-mono flex items-center gap-1.5 border border-white/20">
+                <Cpu className="w-3 h-3 text-[#E8E4DC]" />
+                <span>Autonomous Agent Pipeline</span>
+              </div>
             </div>
 
-            {/* Visual Provenance & Production Details */}
+            {/* Visual Provenance & Details */}
             <div className="p-4 bg-white rounded-md border border-[#E8E4DC] text-xs text-[#58544E] space-y-1.5">
               <div className="flex justify-between">
-                <span className="text-[#78716C]">System</span>
-                <span className="font-serif font-medium text-[#1C1A18]">The Redwood Digital & SEO Blueprint</span>
+                <span className="text-[#78716C]">Architecture</span>
+                <span className="font-serif font-medium text-[#1C1A18]">The Redwood Autonomous Engine</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#78716C]">Engineering Studio</span>
+                <span className="text-[#78716C]">Deployment Studio</span>
                 <span className="font-sans text-[#1C1A18]">Redwood House, Chandigarh</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#78716C]">Deliverable</span>
-                <span className="font-sans text-[#1C1A18]">Custom Website + Search Authority Engine</span>
+                <span className="text-[#78716C]">Scope</span>
+                <span className="font-sans text-[#1C1A18]">Agencies · Clinics · Hospitals · Gyms</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Narrative, Positioning, and Direct Email CTA */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Right Column: Live Interactive Simulation Box */}
+          <div className="lg:col-span-7 space-y-6">
             <div className="space-y-3">
               <span className="text-xs font-mono tracking-widest uppercase text-[#78716C]">
-                Algorithms shift. Structural authority compounds.
+                Interactive Workflow Simulation
               </span>
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#1C1A18] tracking-tight">
-                The Online Presence & SEO Playbook
+                How Our AI & Automation Pipelines Actually Run.
               </h3>
-              <p className="text-lg sm:text-xl font-serif italic text-[#3D1D18] leading-snug">
-                How We Engineer High-Converting Websites, Semantic Search Architecture, and Category-Leading Digital Authority
+              <p className="text-base text-[#58544E] leading-relaxed">
+                Select an industry below and run the simulated workflow to observe how our AI agents, ad transactions, and custom software eliminate manual human overhead.
               </p>
             </div>
 
-            <div className="space-y-4 text-base text-[#4A4641] leading-relaxed">
-              <p>
-                Most websites fail for one of two reasons: either they are designed as pretty visual brochures with zero technical SEO foundation, or they are stuffed with awkward agency keywords that repel actual human buyers.
-              </p>
-              <p>
-                <strong className="text-[#1C1A18] font-medium">The Redwood House Presence System</strong> unites bespoke frontend engineering with deep semantic SEO. We structure every URL, heading hierarchy, schema graph, and conversion pathway so your brand ranks on page one and converts visitors into high-value inquiries.
-              </p>
+            {/* Industry Simulator Tabs */}
+            <div className="flex flex-wrap gap-2 pt-2">
+              {(['clinic', 'agency', 'hospital', 'gym'] as const).map((key) => {
+                const item = simulationScenarios[key];
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveSimulation(key);
+                      setSimStep(3); // Show full steps
+                    }}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-md transition-all cursor-pointer ${
+                      activeSimulation === key
+                        ? 'bg-[#1C1A18] text-white font-medium shadow-2xs'
+                        : 'bg-white text-[#58544E] border border-[#E8E4DC] hover:text-[#1C1A18]'
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    <span className="capitalize">{key === 'clinic' ? 'Clinic' : key === 'agency' ? 'Agency' : key === 'hospital' ? 'Hospital' : 'Gym'}</span>
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Core Studio Principle Quote */}
-            <div className="p-5 border-l-2 border-[#3D1D18] bg-white rounded-r-md space-y-1">
-              <p className="text-sm font-serif italic text-[#1C1A18]">
-                "Your website works 24 hours a day while your team is asleep."
-              </p>
-              <p className="text-xs font-sans text-[#58544E]">
-                Every page is engineered as a permanent digital asset that captures intent, proves competence, and initiates trust.
-              </p>
-            </div>
+            {/* Simulation Canvas Box */}
+            <div className="bg-white rounded-lg border border-[#E8E4DC] p-6 shadow-xs space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#F4F0E8]">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
+                    Simulated Workflow
+                  </span>
+                  <h4 className="text-base font-serif font-medium text-[#1C1A18] mt-0.5">
+                    {currentScenario.title}
+                  </h4>
+                </div>
+                <button
+                  onClick={runSimulation}
+                  disabled={isSimulating}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#F4F0E8] hover:bg-[#EAE4D7] text-[#1C1A18] text-xs font-medium rounded transition-colors cursor-pointer disabled:opacity-50"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${isSimulating ? 'animate-spin' : ''}`} />
+                  <span>{isSimulating ? 'Simulating...' : 'Run Simulation'}</span>
+                </button>
+              </div>
 
-            {/* The Six Core System Layers */}
-            <div className="space-y-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                The 6 Architectural Layers Engineered Into Every Build
-              </span>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {systemLayers.map((item) => (
-                  <div key={item.name} className="p-3 bg-white border border-[#E8E4DC] rounded-sm text-left">
-                    <span className="text-xs font-serif font-medium text-[#1C1A18] block">{item.name}</span>
-                    <span className="text-[11px] font-sans text-[#78716C] block mt-0.5">{item.subtitle}</span>
-                  </div>
-                ))}
+              {/* Trigger description */}
+              <div className="p-3 rounded bg-[#FAF9F7] border border-[#E8E4DC] text-xs text-[#58544E] flex items-center gap-2">
+                <span className="font-mono text-[#3D1D18] font-bold uppercase text-[10px] shrink-0">Trigger:</span>
+                <span>{currentScenario.trigger}</span>
+              </div>
+
+              {/* 4 Pipeline Steps */}
+              <div className="space-y-3">
+                {currentScenario.steps.map((st, i) => {
+                  const isDone = simStep >= i;
+                  return (
+                    <div
+                      key={i}
+                      className={`p-3.5 rounded-md border transition-all flex items-start gap-3 ${
+                        isDone
+                          ? 'border-[#3D1D18]/30 bg-white shadow-2xs'
+                          : 'border-dashed border-[#E8E4DC] opacity-40 bg-[#FAF9F7]'
+                      }`}
+                    >
+                      <div className="mt-0.5 shrink-0">
+                        {isDone ? (
+                          <CheckCircle2 className="w-4 h-4 text-[#3D1D18]" />
+                        ) : (
+                          <div className="w-4 h-4 rounded-full border border-[#D5CFC5] flex items-center justify-center text-[10px] text-[#78716C]">
+                            {i + 1}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <span className="text-xs font-medium text-[#1C1A18] block">
+                          {st.title}
+                        </span>
+                        <p className="text-xs text-[#58544E] mt-0.5 leading-relaxed">
+                          {st.desc}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Measured Impact */}
+              <div className="p-3.5 rounded bg-[#FAF8F3] border border-[#E8E4DC] flex items-center justify-between text-xs">
+                <span className="font-mono text-[#78716C]">Outcome Metric:</span>
+                <span className="font-serif italic font-medium text-[#3D1D18]">{currentScenario.result}</span>
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <a
-                href={BRAND.mailtoAudit}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-sm font-semibold rounded-md transition-colors shadow-xs"
-              >
-                <span>Request a Web & SEO Audit</span>
-                <ArrowUpRight className="w-4 h-4 text-[#D6D3D1]" />
-              </a>
+            {/* Dedicated Page Button */}
+            <div className="pt-2">
               <button
                 onClick={onViewDedicatedPage}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#D5CFC5] hover:border-[#1C1A18] bg-white text-[#1C1A18] text-sm font-medium rounded-md transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#1C1A18] hover:text-[#3D1D18] underline underline-offset-4 cursor-pointer"
               >
-                <span>View Full 10-Stage System & Checklist</span>
+                <span>Read Full 10-Stage Automation & Software Architecture</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
-            </div>
-
-            <div className="text-xs text-[#78716C] flex items-center gap-2">
-              <span>Direct studio inquiries handled via</span>
-              <a href={BRAND.mailtoAudit} className="font-mono text-[#1C1A18] hover:underline">
-                {BRAND.email}
-              </a>
             </div>
           </div>
         </div>

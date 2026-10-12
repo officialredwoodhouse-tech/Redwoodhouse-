@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RwHLogo } from './RwHLogo';
 import { BRAND } from '../constants/assets';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X, Cpu } from 'lucide-react';
 
 interface HeaderProps {
   currentView: string;
@@ -12,16 +12,29 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Work', id: 'work' },
-    { label: 'SEO & Presence System', id: 'seo-blueprint' },
+    { label: 'Industry Solutions', id: 'verticals' },
+    { label: 'AI & Systems Blueprint', id: 'seo-blueprint' },
+    { label: 'Selected Work', id: 'work' },
     { label: 'How It Works', id: 'how-it-works' },
     { label: 'About', id: 'about' },
   ];
 
   const handleNavClick = (id: string) => {
-    onNavigate(id);
+    if (id === 'verticals') {
+      if (currentView !== 'home') {
+        onNavigate('home');
+        setTimeout(() => {
+          const el = document.getElementById('verticals');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      } else {
+        const el = document.getElementById('verticals');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      onNavigate(id);
+    }
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -35,8 +48,8 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
           <RwHLogo variant="full" />
         </button>
 
-        {/* Zone 2: Clean Text Navigation Links (Single-Line, Hover Underline) */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#58544E]">
+        {/* Zone 2: Navigation Links */}
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#58544E]">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -67,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
             href={BRAND.mailtoGeneral}
             className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#1C1A18] hover:bg-[#3D1D18] rounded-md transition-colors tracking-wide whitespace-nowrap shadow-xs"
           >
-            <span>Email Studio</span>
+            <span>Start a Project</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-[#E7E3DC]" />
           </a>
         </div>
@@ -98,22 +111,20 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-left text-base font-serif py-1 transition-colors cursor-pointer ${
-                  currentView === item.id
-                    ? 'text-[#1C1A18] font-semibold underline underline-offset-4 decoration-[#3D1D18]'
-                    : 'text-[#58544E]'
+                className={`text-left py-1 text-sm font-medium ${
+                  currentView === item.id ? 'text-[#1C1A18] font-bold' : 'text-[#58544E]'
                 }`}
               >
                 {item.label}
               </button>
             ))}
-            <div className="pt-4 border-t border-[#E8E4DC] flex flex-col gap-2">
-              <span className="text-xs text-[#7A756D] uppercase tracking-wider">Direct Studio Contact</span>
+            <div className="pt-4 border-t border-[#E8E4DC]">
               <a
                 href={BRAND.mailtoGeneral}
-                className="text-sm font-medium text-[#1C1A18] hover:underline font-mono"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white bg-[#1C1A18] rounded-md"
               >
-                {BRAND.email}
+                <span>Initiate a Project</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </nav>

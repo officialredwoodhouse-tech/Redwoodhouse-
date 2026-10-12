@@ -4,20 +4,24 @@ import { Check, Minus } from 'lucide-react';
 export const ValuePropositionSection: React.FC = () => {
   const contrasts = [
     {
-      diy: 'Bloated page-builder templates that load in 6+ seconds and look identical to competitors.',
-      rwh: 'Bespoke, hand-engineered web architecture scoring 99+ on Google Core Web Vitals.',
+      diy: 'Paying for a basic website while your staff still wastes 20+ hours a week on manual bookings, data entry, and reports.',
+      rwh: 'Autonomous AI agents and custom operational software eliminate repetitive admin for clinics, gyms, agencies, and businesses.',
     },
     {
-      diy: 'Juggling a freelance designer, a separate developer, and an SEO vendor who blame each other.',
-      rwh: 'One unified studio where design, full-stack code, conversion copy, and technical SEO are built together.',
+      diy: 'Juggling a freelance designer, an offshore coder, an SEO freelancer, and Zapier scripts that constantly break.',
+      rwh: 'One unified engineering studio in Chandigarh designing your AI agents, software, SEO, design, and web architecture together.',
     },
     {
-      diy: 'Treating SEO as an afterthought—bolting spammy keywords onto an unindexable website.',
-      rwh: 'Semantic HTML5, JSON-LD schema graphs, and search intent silos engineered from day one.',
+      diy: 'Slow WordPress or Wix templates taking 6+ seconds to load, full of plugin vulnerabilities and zero SEO structure.',
+      rwh: 'Handcrafted sub-second React/Next.js architectures scoring 99+ on Google Core Web Vitals with rich Schema.org graphs.',
     },
     {
-      diy: 'Locked-in agency retainers where you don\'t even own your website code or hosting.',
-      rwh: '100% client ownership of source code, domain assets, analytics, and search infrastructure.',
+      diy: 'Ad clicks that lead to cold contact forms with no immediate response, causing 60%+ of high-intent leads to bounce.',
+      rwh: 'Instant 30-second AI conversational triage (WhatsApp/Web) converting ad traffic directly into booked consultations or trials.',
+    },
+    {
+      diy: 'Proprietary lock-in or agency retainers where you don\'t even own your source code, AI prompts, or domain assets.',
+      rwh: '100% complete client ownership of source code, database schemas, AI agent pipelines, and analytics assets.',
     },
   ];
 
@@ -27,27 +31,27 @@ export const ValuePropositionSection: React.FC = () => {
         {/* Header */}
         <div className="max-w-3xl space-y-4">
           <span className="text-xs uppercase tracking-widest text-[#78716C] font-mono">
-            Strategic Contrast
+            Strategic Comparison
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            The difference between a generic website and a digital flagship.
+            The difference between a basic website and an intelligent business engine.
           </h2>
           <p className="text-lg text-[#58544E] leading-relaxed">
-            Most websites are digital liabilities: slow, invisible on Google, and disconnected from revenue. Redwood House builds permanent online assets engineered to rank and convert.
+            Most businesses hire a web agency and realize their real problems remain untouched: manual intake, slow response times, lost bookings, and zero search authority. Redwood House solves the entire chain.
           </p>
         </div>
 
         {/* Comparison Grid */}
         <div className="mt-14 bg-white rounded-lg border border-[#E8E4DC] overflow-hidden shadow-xs">
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#E8E4DC]">
-            {/* The Fragmented / Template Route */}
+            {/* The Fragmented Route */}
             <div className="p-8 sm:p-10 space-y-6 bg-[#FAF9F7]">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                  Path A
+                  The Old Model
                 </span>
                 <h3 className="text-xl font-serif text-[#58544E] mt-1 font-medium">
-                  Templates & Fragmented Vendors
+                  Isolated Websites & Manual Operations
                 </h3>
               </div>
               <ul className="space-y-6">
@@ -64,10 +68,10 @@ export const ValuePropositionSection: React.FC = () => {
             <div className="p-8 sm:p-10 space-y-6 bg-white">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-[#3D1D18] block font-semibold">
-                  Path B
+                  The Redwood Standard
                 </span>
                 <h3 className="text-xl font-serif text-[#1C1A18] mt-1 font-medium">
-                  Partnering with Redwood House
+                  AI Automation + Software + SEO + Websites
                 </h3>
               </div>
               <ul className="space-y-6">
@@ -79,6 +83,16 @@ export const ValuePropositionSection: React.FC = () => {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Bottom Banner */}
+          <div className="p-6 bg-[#F4F0E8]/50 border-t border-[#E8E4DC] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span className="text-xs text-[#58544E]">
+              Replace 4 disconnected vendors with one intelligent engineering studio.
+            </span>
+            <span className="text-xs font-mono text-[#3D1D18] font-semibold">
+              Engineered in Chandigarh · Deployed Globally
+            </span>
           </div>
         </div>
       </div>

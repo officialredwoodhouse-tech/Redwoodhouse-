@@ -87,12 +87,10 @@ export default function App() {
               <>
                 <Hero
                   onExploreWork={() => navigateTo('work')}
-                  onExplorePlaybook={() => {
-                    const el = document.getElementById('seo-blueprint');
+                  onExploreSystems={() => {
+                    const el = document.getElementById('verticals');
                     if (el) {
                       el.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                      navigateTo('seo-blueprint');
                     }
                   }}
                 />

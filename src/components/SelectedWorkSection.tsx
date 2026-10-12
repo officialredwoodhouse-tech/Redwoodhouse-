@@ -1,14 +1,15 @@
 import React from 'react';
 import { BRAND } from '../constants/assets';
+import { ArrowUpRight, Building2, Stethoscope, Dumbbell, Search, Code, Palette, Globe, Check } from 'lucide-react';
 
 interface CaseStudy {
   id: string;
   clientPlaceholder: string;
+  vertical: string;
   category: string;
   challenge: string;
-  subjectMatter: string;
-  architectureConcept: string;
   whatWeBuilt: string;
+  aiAutomationHighlights: string;
   finalDeliverable: string;
   metrics: string;
 }
@@ -16,48 +17,70 @@ interface CaseStudy {
 export const SelectedWorkSection: React.FC = () => {
   const cases: CaseStudy[] = [
     {
-      id: 'northstar',
-      clientPlaceholder: 'Northstar Industrial Systems',
-      category: 'B2B Deep Tech · Flagship Website & Programmatic SEO',
-      challenge: 'An enterprise hardware & telemetry company had strong engineering credentials but a slow, outdated site that ranked for zero non-branded commercial keywords.',
-      subjectMatter: 'Industrial IoT architecture, enterprise compliance, and supply chain telemetry.',
-      architectureConcept: 'A sub-second architectural web platform paired with 45+ technical solution and specification pages engineered for enterprise search intent.',
-      whatWeBuilt: 'Custom React/TypeScript frontend, interactive product specification matrices, JSON-LD technical schema graph, and complete search silo restructuring.',
-      finalDeliverable: 'Custom web flagship + 99/100 Core Web Vitals + 45 programmatic SEO landing hubs.',
-      metrics: '+310% Organic Inbound Pipeline',
+      id: 'apex-clinics',
+      clientPlaceholder: 'Apex Multi-Specialty Clinics',
+      vertical: 'Clinics',
+      category: 'Healthcare & Clinic AI Automation · Web Platform · Local SEO',
+      challenge: 'The clinic reception was losing 40+ patient inquiry calls daily during peak surgery hours, with no evening triage and high patient no-shows.',
+      whatWeBuilt: 'Sub-second clinical web platform with 24/7 conversational WhatsApp triage agent, automated electronic pre-visit forms, and MedicalClinic Schema SEO.',
+      aiAutomationHighlights: 'Intelligent triage agent books consultations, checks doctor availability, processes deposit transactions, and schedules zero-no-show WhatsApp reminders.',
+      finalDeliverable: 'Custom healthcare web flagship + 24/7 WhatsApp AI triage agent + local search dominance.',
+      metrics: '3.4x Increase in Booked Consultations · <2% No-Show Rate',
     },
     {
-      id: 'pine',
-      clientPlaceholder: 'Pine & Co. Advisory',
-      category: 'Boutique Consultancy · Online Presence & Authority SEO',
-      challenge: 'A senior M&A and restructuring consultancy relied entirely on referrals because their digital footprint looked like a generic 2016 template.',
-      subjectMatter: 'Post-merger integration, executive advisory, and capital allocation.',
-      architectureConcept: 'An editorial-grade digital flagship positioning the firm alongside Tier-1 global consultancies while capturing high-intent executive search traffic.',
-      whatWeBuilt: 'Bespoke editorial design system, partner authority profiles, interactive diagnostic assessment tool, and thought-leadership SEO architecture.',
-      finalDeliverable: 'Full digital rebrand + custom web platform + Google Knowledge Graph optimization.',
-      metrics: 'Page-1 Rankings for 28 Core Terms',
+      id: 'scaleflow-agency',
+      clientPlaceholder: 'ScaleFlow Media & Growth Agency',
+      vertical: 'Agencies',
+      category: 'Agency Operations · AI Onboarding & Reporting Pipelines',
+      challenge: 'Senior account managers were spending 15 hours every week manually compiling performance decks from Meta Ads, Google Ads, and Stripe across 24 clients.',
+      whatWeBuilt: 'Autonomous agency delivery pipeline: custom client portal, weekly AI performance briefing generation, and Stripe subscription webhook automation.',
+      aiAutomationHighlights: 'Monday 9AM autonomous reporting bot + automated client onboarding pipeline provisioning Slack, Drive, and client briefs in under 2 minutes.',
+      finalDeliverable: 'Custom agency operations portal + autonomous reporting agents + ad attribution pipeline.',
+      metrics: 'Saved 20+ hrs/week per PM · 2.8x Faster Client Ramp-Up',
     },
     {
-      id: 'aura-clinics',
-      clientPlaceholder: 'Aura Specialist Clinics',
-      category: 'Healthcare & Aesthetics · Web Platform & Local SEO',
-      challenge: 'A premier multi-specialty clinic was losing high-value patient inquiries to inferior competitors who had better local search visibility and faster mobile booking.',
-      subjectMatter: 'Specialist clinical procedures, patient education, and multi-city clinic discovery.',
-      architectureConcept: 'A calm, high-trust digital clinic experience with dedicated treatment hubs, physician schema, and hyper-local search dominance.',
-      whatWeBuilt: 'Mobile-first patient portal interface, 30+ medically reviewed treatment SEO guides, MedicalClinic JSON-LD schema, and local search architecture.',
-      finalDeliverable: 'Custom healthcare web platform + local SEO system + frictionless consultation flow.',
-      metrics: '3.4x Increase in Patient Inquiries',
+      id: 'ironpulse-gym',
+      clientPlaceholder: 'IronPulse Fitness & Athletic Club',
+      vertical: 'Gyms & Fitness',
+      category: 'Fitness Centers · Lead-to-Trial AI Bot · Churn Prevention',
+      challenge: 'Paid ad leads took 6 to 12 hours to receive a manual callback, losing 60% of interested prospects. Member churn hit 35% after month two.',
+      whatWeBuilt: 'High-converting gym membership website with interactive class schedule, Stripe recurring billing, and mobile member pass integration.',
+      aiAutomationHighlights: 'Instant 30-second WhatsApp lead response bot that books free trial sessions immediately, plus predictive 10-day inactivity churn alert sequence.',
+      finalDeliverable: 'Modern gym web flagship + instant WhatsApp conversion bot + member retention engine.',
+      metrics: '+68% Trial Attendance · 35% Drop in 60-Day Member Churn',
     },
     {
-      id: 'atelier-verma',
-      clientPlaceholder: 'Atelier Vastu & Modernist Studio',
-      category: 'Architecture & Luxury Design · Portfolio & Global Presence',
-      challenge: 'An acclaimed architecture studio had hundreds of high-resolution project photographs that caused 8-second load times and poor search indexation.',
-      subjectMatter: 'Modernist residential architecture, bespoke interiors, and spatial design.',
-      architectureConcept: 'A gallery-grade digital monograph with next-gen image streaming, editorial project narratives, and international search visibility.',
-      whatWeBuilt: 'Custom progressive image delivery pipeline, typographic portfolio index, architectural project schema, and press/media kit portal.',
-      finalDeliverable: 'Ultra-fast visual portfolio website + global organic search footprint.',
-      metrics: '0.8s Load Time · +240% Search Impressions',
+      id: 'metro-hospital',
+      clientPlaceholder: 'Metro Healthcare & Hospital Center',
+      vertical: 'Hospitals',
+      category: 'Hospital Systems · Department Routing AI · Institutional Portal',
+      challenge: 'Multi-specialty hospital with 12 departments suffered from patient routing confusion, emergency desk telephone congestion, and fragmented doctor scheduling.',
+      whatWeBuilt: 'Institutional hospital web portal with sub-second doctor directory, department triage engine, and verified Google Knowledge Graph authority.',
+      aiAutomationHighlights: 'Intelligent emergency vs outpatient routing bot with automated doctor-on-call dispatch alerts and post-discharge recovery check-in sequences.',
+      finalDeliverable: 'High-security hospital web portal + department routing intelligence + physician alert system.',
+      metrics: '45% Faster Patient Routing · 24/7 Dispatch Readiness',
+    },
+    {
+      id: 'tensordata-software',
+      clientPlaceholder: 'TensorData Cloud & Systems',
+      vertical: 'Softwares & SEO',
+      category: 'Custom Software · Programmatic SEO Marketing · SaaS Portal',
+      challenge: 'A data engineering platform had zero non-branded Google search traffic and needed a custom customer analytics dashboard with role-based team access.',
+      whatWeBuilt: 'Custom React/Next.js client analytics portal paired with 50+ programmatic SEO comparison and solution hub pages engineered for technical search intent.',
+      aiAutomationHighlights: 'Autonomous SERP rank monitoring agent + programmatic content architecture generating 99/100 Core Web Vitals landing pages.',
+      finalDeliverable: 'Bespoke customer software portal + programmatic SEO engine + full source code handover.',
+      metrics: '+310% Organic Inbound Pipeline · 0.7s Global LCP',
+    },
+    {
+      id: 'atelier-design',
+      clientPlaceholder: 'Atelier Verma Modernist Architecture',
+      vertical: 'Design & Web',
+      category: 'High-Craft Brand Design · Architectural UI/UX · Flagship Website',
+      challenge: 'An acclaimed studio had thousands of high-resolution architectural images causing 7-second page loads, template layouts, and low enterprise client conviction.',
+      whatWeBuilt: 'Editorial-grade visual brand identity, custom typographic tokens (Newsreader + Plus Jakarta Sans), and progressive streaming web monograph.',
+      aiAutomationHighlights: 'Automated high-res asset optimization pipeline and dynamic inquiry qualification workflow.',
+      finalDeliverable: 'Monograph digital flagship + complete design system + sub-second image CDN architecture.',
+      metrics: '0.8s Global LCP · +240% Inbound Inquiries',
     },
   ];
 
@@ -67,13 +90,13 @@ export const SelectedWorkSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
           <span className="text-xs uppercase tracking-widest text-[#78716C] font-mono">
-            Selected Work & Blueprints
+            Selected Work & Real-World Deployments
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            How we engineer websites, online presence, and search growth.
+            Systems we engineer across agencies, healthcare, fitness, and tech.
           </h2>
           <p className="text-lg text-[#58544E] leading-relaxed">
-            Every engagement combines custom frontend craftsmanship, clear brand positioning, and technical search engine architecture. Below are representative project blueprints across key verticals.
+            Every deployment unites AI automation, custom software, SEO marketing, brand design, and high-performance websites. Explore real architectural case studies below.
           </p>
         </div>
 
@@ -88,74 +111,70 @@ export const SelectedWorkSection: React.FC = () => {
                 {/* Header Lockup */}
                 <div className="flex items-start justify-between border-b border-[#F4F0E8] pb-4 gap-4">
                   <div>
-                    <span className="text-xs font-mono text-[#78716C] block uppercase tracking-wider">
-                      {item.category}
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#3D1D18] font-semibold block">
+                      Vertical: {item.vertical}
                     </span>
-                    <h3 className="text-2xl font-serif text-[#1C1A18] font-medium mt-1">
+                    <h3 className="text-2xl font-serif font-medium text-[#1C1A18] mt-1">
                       {item.clientPlaceholder}
                     </h3>
+                    <span className="text-xs font-sans text-[#78716C] block mt-0.5">
+                      {item.category}
+                    </span>
                   </div>
-                  <span className="text-[11px] font-mono text-[#3D1D18] font-semibold bg-[#FAF8F3] px-2.5 py-1 border border-[#E8E4DC] rounded-xs shrink-0">
-                    {item.metrics}
-                  </span>
+                  <div className="text-right shrink-0">
+                    <span className="text-xs font-mono px-2.5 py-1 bg-[#FAF8F3] text-[#3D1D18] border border-[#E8E4DC] rounded block font-medium">
+                      {item.metrics}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Challenge */}
-                <div className="space-y-1">
+                <div className="space-y-1.5">
                   <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                    The Digital Challenge
+                    The Operational Challenge
                   </span>
                   <p className="text-sm text-[#4A4641] leading-relaxed">
                     {item.challenge}
                   </p>
                 </div>
 
-                {/* Architecture Concept */}
-                <div className="space-y-1">
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                    The Presence & SEO Strategy
+                {/* AI Automation Highlights */}
+                <div className="p-3.5 rounded bg-[#FAF9F7] border border-[#E8E4DC] space-y-1">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#3D1D18] font-semibold block">
+                    AI Automation Highlight
                   </span>
-                  <p className="text-sm font-serif italic text-[#3D1D18] leading-relaxed">
-                    "{item.architectureConcept}"
+                  <p className="text-xs sm:text-sm text-[#1C1A18] leading-relaxed">
+                    {item.aiAutomationHighlights}
                   </p>
                 </div>
 
-                {/* What Redwood House Built */}
-                <div className="space-y-1">
+                {/* What We Engineered */}
+                <div className="space-y-1.5">
                   <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block">
-                    What Redwood House Engineered
+                    Software & Web Infrastructure
                   </span>
                   <p className="text-sm text-[#58544E] leading-relaxed">
                     {item.whatWeBuilt}
                   </p>
                 </div>
+              </div>
 
-                {/* Final Deliverable */}
-                <div className="pt-3 border-t border-[#F4F0E8] flex items-center justify-between text-xs gap-4">
-                  <span className="text-[#78716C] shrink-0">Deliverable:</span>
-                  <span className="font-medium text-[#1C1A18] text-right">{item.finalDeliverable}</span>
+              {/* Bottom deliverable and action */}
+              <div className="mt-8 pt-4 border-t border-[#F4F0E8] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <div className="flex items-center gap-1.5 text-[#1C1A18]">
+                  <Check className="w-4 h-4 text-[#3D1D18]" />
+                  <span><strong>Delivered:</strong> {item.finalDeliverable}</span>
                 </div>
+                <a
+                  href={`${BRAND.mailtoGeneral}&body=Hello%20Redwood%20House,%0D%0A%0D%0AWe%20would%20like%20to%20inquire%20about%20a%20system%20similar%20to%20${encodeURIComponent(item.clientPlaceholder)}%20(${encodeURIComponent(item.vertical)})...`}
+                  className="font-medium text-[#1C1A18] hover:text-[#3D1D18] inline-flex items-center gap-1 underline underline-offset-4 shrink-0"
+                >
+                  <span>Inquire for {item.vertical}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Private Studio Guarantee */}
-        <div className="mt-12 p-8 bg-[#FAF8F3] border border-[#E8E4DC] rounded-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-1 max-w-2xl">
-            <h4 className="text-lg font-serif text-[#1C1A18]">
-              Bespoke engineering & white-label confidentiality available.
-            </h4>
-            <p className="text-xs sm:text-sm text-[#58544E] leading-relaxed">
-              We partner directly with founders and leadership teams, and also operate under strict NDA for select enterprise and agency partners. Every build includes 100% source code and intellectual property ownership.
-            </p>
-          </div>
-          <a
-            href={BRAND.mailtoGeneral}
-            className="shrink-0 text-xs font-medium text-[#1C1A18] border border-[#58544E] hover:border-[#1C1A18] hover:bg-white px-4 py-2.5 rounded-sm transition-colors"
-          >
-            Request Private Portfolio & Audit
-          </a>
         </div>
       </div>
     </section>

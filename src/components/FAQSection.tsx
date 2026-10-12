@@ -7,36 +7,40 @@ export const FAQSection: React.FC = () => {
 
   const faqs = [
     {
-      q: 'What does Redwood House do?',
-      a: 'Redwood House is a private website development, online presence creation, and technical SEO studio. We design and engineer bespoke, fast-loading websites, craft cohesive digital brand ecosystems, and build search engine optimization architectures that drive compounding organic traffic and client inquiries.',
+      q: 'What exactly does Redwood House do?',
+      a: 'We just don\'t make websites. Redwood House is an AI automation, custom software, SEO marketing, brand design, and web development studio based in Chandigarh, India. We engineer intelligent systems that automate operations, triage inquiries, process transactions, and drive organic search growth for agencies, clinics, hospitals, gyms, and growing companies.',
     },
     {
-      q: 'Why combine website development and SEO in one studio?',
-      a: 'When web design and SEO are separated, designers often build heavy, unindexable pages with poor heading hierarchies, forcing SEO agencies to patch broken foundations later. By engineering your website, copy architecture, Schema.org data, and Core Web Vitals together from day one, your site launches ready to rank and convert.',
+      q: 'How does AI automation work for clinics and specialist healthcare practices?',
+      a: 'We deploy 24/7 conversational triage agents on your website and WhatsApp that answer patient procedure questions, check real-time doctor availability, and book appointments instantly. We automate digital pre-visit intake forms and schedule smart reminders that reduce clinic no-show rates by up to 70%.',
     },
     {
-      q: 'What technologies and platforms do you build with?',
-      a: 'We specialize in modern, high-performance web stacks including React, Next.js, TypeScript, Tailwind CSS, headless CMS architectures, and custom e-commerce or booking integrations. Every build is tailored for sub-second speed, security, and effortless content scaling.',
+      q: 'What automations do you engineer for gyms and fitness clubs?',
+      a: 'When an interested prospect submits a Meta or Google Ad lead form, our AI agent contacts them on WhatsApp within 30 seconds to book their free trial session while their intent is at its peak. We also deploy predictive churn detection that alerts you when members miss 10 days of workouts and triggers automated re-engagement offers.',
     },
     {
-      q: 'Can you overhaul our existing website without losing our current search rankings?',
-      a: 'Yes. Every redesign or migration includes a comprehensive URL mapping protocol, 301 redirect matrix, canonical preservation, and backlink equity audit so you retain existing search authority while unlocking new keyword growth.',
+      q: 'How do you streamline operations for marketing and creative agencies?',
+      a: 'We build autonomous onboarding pipelines that auto-provision Slack channels, Google Drive asset folders, and intake briefs in under two minutes. Additionally, we deploy autonomous weekly reporting agents that aggregate Meta Ads, Google Ads, and SEO metrics to draft narrative executive briefings every Monday morning, saving account managers 15–20 hours per week.',
     },
     {
-      q: 'What is included in your Online Presence Creation service?',
-      a: 'Beyond your core website, we align your entire digital footprint: brand positioning, editorial copywriting, Google Business Profile & Knowledge Graph signals, OpenGraph social sharing cards, landing page funnels, and authoritative domain presence so prospects see a unified, high-trust brand everywhere they look.',
+      q: 'What types of custom software and portals do you build?',
+      a: 'We engineer bespoke client portals, internal staff operations software, role-based access dashboards, diagnostic calculators, and custom web applications using React, Next.js, TypeScript, and robust databases. You receive 100% source code ownership with zero monthly SaaS seat charges.',
     },
     {
-      q: 'Do we own the code, domain, and SEO assets upon completion?',
-      a: '100%. Unlike agencies that lease websites or lock you into proprietary page builders, you receive complete ownership of your source code repository, design system, content, analytics, and search console properties.',
+      q: 'What is included in your SEO marketing and ad transaction architecture?',
+      a: 'We engineer programmatic search silos targeting high-intent commercial keywords, comprehensive Schema.org JSON-LD entity graphs, sub-second Core Web Vitals (99+ score), and seamless ad transaction tracking that connects Google/Meta Ads directly to Stripe checkout and CRM revenue data.',
     },
     {
-      q: 'Where is Redwood House based, and do you work with international clients?',
-      a: 'Redwood House is based in Chandigarh, India, and collaborates with founders, businesses, and specialist practices across North America, Europe, Asia-Pacific, and India through structured async milestones and live strategy sessions.',
+      q: 'Do you still build bespoke websites?',
+      a: 'Yes, and we engineer them to the highest technical standard in the industry: sub-second global page loads, architectural editorial typography, responsive mobile-first layouts, and zero template or WordPress bloat. Your website serves as the fast, unmistakable digital flagship for your entire business.',
     },
     {
-      q: 'How do we start a project or request an audit?',
-      a: 'Send an email to Officialredwoodhouse@gmail.com with your current website URL (if applicable), your business goals, and your target timeline. Our directors will review your current online footprint and reply with an initial architectural assessment.',
+      q: 'Do we own the software code, AI workflows, and domain assets?',
+      a: '100%. We do not lock you into proprietary platforms or hold your code hostage. Upon deployment, you receive complete ownership of your GitHub source repository, design system tokens, database schemas, and AI agent prompts.',
+    },
+    {
+      q: 'How do we initiate a project or request an architecture audit?',
+      a: 'Send an email to Officialredwoodhouse@gmail.com with an overview of your current business, your industry vertical (agency, clinic, hospital, gym, software, etc.), and what bottlenecks you want to solve. Our directors will review your inquiry and schedule an architectural roadmap session.',
     },
   ];
 
@@ -49,33 +53,34 @@ export const FAQSection: React.FC = () => {
             Frequently Asked Questions
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1C1A18] tracking-tight">
-            Clear answers on web builds, online presence, and SEO.
+            Clear answers on AI automation, software, SEO, and web builds.
           </h2>
           <p className="text-base sm:text-lg text-[#58544E] max-w-xl mx-auto leading-relaxed">
-            Straightforward details on our engineering stack, search optimization methodology, code ownership, and collaboration workflow.
+            Straightforward details on our technology stack, industry automations, code ownership, and collaboration process.
           </p>
         </div>
 
         {/* FAQ Accordion */}
         <div className="divide-y divide-[#E8E4DC] border-y border-[#E8E4DC]">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
             return (
-              <div key={idx} className="py-6">
+              <div key={index} className="py-6">
                 <button
-                  onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between text-left group focus-visible:outline-none cursor-pointer"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full flex items-center justify-between text-left gap-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#3D1D18] rounded-sm group cursor-pointer"
+                  aria-expanded={isOpen}
                 >
-                  <span className="text-lg sm:text-xl font-serif text-[#1C1A18] group-hover:text-[#3D1D18] transition-colors pr-6">
+                  <span className="font-serif text-lg sm:text-xl text-[#1C1A18] group-hover:text-[#3D1D18] transition-colors leading-snug">
                     {faq.q}
                   </span>
-                  <span className="text-[#78716C] group-hover:text-[#1C1A18] shrink-0 p-1">
+                  <span className="text-[#78716C] group-hover:text-[#1C1A18] transition-colors shrink-0">
                     {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                   </span>
                 </button>
                 {isOpen && (
-                  <div className="pt-4 pr-12 text-sm sm:text-base text-[#58544E] leading-relaxed font-sans animate-in fade-in duration-150">
-                    <p>{faq.a}</p>
+                  <div className="mt-4 pr-8 text-sm sm:text-base text-[#58544E] font-sans leading-relaxed animate-in fade-in duration-150">
+                    {faq.a}
                   </div>
                 )}
               </div>
@@ -83,14 +88,14 @@ export const FAQSection: React.FC = () => {
           })}
         </div>
 
-        {/* Additional Question Callout */}
-        <div className="mt-12 text-center text-sm text-[#78716C]">
-          <span>Have a specific technical requirement or SEO target? </span>
+        {/* Bottom Contact Note */}
+        <div className="mt-12 text-center text-xs text-[#78716C] font-mono">
+          Have a specific operational question? Email{' '}
           <a
             href={BRAND.mailtoGeneral}
-            className="text-[#1C1A18] font-medium underline underline-offset-4 hover:text-[#3D1D18]"
+            className="text-[#1C1A18] underline underline-offset-4 hover:text-[#3D1D18]"
           >
-            Email us directly at {BRAND.email}
+            {BRAND.email}
           </a>
         </div>
       </div>

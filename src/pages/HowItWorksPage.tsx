@@ -1,6 +1,6 @@
 import React from 'react';
 import { BRAND } from '../constants/assets';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Cpu, Code, Search, Zap, Globe, Check } from 'lucide-react';
 
 interface HowItWorksPageProps {
   onBack: () => void;
@@ -10,48 +10,48 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onBack }) => {
   const steps = [
     {
       num: '01',
-      title: 'Technical Audit & Positioning Discovery',
+      title: 'Operational Diagnosis & System Discovery',
       weeks: 'Stage 1 · Week 1',
-      headline: 'Diagnosing your brand positioning, technical debt, and search opportunity.',
-      description: 'We begin by auditing your current domain, competitor search share, keyword intent landscape, and conversion bottlenecks. Through focused strategy sessions, we extract your core commercial differentiators so we never ask you to write copy from scratch.',
-      clientAction: 'Participate in 1–2 focused discovery & positioning sessions with our directors.',
-      deliverable: 'Comprehensive Technical SEO Audit, Keyword Opportunity Matrix, and Positioning Brief.',
+      headline: 'Diagnosing intake friction, manual bottlenecks, and search engine opportunities.',
+      description: 'We audit your daily operations: how leads, patients, or gym members enter your pipeline, where reception staff or account managers get bogged down, and where commercial search intent is missed. We specify exactly which workflows will be handled by autonomous AI agents, what requires custom software portals, and what web architecture is needed.',
+      clientAction: 'Participate in a 60-minute operational workflow session with our studio directors.',
+      deliverable: 'Operational Bottleneck Audit, Automation Blueprint, and Architecture Spec.',
     },
     {
       num: '02',
-      title: 'Sitemap Taxonomy & Wireframe Architecture',
+      title: 'Agent Flows, Data Schemas & UI Wireframes',
       weeks: 'Stage 2 · Weeks 2–3',
-      headline: 'Structuring URLs, search silos, and buyer conversion journeys.',
-      description: 'Great SEO begins with site architecture. We blueprint your exact page hierarchy, topic clusters, navigation contract, and interactive wireframes—ensuring every high-intent buyer query has a dedicated, authoritative destination.',
-      clientAction: 'One 45-minute walkthrough to review and approve the sitemap and wireframe blueprint.',
-      deliverable: 'Interactive Wireframes, Search Silo Blueprint, and Conversion Copy Outline.',
+      headline: 'Designing conversational AI logic, database schemas, and clean UI wireframes.',
+      description: 'Before coding, we map the exact logic: 24/7 WhatsApp and web conversational triage prompts, appointment booking trees, Stripe transaction webhooks, EHR/CRM data synchronization, and high-taste architectural UI layouts with zero template bloat.',
+      clientAction: 'Review and approve the interactive wireframes and AI agent logic trees.',
+      deliverable: 'Interactive Wireframe Spec, Agent Prompt Trees, and Data Integration Architecture.',
     },
     {
       num: '03',
-      title: 'Bespoke UI Design & Full-Stack Engineering',
+      title: 'Full-Stack Software Engineering & Web Flagship Build',
       weeks: 'Stage 3 · Weeks 4–7',
-      headline: 'Our studio designs, writes, and codes your flagship website.',
-      description: 'Redwood House handles the heavy lifting: crafting your visual design system, writing clear editorial domain copy, and developing a blazing-fast custom website in React/Next.js with clean semantic HTML and zero plugin bloat.',
-      clientAction: 'Zero day-to-day micromanagement. You focus on running your business while we build.',
-      deliverable: 'Full Staging Website scoring 99+ on Google Core Web Vitals across mobile and desktop.',
+      headline: 'Our studio develops your custom portals, software tools, and sub-second website.',
+      description: 'Redwood House engineers the entire stack: handcrafted React and Next.js digital flagship scoring 99+ on Core Web Vitals, custom operational portals for staff/clients, clean API endpoints, and authoritative conversion copywriting.',
+      clientAction: 'Zero day-to-day micromanagement. You run your business while our engineers build.',
+      deliverable: 'Staging Digital Flagship (99+ CWV) + Custom Software Operational Backend.',
     },
     {
       num: '04',
-      title: 'On-Page SEO, Schema Graph & Presence Sync',
+      title: 'AI Agent Deployment, Ad & Transaction Wiring',
       weeks: 'Stage 4 · Weeks 8–9',
-      headline: 'Embedding technical search intelligence and unifying your online footprint.',
-      description: 'We integrate bespoke Schema.org JSON-LD graphs, OpenGraph social cards, canonical tags, internal link equity loops, 301 redirect maps, and Google Business Profile / Knowledge Graph alignments.',
-      clientAction: 'Review the staging environment and provide consolidated feedback.',
-      deliverable: 'Validated Schema Infrastructure, On-Page SEO Optimization, and Unified Brand Profiles.',
+      headline: 'Deploying autonomous agents, Stripe billing, and ad conversion telemetry.',
+      description: 'We connect your AI agents to WhatsApp Business API, configure automated zero-no-show reminders, activate autonomous Monday client reporting for agencies, wire Stripe payment triggers, and embed full-funnel Google and Meta ad conversion tracking.',
+      clientAction: 'Perform end-to-end sandbox testing of booking flows and automated agent replies.',
+      deliverable: 'Live AI Agent Pipelines, Verified Payment Webhooks, and Ad Tracking Telemetry.',
     },
     {
       num: '05',
-      title: 'Deployment, Search Indexing & Handover',
+      title: 'Production Launch, Indexing & 100% Code Handover',
       weeks: 'Stage 5 · Week 10',
-      headline: 'Zero-downtime launch with 100% code ownership and search telemetry.',
-      description: 'We manage production deployment, SSL/DNS cutover, Google Search Console sitemap submission, and analytics event tracking. You receive complete ownership of all code and assets alongside a clear 12-month organic growth roadmap.',
-      clientAction: 'Final sign-off and handover of production repositories and analytics dashboards.',
-      deliverable: 'Live Digital Flagship, Search Console Indexing, and 100% Source Code Ownership.',
+      headline: 'Zero-downtime deployment, Search Console submission, and full repository ownership.',
+      description: 'We manage DNS cutover, Google Search Console sitemap indexing, staff walkthroughs for the new operational software, and hand over 100% ownership of your GitHub source code repositories, design tokens, and automation scripts. Zero lock-in.',
+      clientAction: 'Final sign-off and transfer of production repositories and admin credentials.',
+      deliverable: 'Live Production Platform, Search Indexing, and 100% Source Code Handover.',
     },
   ];
 
@@ -68,7 +68,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onBack }) => {
             <span>Return to Studio Overview</span>
           </button>
           <div className="text-xs font-mono text-[#78716C] hidden sm:block">
-            Engineering & SEO Workflow · Redwood House
+            Engineering & AI Deployment Methodology · Redwood House
           </div>
         </div>
       </div>
@@ -80,86 +80,82 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onBack }) => {
             The Redwood House Process
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#1C1A18] tracking-tight leading-[1.08]">
-            From fragmented footprint to commanding digital flagship.
+            From manual chaos to an autonomous digital flagship.
           </h1>
           <p className="text-lg sm:text-xl text-[#58544E] leading-relaxed">
-            Our five-stage workflow is engineered to design, develop, and optimize your complete online presence and search infrastructure without pulling your leadership team away from daily operations.
+            Our structured five-stage engineering workflow builds your AI automations, custom software, SEO marketing, and bespoke website without dragging your leadership team into endless agency meetings.
           </p>
         </div>
 
-        {/* Quick Operational Metrics */}
+        {/* Operational Metrics */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-[#E8E4DC]">
           <div className="p-6 bg-white rounded-lg border border-[#E8E4DC]">
-            <span className="text-xs font-mono text-[#78716C] uppercase tracking-wider block">Performance Target</span>
+            <span className="text-xs font-mono text-[#78716C] uppercase tracking-wider block">Web Performance</span>
             <div className="text-2xl font-serif text-[#3D1D18] mt-1 font-medium">99+ Core Web Vitals</div>
-            <p className="text-xs text-[#58544E] mt-1">Sub-second page speed, clean DOM, and mobile-first responsiveness.</p>
+            <p className="text-xs text-[#58544E] mt-1">Sub-second page loads, clean DOM, and zero layout shift.</p>
           </div>
           <div className="p-6 bg-white rounded-lg border border-[#E8E4DC]">
-            <span className="text-xs font-mono text-[#78716C] uppercase tracking-wider block">Search Architecture</span>
-            <div className="text-2xl font-serif text-[#1C1A18] mt-1 font-medium">100% Semantic SEO</div>
-            <p className="text-xs text-[#58544E] mt-1">JSON-LD Schema, topic clusters, and high-intent conversion copy.</p>
+            <span className="text-xs font-mono text-[#78716C] uppercase tracking-wider block">AI Response Latency</span>
+            <div className="text-2xl font-serif text-[#1C1A18] mt-1 font-medium">&lt; 30 Seconds</div>
+            <p className="text-xs text-[#58544E] mt-1">Immediate conversational triage on WhatsApp & web 24/7.</p>
           </div>
           <div className="p-6 bg-white rounded-lg border border-[#E8E4DC]">
-            <span className="text-xs font-mono text-[#78716C] uppercase tracking-wider block">Asset Ownership</span>
-            <div className="text-2xl font-serif text-[#1C1A18] mt-1 font-medium">Full Code & IP</div>
-            <p className="text-xs text-[#58544E] mt-1">Zero vendor lock-in; you own your repository, domain, and data.</p>
+            <span className="text-xs font-mono text-[#78716C] uppercase tracking-wider block">Client Ownership</span>
+            <div className="text-2xl font-serif text-[#3D1D18] mt-1 font-medium">100% Code & Data</div>
+            <p className="text-xs text-[#58544E] mt-1">Full GitHub repo transfer with zero vendor lock-in or seat fees.</p>
           </div>
         </div>
       </div>
 
-      {/* Detailed 5-Step Breakdown */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-b border-[#E8E4DC]">
+      {/* 5-Stage Breakdown */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
         <div className="space-y-12">
-          {steps.map((st) => (
+          {steps.map((step) => (
             <div
-              key={st.num}
-              className="bg-white rounded-lg border border-[#E8E4DC] p-8 sm:p-10 shadow-xs hover:border-[#3D1D18]/50 transition-colors"
+              key={step.num}
+              className="bg-white rounded-lg border border-[#E8E4DC] p-8 sm:p-12 shadow-xs hover:border-[#3D1D18]/50 transition-colors"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                {/* Number & Phase */}
-                <div className="lg:col-span-3">
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-3xl sm:text-4xl font-mono font-semibold text-[#3D1D18]">
-                      {st.num}
-                    </span>
-                    <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-                      / Stage
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-[#F4F0E8] gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-3xl font-light text-[#3D1D18]">
+                    {step.num}
+                  </span>
+                  <div>
+                    <h2 className="text-2xl sm:text-3xl font-serif font-medium text-[#1C1A18]">
+                      {step.title}
+                    </h2>
+                    <span className="text-xs font-mono text-[#78716C] block mt-0.5">
+                      {step.weeks}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-serif text-[#1C1A18] font-medium mb-1">
-                    {st.title}
-                  </h3>
-                  <span className="text-xs font-mono text-[#78716C] block">
-                    {st.weeks}
-                  </span>
                 </div>
+              </div>
 
-                {/* Narrative & Details */}
-                <div className="lg:col-span-5 space-y-3">
-                  <h4 className="text-base font-serif italic text-[#1C1A18]">
-                    {st.headline}
-                  </h4>
-                  <p className="text-sm text-[#58544E] leading-relaxed">
-                    {st.description}
+              <div className="mt-8 space-y-6">
+                <div>
+                  <h3 className="text-lg font-serif text-[#1C1A18] mb-2 font-normal">
+                    {step.headline}
+                  </h3>
+                  <p className="text-sm sm:text-base text-[#58544E] leading-relaxed">
+                    {step.description}
                   </p>
                 </div>
 
-                {/* Scope & Deliverable Column */}
-                <div className="lg:col-span-4 bg-[#FAF8F3] p-5 rounded-md border border-[#E8E4DC] space-y-3 text-xs">
-                  <div>
-                    <span className="font-mono uppercase tracking-wider text-[#78716C] block mb-1">
-                      What is asked of you:
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[#F4F0E8]">
+                  <div className="p-4 bg-[#FAF8F3] rounded-md border border-[#E8E4DC]">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#78716C] block mb-1">
+                      Your Time Commitment
                     </span>
-                    <p className="text-[#1C1A18] font-medium">
-                      {st.clientAction}
+                    <p className="text-xs sm:text-sm text-[#1C1A18]">
+                      {step.clientAction}
                     </p>
                   </div>
-                  <div className="pt-2 border-t border-[#E8E4DC]">
-                    <span className="font-mono uppercase tracking-wider text-[#78716C] block mb-1">
-                      Stage deliverable:
+                  <div className="p-4 bg-white rounded-md border border-[#E8E4DC]">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#3D1D18] font-semibold block mb-1">
+                      Verified Milestone Deliverable
                     </span>
-                    <p className="text-[#3D1D18] font-serif font-medium">
-                      {st.deliverable}
+                    <p className="text-xs sm:text-sm text-[#1C1A18] font-medium">
+                      {step.deliverable}
                     </p>
                   </div>
                 </div>
@@ -169,17 +165,14 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onBack }) => {
         </div>
       </div>
 
-      {/* Bottom CTA Block */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
-        <div className="bg-[#FAF8F3] rounded-lg border border-[#E8E4DC] p-8 sm:p-12 text-center space-y-6 max-w-3xl mx-auto">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#78716C]">
-            Ready to Build
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-serif text-[#1C1A18]">
-            Let's audit your current online presence.
-          </h2>
-          <p className="text-sm sm:text-base text-[#58544E] leading-relaxed">
-            Send an email to our studio in Chandigarh with your website URL and growth objectives. We will reply with a tailored architectural and SEO roadmap.
+      {/* Bottom CTA */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 border-t border-[#E8E4DC]">
+        <div className="bg-[#FAF8F3] rounded-lg border border-[#E8E4DC] p-8 sm:p-12 text-center space-y-4 max-w-2xl mx-auto">
+          <h3 className="text-2xl font-serif text-[#1C1A18]">
+            Ready to initiate an AI automation & digital project?
+          </h3>
+          <p className="text-sm text-[#58544E] leading-relaxed">
+            Email our Chandigarh studio with your current bottlenecks and timeline to begin Phase 1.
           </p>
           <div className="pt-2">
             <a
@@ -189,9 +182,6 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onBack }) => {
               <span>Email Redwood House</span>
               <ArrowUpRight className="w-4 h-4 text-[#D6D3D1]" />
             </a>
-          </div>
-          <div className="text-xs text-[#78716C] font-mono">
-            {BRAND.email}
           </div>
         </div>
       </div>
