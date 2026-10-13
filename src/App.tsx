@@ -3,154 +3,63 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import React, { useState } from 'react';
+import { SiteNav } from './components/SiteNav';
 import { Hero } from './components/Hero';
-import { ProblemSection } from './components/ProblemSection';
-import { IdealClientSection } from './components/IdealClientSection';
-import { TantrumPlaybookSection } from './components/TantrumPlaybookSection';
-import { ServicesSection } from './components/ServicesSection';
-import { HowItWorksSection } from './components/HowItWorksSection';
-import { SelectedWorkSection } from './components/SelectedWorkSection';
-import { ValuePropositionSection } from './components/ValuePropositionSection';
-import { WhyRedwoodHouseSection } from './components/WhyRedwoodHouseSection';
-import { FAQSection } from './components/FAQSection';
-import { FinalCTA } from './components/FinalCTA';
-import { TantrumPlaybookPage } from './pages/TantrumPlaybookPage';
-import { HowItWorksPage } from './pages/HowItWorksPage';
-import { AboutPage } from './pages/AboutPage';
-import { WorkPage } from './pages/WorkPage';
-
-const RevealSection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 24 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: '-60px' }}
-    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-  >
-    {children}
-  </motion.div>
-);
+import { CapabilitiesSection } from './components/CapabilitiesSection';
+import { ApproachSection } from './components/ApproachSection';
+import { FitSection } from './components/FitSection';
+import { ContactSection } from './components/ContactSection';
+import { SiteFooter } from './components/SiteFooter';
+import { LiveSimulatorModal } from './components/LiveSimulatorModal';
+import { PageEffects } from './components/PageEffects';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<
-    'home' | 'seo-blueprint' | 'how-it-works' | 'about' | 'work'
-  >('home');
-
-  // Sync hash routing for direct linkability
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').replace('/', '');
-      if (hash === 'tantrum-playbook' || hash === 'seo-blueprint') {
-        setCurrentView('seo-blueprint');
-      } else if (['how-it-works', 'about', 'work'].includes(hash)) {
-        setCurrentView(hash as any);
-      } else {
-        setCurrentView('home');
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  const navigateTo = (view: string) => {
-    if (view === 'home') {
-      window.location.hash = '';
-      setCurrentView('home');
-    } else {
-      window.location.hash = view;
-      setCurrentView(view as any);
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const [simulatorOpen, setSimulatorOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FBF9F5] text-[#1C1A18] selection:bg-[#3D1D18] selection:text-white">
-      {/* Top Bar Contract compliant Navigation */}
-      <Header currentView={currentView} onNavigate={navigateTo} />
+    <div className="min-h-screen bg-[#F4F1EB] text-[#0A111D] flex flex-col font-sans selection:bg-[#9B111E]/15 selection:text-[#9B111E]">
+      {/* Visual Page Effects: reading progress bar, tactile grain, cursor spotlight, floating dock */}
+      <PageEffects onOpenSimulator={() => setSimulatorOpen(true)} />
 
-      {/* Main Content Area with Editorial Motion Transitions */}
-      <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentView}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {currentView === 'home' && (
-              <>
-                <Hero
-                  onExploreWork={() => navigateTo('work')}
-                  onExploreSystems={() => {
-                    const el = document.getElementById('verticals');
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                />
-                <RevealSection>
-                  <ProblemSection />
-                </RevealSection>
-                <RevealSection>
-                  <IdealClientSection />
-                </RevealSection>
-                <RevealSection>
-                  <TantrumPlaybookSection onViewDedicatedPage={() => navigateTo('seo-blueprint')} />
-                </RevealSection>
-                <RevealSection>
-                  <ServicesSection />
-                </RevealSection>
-                <RevealSection>
-                  <HowItWorksSection onLearnMore={() => navigateTo('how-it-works')} />
-                </RevealSection>
-                <RevealSection>
-                  <SelectedWorkSection />
-                </RevealSection>
-                <RevealSection>
-                  <ValuePropositionSection />
-                </RevealSection>
-                <RevealSection>
-                  <WhyRedwoodHouseSection />
-                </RevealSection>
-                <RevealSection>
-                  <FAQSection />
-                </RevealSection>
-                <RevealSection>
-                  <FinalCTA />
-                </RevealSection>
-              </>
-            )}
+      {/* Sticky Top Header Nav */}
+      <SiteNav onOpenSimulator={() => setSimulatorOpen(true)} />
 
-            {currentView === 'seo-blueprint' && (
-              <TantrumPlaybookPage onBack={() => navigateTo('home')} />
-            )}
+      {/* Main Page Sections matching redwood-house.polsia.io verbatim */}
+      <main className="overflow-hidden flex-1">
+        {/* Hero Section with Operating Layer Live Card */}
+        <Hero
+          onStartConversation={() => {
+            const el = document.getElementById('contact');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+          onSeeCapabilities={() => {
+            const el = document.getElementById('capabilities');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
 
-            {currentView === 'how-it-works' && (
-              <HowItWorksPage onBack={() => navigateTo('home')} />
-            )}
+        {/* Section 01: What We Build (Capabilities) */}
+        <CapabilitiesSection />
 
-            {currentView === 'about' && (
-              <AboutPage onBack={() => navigateTo('home')} />
-            )}
+        {/* Section 02: How We Work (Approach) & A Considered Stack */}
+        <ApproachSection />
 
-            {currentView === 'work' && (
-              <WorkPage
-                onBack={() => navigateTo('home')}
-                onNavigatePlaybook={() => navigateTo('seo-blueprint')}
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
+        {/* Section 03: Who It Is For (Fit) & 8-Vertical Deep Dive */}
+        <FitSection />
+
+        {/* Section 04: Contact / Tell Us Where The System Is Getting In Your Way */}
+        <ContactSection />
       </main>
 
-      {/* Minimal Footer */}
-      <Footer onNavigate={navigateTo} />
+      {/* Footer */}
+      <SiteFooter />
+
+      {/* Interactive Operating Layer Simulator Modal */}
+      <LiveSimulatorModal
+        isOpen={simulatorOpen}
+        onClose={() => setSimulatorOpen(false)}
+      />
     </div>
   );
 }

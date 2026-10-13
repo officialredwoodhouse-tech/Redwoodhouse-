@@ -78,7 +78,7 @@ export const WhyRedwoodHouseSection: React.FC = () => {
               We work with ambitious founders, clinic directors, hospital leadership, fitness brands, and agency owners across India, North America, the UK, and the UAE. Every engagement is managed through clear async architectural milestones and live strategic reviews.
             </p>
             <div className="pt-2 text-xs font-mono text-[#3D1D18] font-medium">
-              Chandigarh Studio · Officialredwoodhouse@gmail.com
+              Chandigarh Studio · officialredwoodHouse@gmail.com
             </div>
           </div>
         </div>

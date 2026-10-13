@@ -1,222 +1,225 @@
 import React, { useState } from 'react';
-import { BRAND, ASSETS } from '../constants/assets';
-import { ArrowDown, Cpu, Sparkles, Building2, Stethoscope, Dumbbell, Search, Code, Palette, Globe, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, Globe, Lock, Cable, Bot, Route, Sparkles, CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
+import { BRAND } from '../constants/assets';
 
 interface HeroProps {
-  onExploreWork: () => void;
-  onExploreSystems: () => void;
+  onStartConversation?: () => void;
+  onSeeCapabilities?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onExploreWork, onExploreSystems }) => {
-  const [activeCapability, setActiveCapability] = useState<'automation' | 'software' | 'seo' | 'websites' | 'presence'>('automation');
+export const Hero: React.FC<HeroProps> = ({ onStartConversation, onSeeCapabilities }) => {
+  const [activeStep, setActiveStep] = useState<number>(0);
 
-  const capabilities = {
-    automation: {
-      src: ASSETS.aiAutomationWorkflow,
-      alt: 'Autonomous AI workflows and intelligent business pipelines at Redwood House studio',
-      label: 'AI Automation',
-      tagline: 'Autonomous AI Agents & Operational Workflows',
-      caption: 'Automated triage, lead qualification, CRM sync & ad transaction pipelines',
-      quote: '"We eliminate manual grunt work by deploying intelligent AI agents that operate 24/7 across your business."',
-      badge: 'Zero Latency Agents',
+  const steps = [
+    {
+      id: 'qualify',
+      title: 'Qualify',
+      icon: Bot,
+      detail: 'Conversational assistants capture intent and triage real opportunities 24/7.',
     },
-    software: {
-      src: ASSETS.customSoftwareSystems,
-      alt: 'Custom software systems, operational portals and intelligent dashboard architecture',
-      label: 'Custom Software',
-      tagline: 'Bespoke Software & Intelligent Web Portals',
-      caption: 'Internal operational tools, HIPAA-aware portals & customer dashboards',
-      quote: '"Purpose-built software engineered to run your exact business logic with zero subscription bloat."',
-      badge: 'Full-Stack Architecture',
+    {
+      id: 'route',
+      title: 'Route',
+      icon: Route,
+      detail: 'Instant dispatch to calendars, specialist teams, CRM pipelines, or clinic EHR.',
     },
-    seo: {
-      src: ASSETS.seoArchitectureShowcase,
-      alt: 'SEO marketing, technical schema graphs, and organic search infrastructure',
-      label: 'SEO Marketing',
-      tagline: 'Technical & Programmatic SEO Marketing',
-      caption: 'High-intent search siloing, JSON-LD graphs & ad conversion attribution',
-      quote: '"Search visibility and ad conversion pipelines engineered straight into code and copy."',
-      badge: 'High-Intent Demand',
+    {
+      id: 'grow',
+      title: 'Grow',
+      icon: Sparkles,
+      detail: 'Automated follow-ups, attribution tracking, and executive intelligence compound growth.',
     },
-    websites: {
-      src: ASSETS.webStudioHero,
-      alt: 'Bespoke website development and architectural wireframes at Redwood House studio',
-      label: 'Flagship Websites',
-      tagline: 'Sub-Second React & Next.js Web Engineering',
-      caption: 'Custom digital flagships scoring 99+ on Google Core Web Vitals',
-      quote: '"Yes, we make websites—not sluggish templates, but fast, unmistakable digital flagships that convert."',
-      badge: '99+ Core Web Vitals',
-    },
-    presence: {
-      src: ASSETS.digitalPresenceCraft,
-      alt: 'Cohesive online presence and high-taste design across desktop and mobile displays',
-      label: 'Brand & Design',
-      tagline: 'Timeless Identity & Architectural UI/UX',
-      caption: 'Typographic hierarchy, design tokens & conversion flow design',
-      quote: '"Design with commercial weight and visual restraint that establishes instant market authority."',
-      badge: 'Bespoke Identity',
-    },
-  };
-
-  const currentCap = capabilities[activeCapability];
-
-  const targetIndustries = [
-    { label: 'Agencies', icon: Building2, desc: 'Client onboarding, autonomous reporting & delivery pipelines' },
-    { label: 'Clinics', icon: Stethoscope, desc: '24/7 patient triage, WhatsApp booking & EHR intake automation' },
-    { label: 'Hospitals', icon: Building2, desc: 'Multi-department routing, patient dispatch & inquiry AI' },
-    { label: 'Gyms & Fitness', icon: Dumbbell, desc: 'Trial conversion bots, class booking & churn prevention sequences' },
-    { label: 'SEO Marketing', icon: Search, desc: 'Programmatic search silos, rank tracking & ad attribution' },
-    { label: 'Custom Software', icon: Code, desc: 'Bespoke internal portals, AI tools & client dashboards' },
-    { label: 'Design & UI/UX', icon: Palette, desc: 'Architectural brand systems & high-converting product interfaces' },
-    { label: 'Websites', icon: Globe, desc: 'Sub-second React/Next.js flagships with zero template bloat' },
   ];
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 border-b border-[#E8E4DC] bg-[#FBF9F5] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Top Kicker */}
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs tracking-widest uppercase font-mono text-[#78716C] mb-6">
-          <span className="inline-flex items-center gap-1.5 text-[#3D1D18] font-semibold">
-            <Cpu className="w-3.5 h-3.5 text-[#3D1D18]" />
-            AI Automation
-          </span>
-          <span aria-hidden="true">·</span>
-          <span>Custom Softwares</span>
-          <span aria-hidden="true">·</span>
-          <span>SEO Marketing</span>
-          <span aria-hidden="true">·</span>
-          <span>Design</span>
-          <span aria-hidden="true">·</span>
-          <span>Websites</span>
-          <span aria-hidden="true">·</span>
-          <span>Chandigarh, India</span>
-        </div>
+    <section id="hero" className="relative border-b border-[#DDD7CB] overflow-hidden bg-[#F4F1EB]">
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute -right-32 top-16 size-96 rounded-full bg-[#0A192F]/8 blur-3xl animate-ambient-pulse" />
+      <div className="pointer-events-none absolute -left-32 bottom-10 size-80 rounded-full bg-[#9B111E]/8 blur-3xl animate-ambient-pulse [animation-delay:4s]" />
 
-        {/* Main Grid: Asymmetric Typography & Visual Cap Anchor */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Core Positioning Statement */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-3">
-              <span className="inline-block px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider bg-[#F4F0E8] text-[#3D1D18] border border-[#E8E4DC] rounded-sm font-semibold">
-                Beyond Conventional Web Agencies
+      <div className="container-page relative grid min-h-[calc(100vh-3.5rem)] items-center gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:py-24">
+        {/* Left Column: Headline and Positioning with Framer Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl"
+        >
+          {/* Eyebrow badge */}
+          <div className="mb-8 flex items-center gap-3 text-caption font-semibold uppercase tracking-[0.18em] text-[#9B111E]">
+            <span className="inline-block size-2 rounded-full bg-[#9B111E]" aria-hidden="true" />
+            <span>{BRAND.eyebrow}</span>
+          </div>
+
+          {/* Display Headline */}
+          <h1 className="max-w-4xl font-display text-display text-[#0A111D]">
+            {BRAND.headline}
+          </h1>
+
+          {/* Subtitle */}
+          <p className="mt-8 max-w-2xl text-body-lg text-[#6B665E]">
+            {BRAND.subheadline}
+          </p>
+
+          {/* Action buttons */}
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onStartConversation) onStartConversation();
+                else scrollTo('contact');
+              }}
+              className="inline-flex items-center justify-center gap-2 bg-[#0A192F] hover:bg-[#172A45] text-white px-7 py-3.5 text-sm font-medium transition-colors shadow-sm active:scale-[0.98] group"
+            >
+              <span>Start a conversation</span>
+              <ArrowUpRight className="size-4 text-[#BA1A24] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+
+            <a
+              href="#capabilities"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onSeeCapabilities) onSeeCapabilities();
+                else scrollTo('capabilities');
+              }}
+              className="inline-flex items-center justify-center gap-2 border border-[#DDD7CB] bg-white/70 hover:bg-[#E6E1D8] text-[#0A111D] px-7 py-3.5 text-sm font-medium transition-colors active:scale-[0.98]"
+            >
+              <span>See what we build</span>
+              <ArrowDown className="size-4 text-[#9B111E]" />
+            </a>
+          </div>
+
+          {/* Bottom Trust Indicators */}
+          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-[#DDD7CB] pt-5 text-small text-[#6B665E]">
+            <span className="inline-flex items-center gap-2 text-[#9B111E] font-semibold">
+              <Sparkles className="size-4 text-[#9B111E]" />
+              <span>Websites made in a professional way</span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <Globe className="size-4 text-[#0A192F]" />
+              <span>India and international markets</span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <Lock className="size-4 text-[#0A192F]" />
+              <span>Privacy-conscious by design</span>
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Right Column: The Operating Layer Interactive Card with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-xl lg:ml-auto"
+        >
+          {/* Outer Card: Midnight Navy Primary Container */}
+          <div className="relative overflow-hidden rounded-none border border-[#0A192F]/60 bg-[#0A192F] text-white shadow-2xl shadow-[#0A192F]/30">
+            {/* Header bar */}
+            <div className="flex items-center justify-between border-b border-white/15 px-5 py-4 text-caption font-semibold uppercase tracking-[0.16em] bg-[#071324]">
+              <span className="tracking-widest">Operating layer</span>
+              <span className="flex items-center gap-2 text-white/80">
+                <span className="size-2 rounded-full bg-[#BA1A24] animate-pulse" aria-hidden="true" />
+                <span className="text-white/90">Live view</span>
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-serif font-normal text-[#1C1A18] tracking-tight leading-[1.08] text-balance">
-                We just don't make websites. <br />
-                <span className="italic font-normal text-[#3D1D18]">
-                  We build AI automations, custom software, and digital flagships.
-                </span>
-              </h1>
             </div>
 
-            <p className="text-lg sm:text-xl text-[#4A4641] font-sans font-normal leading-relaxed max-w-2xl">
-              Redwood House engineers full-spectrum intelligence for <strong>agencies, clinics, hospitals, gyms, and growing companies</strong>. We deploy autonomous AI workflows, custom operational software, technical SEO marketing, high-craft brand design, and yes—world-class websites.
-            </p>
+            {/* Card Content */}
+            <div className="p-5 sm:p-7">
+              {/* People <-> Systems */}
+              <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center text-caption font-semibold uppercase tracking-[0.12em]">
+                <div className="border border-white/20 p-4 bg-white/5 backdrop-blur-xs font-mono">
+                  People
+                </div>
+                <div className="relative flex items-center justify-center p-2">
+                  <Cable className="size-5 text-[#BA1A24]" />
+                  <span className="absolute -top-0.5 right-2 size-1.5 rounded-full bg-[#BA1A24] animate-ping" />
+                  <span className="absolute -top-0.5 right-2 size-1.5 rounded-full bg-[#BA1A24]" />
+                </div>
+                <div className="border border-white/20 p-4 bg-white/5 backdrop-blur-xs font-mono">
+                  Systems
+                </div>
+              </div>
 
-            {/* CTAs */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <a
-                href={BRAND.mailtoGeneral}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1C1A18] hover:bg-[#3D1D18] text-white text-sm font-semibold rounded-md transition-colors tracking-wide shadow-sm"
-              >
-                <span>Initiate an Automation Project</span>
-                <span className="text-[#A8A29E] font-normal">·</span>
-                <span className="text-xs font-mono text-[#D6D3D1] hidden sm:inline">{BRAND.email}</span>
-                <ArrowUpRight className="w-4 h-4 text-[#D6D3D1]" />
-              </a>
-              <button
-                onClick={onExploreSystems}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#D5CFC5] hover:border-[#1C1A18] bg-transparent text-[#1C1A18] text-sm font-medium rounded-md transition-colors cursor-pointer"
-              >
-                <span>Explore Verticals & Systems</span>
-                <ArrowDown className="w-3.5 h-3.5 text-[#58544E]" />
-              </button>
-            </div>
+              {/* Connected 3-Step Pipeline */}
+              <div className="relative my-8 grid grid-cols-3 gap-3">
+                {/* Connecting dashed line with animated signal packet */}
+                <div className="absolute left-[16.6667%] right-[16.6667%] top-1/2 -translate-y-1/2 h-[1px] border-t border-dashed border-white/30 overflow-hidden">
+                  <div className="absolute top-0 h-[2px] w-12 bg-[#BA1A24] shadow-[0_0_10px_#BA1A24] animate-wire-packet" />
+                </div>
 
-            {/* Industry Breadth Badges */}
-            <div className="pt-8 border-t border-[#E8E4DC]">
-              <span className="text-xs uppercase tracking-widest text-[#78716C] font-mono block mb-3">
-                Tailored Intelligence Across 8 Core Disciplines
-              </span>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {targetIndustries.map((ind, i) => {
-                  const Icon = ind.icon;
+                {steps.map((step, idx) => {
+                  const Icon = step.icon;
+                  const isActive = activeStep === idx;
                   return (
-                    <div
-                      key={i}
-                      className="p-2.5 rounded-md border border-[#E8E4DC] bg-white hover:border-[#3D1D18]/50 transition-colors"
+                    <button
+                      key={step.id}
+                      onClick={() => setActiveStep(idx)}
+                      className="relative z-10 flex flex-col items-center gap-3 focus:outline-none group text-left cursor-pointer"
                     >
-                      <div className="flex items-center gap-1.5 text-xs font-medium text-[#1C1A18]">
-                        <Icon className="w-3.5 h-3.5 text-[#3D1D18] shrink-0" />
-                        <span className="truncate">{ind.label}</span>
+                      <div
+                        className={`flex size-14 items-center justify-center rounded-full border transition-all duration-200 ${
+                          isActive
+                            ? 'border-[#BA1A24] bg-white text-[#0A192F] scale-105 shadow-lg ring-4 ring-[#BA1A24]/30'
+                            : 'border-white/25 bg-[#0D203D] text-white hover:border-white/60 hover:-translate-y-0.5'
+                        }`}
+                      >
+                        <Icon className="size-6" />
                       </div>
-                      <p className="text-[10px] text-[#78716C] font-sans mt-0.5 line-clamp-1">
-                        {ind.desc}
-                      </p>
-                    </div>
+                      <span
+                        className={`text-caption uppercase tracking-[0.14em] font-medium transition-colors ${
+                          isActive ? 'text-white font-semibold' : 'text-white/70 group-hover:text-white'
+                        }`}
+                      >
+                        {step.title}
+                      </span>
+                    </button>
                   );
                 })}
               </div>
+
+              {/* Active Step Explainer Tooltip */}
+              <div className="bg-white/8 border border-white/15 px-4 py-3 mb-6 text-xs text-white/90">
+                <span className="font-semibold text-[#BA1A24] uppercase tracking-wider mr-2 font-mono">
+                  Stage {activeStep + 1}:
+                </span>
+                {steps[activeStep].detail}
+              </div>
+
+              {/* Bottom Before / After metrics */}
+              <div className="grid gap-3 border-t border-white/15 pt-5 text-small">
+                <div className="flex items-center justify-between">
+                  <span className="text-white/60">Manual handoffs</span>
+                  <span className="line-through opacity-60 text-white/70 font-mono">Everywhere</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-white/60">Useful signal</span>
+                  <span className="text-white font-medium flex items-center gap-1.5">
+                    <CheckCircle2 className="size-3.5 text-[#BA1A24] inline" />
+                    In the right place
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Showcase with Interactive Capability Tabs */}
-          <div className="lg:col-span-5 relative space-y-3">
-            {/* View Selector Tabs */}
-            <div className="flex items-center justify-between pb-1 text-xs">
-              <span className="font-mono text-[#78716C] uppercase tracking-wider text-[11px] flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-[#3D1D18]" />
-                Capability Studio
-              </span>
-              <div className="flex flex-wrap items-center gap-1 bg-[#F4F0E8] p-0.5 rounded-md border border-[#E8E4DC]">
-                {(Object.keys(capabilities) as (keyof typeof capabilities)[]).map((key) => (
-                  <button
-                    key={key}
-                    onClick={() => setActiveCapability(key)}
-                    className={`px-2 py-1 text-[11px] font-sans rounded transition-all cursor-pointer ${
-                      activeCapability === key
-                        ? 'bg-white text-[#1C1A18] shadow-xs font-semibold'
-                        : 'text-[#78716C] hover:text-[#1C1A18]'
-                    }`}
-                  >
-                    {capabilities[key].label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Image Card */}
-            <div className="relative rounded-lg overflow-hidden border border-[#E8E4DC] shadow-md bg-white">
-              <img
-                src={currentCap.src}
-                alt={currentCap.alt}
-                className="w-full h-[380px] lg:h-[430px] object-cover transition-all duration-300"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-              <div className="absolute top-4 right-4">
-                <span className="px-2.5 py-1 rounded text-[10px] font-mono uppercase tracking-wider bg-black/60 text-white backdrop-blur-sm border border-white/20">
-                  {currentCap.badge}
-                </span>
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#E7E3DC] block mb-1">
-                  Redwood House · {currentCap.tagline}
-                </span>
-                <p className="text-sm font-serif italic text-white/95 leading-snug">
-                  {currentCap.quote}
-                </p>
-              </div>
-            </div>
-
-            {/* Caption beneath */}
-            <div className="flex items-center justify-between text-xs text-[#78716C] font-sans px-1">
-              <span className="truncate pr-2">{currentCap.caption}</span>
-              <span className="font-mono text-[#3D1D18] font-medium shrink-0">Bespoke Architecture</span>
-            </div>
-          </div>
-        </div>
+          {/* Decorative Technical Corner Accents */}
+          <div
+            className="absolute -bottom-5 -left-5 hidden size-24 border-b border-l border-[#0A192F]/40 sm:block pointer-events-none"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute -right-4 -top-4 hidden size-16 border-r border-t border-[#9B111E]/40 sm:block pointer-events-none"
+            aria-hidden="true"
+          />
+        </motion.div>
       </div>
     </section>
   );

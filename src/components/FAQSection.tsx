@@ -40,7 +40,7 @@ export const FAQSection: React.FC = () => {
     },
     {
       q: 'How do we initiate a project or request an architecture audit?',
-      a: 'Send an email to Officialredwoodhouse@gmail.com with an overview of your current business, your industry vertical (agency, clinic, hospital, gym, software, etc.), and what bottlenecks you want to solve. Our directors will review your inquiry and schedule an architectural roadmap session.',
+      a: 'Send an email to officialredwoodHouse@gmail.com with an overview of your current business, your industry vertical (agency, clinic, hospital, gym, software, etc.), and what bottlenecks you want to solve. Our directors will review your inquiry and schedule an architectural roadmap session.',
     },
   ];
 

@@ -1,47 +1,241 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Newsreader", Georgia, Cambria, "Times New Roman", serif;
-  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --color-paper: #FBF9F5;
-  --color-paper-subtle: #F4F0E8;
-  --color-paper-card: #FFFFFF;
-  --color-ink-primary: #1C1A18;
-  --color-ink-secondary: #58544E;
-  --color-ink-tertiary: #8A857D;
-  --color-border-hairline: #E8E4DC;
-  --color-border-medium: #D5CFC5;
-  --color-redwood: #3D1D18;
-  --color-redwood-accent: #6E2D24;
+  /* Primary: Midnight Navy */
+  --color-primary: #0A192F;
+  --color-primary-hover: #172A45;
+  --color-primary-dark: #060D17;
+  --color-primary-foreground: #FFFFFF;
+
+  /* Secondary: Warm Stone Grey & Warm Canvas */
+  --color-background: #F4F1EB;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #0A111D;
+  --color-muted: #E6E1D8;
+  --color-muted-foreground: #6B665E;
+  --color-secondary: #EBE7DE;
+  --color-secondary-foreground: #0A111D;
+  --color-accent: #E2DDD3;
+  --color-border: #DDD7CB;
+  --color-border-subtle: #E8E3D8;
+
+  /* Tertiary: Crimson Red */
+  --color-tertiary: #9B111E;
+  --color-tertiary-hover: #7F0E18;
+  --color-tertiary-light: #BA1A24;
+  --color-tertiary-foreground: #FFFFFF;
+
+  --font-display: "Newsreader", Georgia, Cambria, "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @layer base {
-  body {
-    background-color: #FBF9F5;
-    color: #1C1A18;
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  html {
+    scroll-behavior: smooth;
+    background-color: #F4F1EB;
+    color: #0A111D;
   }
 
-  h1, h2, h3, .font-editorial {
-    font-family: var(--font-serif);
+  body {
+    background-color: #F4F1EB;
+    color: #0A111D;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
     text-wrap: balance;
   }
 }
 
-/* Custom understated scrollbar */
+/* Precise redwood design utilities matching midnight navy, warm stone grey & crimson red */
+.container-page {
+  width: 100%;
+  max-width: 80rem; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.text-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #9B111E; /* Crimson Red tertiary accent */
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.text-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.text-display {
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.text-h1 {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.text-h3 {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.28;
+  font-weight: 600;
+}
+
+.py-section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.py-section-lg {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .py-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .py-section-lg {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+}
+
+/* Subtle scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FBF9F5;
+  background: #F4F1EB;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D9D4CB;
+  background: #D3CCC0;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #BCB5A8;
+  background: #B8AF9F;
 }
+
+/* Page Effects & Micro-Interactions */
+@keyframes wirePacket {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes ambientPulse {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.12;
+  }
+  50% {
+    transform: scale(1.08) translateY(-10px);
+    opacity: 0.18;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-wire-packet {
+  animation: wirePacket 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-ambient-pulse {
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+/* Interactive Card Hover Effects */
+.card-hover-effect {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-3px);
+  border-color: rgba(10, 25, 47, 0.3);
+  box-shadow: 0 12px 30px -10px rgba(10, 25, 47, 0.12);
+}
+
+/* Magnetic active feedback on buttons */
+.btn-press-effect {
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.btn-press-effect:active {
+  transform: scale(0.98);
+}
+

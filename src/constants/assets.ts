@@ -1,6 +1,7 @@
 /**
  * Assets and Brand Constants for Redwood House
- * AI Automation · Custom Software · SEO Marketing · Brand Design · Websites
+ * Automation, software, and digital growth for ambitious teams.
+ * https://redwood-house.polsia.io/
  */
 import webStudioHero from '../assets/images/web_studio_hero_1791550047524.jpg';
 import seoArchitectureShowcase from '../assets/images/seo_architecture_showcase_1791550060793.jpg';
@@ -20,11 +21,18 @@ export const ASSETS = {
 
 export const BRAND = {
   name: 'Redwood House',
-  tagline: 'AI Automation · Custom Software · SEO Marketing · Design · Websites',
-  location: 'Chandigarh, India',
-  email: 'Officialredwoodhouse@gmail.com',
-  mailtoGeneral: 'mailto:Officialredwoodhouse@gmail.com?subject=Redwood%20House%20%E2%80%94%20AI%20Automation%20%26%20Digital%20Systems%20Inquiry',
-  mailtoAudit: 'mailto:Officialredwoodhouse@gmail.com?subject=Redwood%20House%20%E2%80%94%20Automation%20%26%20Architecture%20Audit%20Request',
+  domain: 'redwood-house.polsia.io',
+  tagline: 'We make websites the professional way · AI automation, software, and digital growth for ambitious teams.',
+  eyebrow: 'Redwood House / Systems & Web Studio',
+  headline: 'Build the kind of business that keeps moving.',
+  subheadline:
+    'We don’t just build websites — we make websites the professional way and engineer the intelligent operating layer behind them. Bespoke AI automation, custom software, SEO marketing, and digital flagships for agencies, clinics, hospitals, gyms, and growing companies.',
+  email: 'officialredwoodHouse@gmail.com',
+  secondaryEmail: 'officialredwoodHouse@gmail.com',
+  mailto: 'mailto:officialredwoodHouse@gmail.com',
+  mailtoGeneral: 'mailto:officialredwoodHouse@gmail.com?subject=Redwood%20House%20%E2%80%94%20Systems%20%26%20Automation%20Inquiry',
+  mailtoAudit: 'mailto:officialredwoodHouse@gmail.com?subject=Redwood%20House%20%E2%80%94%20Systems%20%26%20Workflow%20Audit%20Request',
   mailtoVertical: (vertical: string) =>
-    `mailto:Officialredwoodhouse@gmail.com?subject=Redwood%20House%20%E2%80%94%20${encodeURIComponent(vertical)}%20Automation%20%26%20Software%20Inquiry`,
+    `mailto:officialredwoodHouse@gmail.com?subject=Redwood%20House%20%E2%80%94%20${encodeURIComponent(vertical)}%20Automation%20Inquiry`,
+  location: 'India and international markets',
 };
